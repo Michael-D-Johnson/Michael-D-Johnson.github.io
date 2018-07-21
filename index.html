@@ -21,13 +21,13 @@
     var width = 75%;
     var height = 50%;
     var data = d3.csv("static/all_natl_data.0003",function(d) {
-        return {
-            year : d+d.Year;
-            totalsalary : d+d.TOTSAL;
-            };}, 
-        function(error,rows) {
-        console.log(rows);
+        data.forEach(function(d) {
+        d.TOTSAL = +d.TOTSAL
+        d.YEAR = +d.YEAR
         });
+        console.log(data[0]);
+        });
+    
     document.getElementById("data").innerHTML = data;
 
     function updateViz(data){
@@ -36,8 +36,8 @@
         .data(data)
         .attr("width",15)
         .attr("height",function(d) {return 10* d;})
-        .attr("x",function(d) {return d.year;})
-        .attr("y",function(d) {return d3.sum(d.totalsalary);})
+        .attr("x",function(d) {return d.YEAR;})
+        .attr("y",function(d) {return d3.sum(d.TOTSAL);})
         .attr("fill","steelblue ")
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
@@ -52,8 +52,8 @@
         .selectAll("rect")
         .data(data)
         .enter().append("rect")
-        .attr("x",function(d) {return d.year;})
-        .attr("y",function(d) {return d3.sum(d.totalsalary);})
+        .attr("x",function(d) {return d.YEAR;})
+        .attr("y",function(d) {return d3.sum(d.TOTSAL);})
         .attr("fill","steelblue ")
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
