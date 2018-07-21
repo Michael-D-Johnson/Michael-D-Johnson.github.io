@@ -42,8 +42,7 @@
 
     var tooltip = d3.select("#tooltip");
 
-    function updateViz(data){
-        d3.select("#viz")
+    d3.select("#viz")
         .selectAll("rect")
         .data(data)
         .attr("width",15)
@@ -59,7 +58,7 @@
         //           .html("Item #"+i+" is "+d);})
         //.on("mouseout",function() { tooltip.style("opacity",0)});
 
-        d3.select("#viz")
+    d3.select("#viz")
         .selectAll("rect")
         .data(data)
         .enter().append("rect")
@@ -76,15 +75,11 @@
                    .html("Item #"+i+" is "+d);})
         .on("mouseout",function() { tooltip.style("opacity",0)});
 
-        d3.select("#viz")
+    d3.select("#viz")
         .selectAll("rect")
         .data(data)
         .exit()
         .remove();
-        }
-</script>
-<script>
-    updateViz(data);
 </script>
 </body>
 </html>
