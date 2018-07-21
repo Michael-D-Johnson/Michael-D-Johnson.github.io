@@ -42,6 +42,7 @@
 
     var tooltip = d3.select("#tooltip");
 
+    function updateViz(data){
     d3.select("#viz")
         .selectAll("rect")
         .data(data)
@@ -80,6 +81,10 @@
         .data(data)
         .exit()
         .remove();
+}
+</script>
+<script>
+updateViz(data);
 </script>
 </body>
 </html>
