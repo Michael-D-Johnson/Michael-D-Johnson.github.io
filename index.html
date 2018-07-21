@@ -20,27 +20,18 @@
     var tooltip = d3.select("#tooltip");
     var width = 720;
     var height = 405;
-    var data = 
-        [
-            10,
-            5,
-            5,
-            8,
-            9,
-            3,
-            2
-        ]; 
+    var data = d3.csv("/static/all_natl_data.0003")
 
     document.getElementById("data").innerHTML = data;
 
     function updateViz(data){
     d3.select("#viz")
         .selectAll("rect")
-        .data(data)
+        .data(data.)
         .attr("width",15)
-        .attr("height",function(d) {return 10* d;})
-        .attr("x",function(d,i) {return i*20;})
-        .attr("y",function(d) {return (height/2.0) - 5.0*d;})
+        .attr("height",function(d) {return 10* d.;})
+        .attr("x",function(d) {return x(d.YEAR);})
+        .attr("y",function(d) {return y(sum(d.TOTSAL));})
         .attr("tokenid",function(d,i) {return d*i *64;})
         .attr("fill","steelblue ")
         .on("mouseover",function(d){
@@ -58,8 +49,8 @@
         .enter().append("rect")
         .attr("width",15)
         .attr("height",function(d) {return 10* d;})
-        .attr("x",function(d,i) {return i*20;})
-        .attr("y",function(d) {return (height/2.0) - 5.0*d;})
+        .attr("x",function(d) {return x(d.YEAR);})
+        .attr("y",function(d) {return y(sum(d.TOTSAL);})
         .attr("tokenid",function(d,i) {return d*i *64;})
         .attr("fill","steelblue ")
         .on("mouseover",function(d){
