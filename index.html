@@ -24,16 +24,14 @@
         console.log(data);
         });
     
-    //document.getElementById("data").innerHTML = data;
-
     function updateViz(data){
     d3.select("#viz")
         .selectAll("rect")
         .data(data)
         .attr("width",15)
         .attr("height",function(d) {return 10* d;})
-        .attr("x",function(d) {return +d.YEAR;})
-        .attr("y",function(d) {return d3.sum(+d.TOTSAL);})
+        .attr("x",function(d) {return x(d.YEAR);}
+        .attr("y",function(d) {return y(d3.sum(+d.TOTSAL));})
         .attr("fill","steelblue ")
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
