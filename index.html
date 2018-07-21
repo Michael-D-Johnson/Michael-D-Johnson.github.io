@@ -50,8 +50,7 @@
                    .html(+d);
                     d3.select(this).attr("fill","red")})
         .on("mouseout",function() { tooltip.style("opacity",0);
-                                    d3.select(this).attr("fill", function() {
-                return ""})})
+                                    d3.select(this).attr("fill", "steelblue")})
 
     d3.select("#viz")
         .selectAll("rect")
@@ -70,8 +69,7 @@
                    .html(+d);
                     d3.select(this).attr("fill","red")})
         .on("mouseout",function() { tooltip.style("opacity",0);
-                                    d3.select(this).attr("fill", function() {
-                return ""})})
+                                    d3.select(this).attr("fill", "steelblue")})
 
     d3.select("#viz")
         .selectAll("rect")
