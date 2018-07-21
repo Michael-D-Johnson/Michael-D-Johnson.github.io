@@ -20,13 +20,15 @@
     var tooltip = d3.select("#tooltip");
     var width = 720;
     var height = 405;
-    var data = d3.csv("static/all_natl_data.0003")
+    var data = d3.csv("static/all_natl_data.0003") {
+    d3.csv("static/all_natl_data.0003",function(d) {
+        D={ totsal;d3.sum(d,function(d){return parseFloat(d.TOTSAL);})}})
 
     document.getElementById("data").innerHTML = data;
 
     function updateViz(data){
     d3.select("#viz")
-        .selectAll("rect")
+        .selectAll("bar")
         .data(data.)
         .attr("width",15)
         .attr("height",function(d) {return 10* d;})
@@ -43,9 +45,9 @@
                                     d3.select(this).attr("fill", "steelblue")})
 
     d3.select("#viz")
-        .selectAll("rect")
+        .selectAll("bar")
         .data(data)
-        .enter().append("rect")
+        .enter().append("bar")
         .attr("width",15)
         .attr("height",function(d) {return 10* d;})
         .attr("x",function(d) {return x(d.YEAR);})
@@ -61,7 +63,7 @@
                                     d3.select(this).attr("fill", "steelblue")})
 
     d3.select("#viz")
-        .selectAll("rect")
+        .selectAll("bar")
         .data(data)
         .exit()
         .remove()
