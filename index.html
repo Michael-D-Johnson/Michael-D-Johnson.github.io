@@ -20,7 +20,7 @@
     var tooltip = d3.select("#tooltip");
     var width = 75%;
     var height = 50%;
-    d3.csv("static/all_natl_data.0003",function(d) {
+    var data = d3.csv("static/all_natl_data.0003",function(d) {
         return {
             year : d+d.Year;
             totalsalary : d+d.TOTSAL;
@@ -28,7 +28,7 @@
         function(error,rows) {
         console.log(rows);
         });
-    //document.getElementById("data").innerHTML = data;
+    document.getElementById("data").innerHTML = data;
 
     function updateViz(data){
     d3.select("#viz")
@@ -52,8 +52,6 @@
         .selectAll("rect")
         .data(data)
         .enter().append("rect")
-        .attr("width",15)
-        .attr("height",function(d) {return 10* d;})
         .attr("x",function(d) {return year;})
         .attr("y",function(d) {return d3.sum(totalsalary);})
         .attr("fill","steelblue ")
