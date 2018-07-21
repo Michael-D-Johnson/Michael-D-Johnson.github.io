@@ -23,6 +23,11 @@
     var data = d3.csv("static/all_natl_data.0003", function(errors,data) {
         console.log(data);
         });
+   
+    var x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
+    var y = d3.scaleLinear().rangeRound([height, 0]);
+    x.domain(data.map(function(d) { return d.YEAR; }));
+    y.domain([0, d3.max(data, function(d) { return d.TOTSAL; })]);
     
     function updateViz(data){
     d3.select("#viz")
@@ -30,8 +35,8 @@
         .data(data)
         .attr("width",15)
         .attr("height",function(d) {return 10* d;})
-        .attr("x",function(d) {return d.YEAR;})
-        .attr("y",function(d) {return d3.sum(d.TOTSAL);})
+        .attr("x",function(d) {return x(d.YEAR);})
+        .attr("y",function(d) {return y(d3.sum(d.TOTSAL));})
         .attr("fill","steelblue ")
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
@@ -46,8 +51,8 @@
         .selectAll("rect")
         .data(data)
         .enter().append("rect")
-        .attr("x",function(d) {return d.YEAR;})
-        .attr("y",function(d) {return d3.sum(d.TOTSAL);})
+        .attr("x",function(d) {return x(d.YEAR);})
+        .attr("y",function(d) {return y(d3.sum(d.TOTSAL));})
         .attr("fill","steelblue ")
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
