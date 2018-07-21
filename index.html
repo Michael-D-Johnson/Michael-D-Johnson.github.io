@@ -36,8 +36,8 @@
         .data(data)
         .attr("width",15)
         .attr("height",function(d) {return 10* d;})
-        .attr("x",function(d) {return year;})
-        .attr("y",function(d) {return d3.sum(totalsalary);})
+        .attr("x",function(d) {return d.year;})
+        .attr("y",function(d) {return d3.sum(d.totalsalary);})
         .attr("fill","steelblue ")
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
@@ -52,8 +52,8 @@
         .selectAll("rect")
         .data(data)
         .enter().append("rect")
-        .attr("x",function(d) {return year;})
-        .attr("y",function(d) {return d3.sum(totalsalary);})
+        .attr("x",function(d) {return d.year;})
+        .attr("y",function(d) {return d3.sum(d.totalsalary);})
         .attr("fill","steelblue ")
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
