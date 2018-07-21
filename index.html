@@ -15,57 +15,57 @@
     <svg id="viz" width="720" height="405"></svg>
     </div>
 
-<script>
+    <script type="text/javascript">
 
-    var width = 720;
-    var height = 405;
+        var width = 720;
+        var height = 405;
 
-</script>
+    </script>
 
-<script>
-var data = 
-[
-    10,
-    5,
-    5,
-    8,
-    9,
-    3,
-    2
-]; 
+    <script type="text/javascript">
+        var data = 
+        [
+            10,
+            5,
+            5,
+            8,
+            9,
+            3,
+            2
+        ]; 
 
-function updateViz(data)
-{
-d3.select("#viz")
-.selectAll("rect")
-.data(data)
-.attr("width",15)
-.attr("height",function(d) {return 10* d;})
-.attr("x",function(d,i) {return i*20;})
-.attr("y",function(d) {return (height/2.0) - 5.0*d;})
-.attr("tokenid",function(d,i) {return d*i *64;})
-.attr("fill","steelblue ");
+        function updateViz(data)
+        {
+        d3.select("#viz")
+        .selectAll("rect")
+        .data(data)
+        .attr("width",15)
+        .attr("height",function(d) {return 10* d;})
+        .attr("x",function(d,i) {return i*20;})
+        .attr("y",function(d) {return (height/2.0) - 5.0*d;})
+        .attr("tokenid",function(d,i) {return d*i *64;})
+        .attr("fill","steelblue ");
 
-d3.select("#viz")
-.selectAll("rect")
-.data(data)
-.enter().append("rect")
-.attr("width",15)
-.attr("height",function(d) {return 10* d;})
-.attr("x",function(d,i) {return i*20;})
-.attr("y",function(d) {return (height/2.0) - 5.0*d;})
-.attr("tokenid",function(d,i) {return d*i *64;})
-.attr("fill","steelblue ");
+        d3.select("#viz")
+        .selectAll("rect")
+        .data(data)
+        .enter().append("rect")
+        .attr("width",15)
+        .attr("height",function(d) {return 10* d;})
+        .attr("x",function(d,i) {return i*20;})
+        .attr("y",function(d) {return (height/2.0) - 5.0*d;})
+        .attr("tokenid",function(d,i) {return d*i *64;})
+        .attr("fill","steelblue ");
 
-d3.select("#viz")
-.selectAll("rect")
-.data(data)
-.exit()
-.remove();
-}
-</script>
-<script>
-update_viz(data);
-</script>
+        d3.select("#viz")
+        .selectAll("rect")
+        .data(data)
+        .exit()
+        .remove();
+        }
+    </script>
+    <script type="text/javascript">
+        data.update_viz();
+    </script>
   </body>
 </html>
