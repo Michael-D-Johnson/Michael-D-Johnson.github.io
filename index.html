@@ -18,8 +18,8 @@
 </style>
 <script>
     var tooltip = d3.select("#tooltip");
-    var width = 75%;
-    var height = 50%;
+    var width = 500;
+    var height = 500;
     var data = d3.csv("static/all_natl_data.0003",function(d) {
         data.forEach(function(d) {
         d.TOTSAL = +d.TOTSAL
