@@ -20,14 +20,17 @@
     var tooltip = d3.select("#tooltip");
     var width = 1000;
     var height = 1000;
-    var data = d3.csv("static/all_natl_data.0003", function(errors,data) {
-        console.log(data);
-        });
-   
     var x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
     var y = d3.scaleLinear().rangeRound([height, 0]);
-    x.domain(data.map(function(d) { return d.YEAR; }));
-    y.domain([0, d3.max(data, function(d) { return d.TOTSAL; })]);
+
+    d3.csv("static/all_natl_data.0003", function(d) {
+        d.YEAR = +d.YEAR;
+        d.TOTSAL = +d.TOTSAL;
+        return d;
+    }, function(error, data) {
+        if (error) throw error;
+            x.domain(data.map(function(d) { return d.YEAR; }));
+            y.domain([0, d3.max(data, function(d) { return d.TOTSAL; })]);
     
     function updateViz(data){
     d3.select("#viz")
