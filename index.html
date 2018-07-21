@@ -20,9 +20,7 @@
     var tooltip = d3.select("#tooltip");
     var width = 720;
     var height = 405;
-    var data = d3.csv("static/all_natl_data.0003") {
-    d3.csv("static/all_natl_data.0003",function(data) {
-        D={ totsal;d3.sum(data,function(d){return parseFloat(d.TOTSAL);})}})
+    var data = d3.csv("static/all_natl_data.0003")
 
     document.getElementById("data").innerHTML = data;
 
@@ -32,8 +30,8 @@
         .data(data.)
         .attr("width",15)
         .attr("height",function(d) {return 10* d;})
-        .attr("x",function(d) {return x(d.YEAR);})
-        .attr("y",function(d) {return y(D.totsal);})
+        .attr("x",function(d) {return d.YEAR;})
+        .attr("y",function(d) {return d3.sum(d.TOTSAL);})
         .attr("fill","steelblue ")
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
@@ -50,8 +48,8 @@
         .enter().append("bar")
         .attr("width",15)
         .attr("height",function(d) {return 10* d;})
-        .attr("x",function(d) {return x(d.YEAR);})
-        .attr("y",function(d) {return y(D.totsal);})
+        .attr("x",function(d) {return d.YEAR;})
+        .attr("y",function(d) {return d3.sum(d.TOTSAL);})
         .attr("fill","steelblue ")
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
