@@ -48,9 +48,8 @@
                    .style("left",(d3.event.pageX)+"px")
                    .style("top",(d3.event.pageY)+"px")
                    .html(+d);
-                    d3.select("rect").attr("fill","red")})
-        .on("mouseout",function() { tooltip.style("opacity",0);
-                                    d3.select("rect").attr("fill","steelblue"})
+                    d3.select(this).attr("fill","red")})
+        .on("mouseout",function() { tooltip.style("opacity",0);})
 
     d3.select("#viz")
         .selectAll("rect")
@@ -67,9 +66,8 @@
                    .style("left",(d3.event.pageX)+"px")
                    .style("top",(d3.event.pageY)+"px")
                    .html(+d);
-                    d3.select("rect").attr("fill","red")})
-        .on("mouseout",function() { tooltip.style("opacity",0);
-                                    d3.select("rect").attr("fill","steelblue")})
+                    d3.select(this).attr("fill","red")})
+        .on("mouseout",function() { tooltip.style("opacity",0);})
 
     d3.select("#viz")
         .selectAll("rect")
