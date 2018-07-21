@@ -173,14 +173,6 @@ d3.csv("static/population.csv", function(error, data) {
         .duration(750)
         .attr("y", y)
         .attr("height", function(value) { return height - y(value); })
-       .on("mouseover",function(value){
-          tooltip.style("opacity",1)
-                 .style("left",(d3.event.pageX+"px")
-                 .style("top",(d3.event.pageY+"px")
-                 .html("Value is "+d);
-        })
-        .on("mouseover",function() {tooltip.style("opacity",0)});
-   
   }
 });
 </script>
