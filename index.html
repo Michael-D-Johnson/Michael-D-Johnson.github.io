@@ -21,7 +21,7 @@
     var width = 1000;
     var height = 1000;
     var x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
-    var y = d3.scaleLinear().rangeRound([height, 0]);
+        y = d3.scaleLinear().rangeRound([height, 0]);
 
     d3.csv("static/all_natl_data.0003", function(d) {
         d.YEAR = +d.YEAR;
