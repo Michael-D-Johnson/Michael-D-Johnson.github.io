@@ -9,9 +9,10 @@
 </div>
 
 <div id="svg-container">
-<svg id="viz" width="720" height="405"></svg>
-</div>
+<svg id="viz" width="720" height="405">
 <div id="tooltip"></div>
+</svg>
+</div>
 <style>
 #tooltip {
     opacity: 0;
@@ -81,7 +82,7 @@
         .data(data)
         .exit()
         .remove();
-}
+    }
 </script>
 <script>
 updateViz(data);
