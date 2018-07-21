@@ -21,9 +21,11 @@
     var width = 75%;
     var height = 50%;
     var data = d3.csv("static/all_natl_data.0003",function(d) {
-        d.YEAR = d+d.Year;
-        d.TOTSAL = d+d.TOTSAL;
-        console.log(d);
+        return {
+            year : d+d.Year;
+            totalsalary : d+d.TOTSAL;
+            };}, function(error,rows) {
+        console.log(rows);
     });
     document.getElementById("data").innerHTML = data;
 
