@@ -33,7 +33,7 @@
         .attr("width",15)
         .attr("height",function(d) {return 10* d;})
         .attr("x",function(d) {return x(d.YEAR);})
-        .attr("y",function(d) {return y(d3.sum(d.TOTSAL));})
+        .attr("y",function(d) {return y(D.totsal);})
         .attr("fill","steelblue ")
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
@@ -51,7 +51,7 @@
         .attr("width",15)
         .attr("height",function(d) {return 10* d;})
         .attr("x",function(d) {return x(d.YEAR);})
-        .attr("y",function(d) {return y(d3.sum(d.TOTSAL);})
+        .attr("y",function(d) {return y(D.totsal);})
         .attr("fill","steelblue ")
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
