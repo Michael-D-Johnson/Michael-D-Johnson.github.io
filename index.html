@@ -50,13 +50,13 @@
         .attr("x",function(d,i) {return i*20;})
         .attr("y",function(d) {return (height/2.0) - 5.0*d;})
         .attr("tokenid",function(d,i) {return d*i *64;})
-        .attr("fill","steelblue ");
-//        .on("mouseover",function(d,i){
-  //          tooltip.style("opacity",1)
-    //               .style("left",(d3.event.pageX)+"px")
-      //             .style("top",(d3.event.pageY)+"px")
-        //           .html("Item #"+i+" is "+d);})
-        //.on("mouseout",function() { tooltip.style("opacity",0)});
+        .attr("fill","steelblue ")
+        .on("mouseover",function(d,i){
+            tooltip.style("opacity",1)
+                   .style("left",(d3.event.pageX)+"px")
+                   .style("top",(d3.event.pageY)+"px")
+                   .html("Item #"+i+" is "+d);})
+        .on("mouseout",function() { tooltip.style("opacity",0)});
 
     d3.select("#viz")
         .selectAll("rect")
