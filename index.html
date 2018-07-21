@@ -31,7 +31,7 @@
         .attr("width",15)
         .attr("height",function(d) {return 10* d.;})
         .attr("x",function(d) {return x(d.YEAR);})
-        .attr("y",function(d) {return y(sum(d.TOTSAL));})
+        .attr("y",function(d) {return y(d3.sum(d.TOTSAL));})
         .attr("tokenid",function(d,i) {return d*i *64;})
         .attr("fill","steelblue ")
         .on("mouseover",function(d){
@@ -50,7 +50,7 @@
         .attr("width",15)
         .attr("height",function(d) {return 10* d;})
         .attr("x",function(d) {return x(d.YEAR);})
-        .attr("y",function(d) {return y(sum(d.TOTSAL);})
+        .attr("y",function(d) {return y(d3.sum(d.TOTSAL);})
         .attr("tokenid",function(d,i) {return d*i *64;})
         .attr("fill","steelblue ")
         .on("mouseover",function(d){
