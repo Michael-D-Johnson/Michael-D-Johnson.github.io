@@ -20,12 +20,8 @@
     var tooltip = d3.select("#tooltip");
     var width = 500;
     var height = 500;
-    var data = d3.csv("static/all_natl_data.0003",function(d) {
-        data.forEach(function(d) {
-        d.TOTSAL = +d.TOTSAL
-        d.YEAR = +d.YEAR
-        });
-        console.log(data[0]);
+    var data = d3.csv("static/all_natl_data.0003", function(errors,data) {
+        console.log(data);
         });
     
     //document.getElementById("data").innerHTML = data;
@@ -36,8 +32,8 @@
         .data(data)
         .attr("width",15)
         .attr("height",function(d) {return 10* d;})
-        .attr("x",function(d) {return d.YEAR;})
-        .attr("y",function(d) {return d3.sum(d.TOTSAL);})
+        .attr("x",function(d) {return +d.YEAR;})
+        .attr("y",function(d) {return d3.sum(+d.TOTSAL);})
         .attr("fill","steelblue ")
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
