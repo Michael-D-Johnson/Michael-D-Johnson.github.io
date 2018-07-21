@@ -27,7 +27,7 @@
     function updateViz(data){
     d3.select("#viz")
         .selectAll("bar")
-        .data(data.)
+        .data(data)
         .attr("width",15)
         .attr("height",function(d) {return 10* d;})
         .attr("x",function(d) {return d.YEAR;})
