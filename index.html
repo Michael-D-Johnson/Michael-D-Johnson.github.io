@@ -139,6 +139,7 @@ d3.csv("static/population.csv", function(error, data) {
                  .style("top",(d3.event.pageY+"px")
                  .html("Item #"+i+" is "+d);
         })
+        .on("mouseover",function() {tooltip.style("opacity",0)});
 
   // Add labels to show birthyear.
   birthyear.append("text")
