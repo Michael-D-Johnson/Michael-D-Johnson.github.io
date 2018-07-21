@@ -18,8 +18,8 @@
 </style>
 <script>
     var tooltip = d3.select("#tooltip");
-    var width = 500;
-    var height = 500;
+    var width = 1000;
+    var height = 1000;
     var data = d3.csv("static/all_natl_data.0003", function(errors,data) {
         console.log(data);
         });
@@ -30,8 +30,8 @@
         .data(data)
         .attr("width",15)
         .attr("height",function(d) {return 10* d;})
-        .attr("x",function(d) {return x(d.YEAR);})
-        .attr("y",function(d) {return y(d3.sum(d.TOTSAL));})
+        .attr("x",function(d) {return d.YEAR;})
+        .attr("y",function(d) {return d3.sum(d.TOTSAL);})
         .attr("fill","steelblue ")
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
@@ -46,8 +46,8 @@
         .selectAll("rect")
         .data(data)
         .enter().append("rect")
-        .attr("x",function(d) {return x(d.YEAR);})
-        .attr("y",function(d) {return y(d3.sum(d.TOTSAL));})
+        .attr("x",function(d) {return d.YEAR;})
+        .attr("y",function(d) {return d3.sum(d.TOTSAL);})
         .attr("fill","steelblue ")
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
