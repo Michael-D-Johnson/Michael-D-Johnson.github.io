@@ -27,7 +27,7 @@
 
     function updateViz(data){
     d3.select("#viz")
-        .selectAll("bar")
+        .selectAll("rect")
         .data(data)
         .attr("width",15)
         .attr("height",function(d) {return 10* d;})
@@ -44,9 +44,9 @@
                                     d3.select(this).attr("fill", "steelblue")})
 
     d3.select("#viz")
-        .selectAll("bar")
+        .selectAll("rect")
         .data(data)
-        .enter().append("bar")
+        .enter().append("rect")
         .attr("width",15)
         .attr("height",function(d) {return 10* d;})
         .attr("x",function(d) {return d.YEAR;})
@@ -62,7 +62,7 @@
                                     d3.select(this).attr("fill", "steelblue")})
 
     d3.select("#viz")
-        .selectAll("bar")
+        .selectAll("rect")
         .data(data)
         .exit()
         .remove()
