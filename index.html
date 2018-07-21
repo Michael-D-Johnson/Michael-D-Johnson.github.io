@@ -23,7 +23,7 @@
     var x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
         y = d3.scaleLinear().rangeRound([height, 0]);
 
-    d3.csv("static/all_natl_data.0003", function(d) {
+    var data = d3.csv("static/all_natl_data.0003", function(d) {
         d.YEAR = +d.YEAR;
         d.TOTSAL = +d.TOTSAL;
         return d;
