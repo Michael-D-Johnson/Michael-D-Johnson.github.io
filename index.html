@@ -17,6 +17,7 @@
 }
 </style>
 <script>
+    var tooltip = d3.select("#tooltip");
     var width = 720;
     var height = 405;
     var data = 
@@ -31,8 +32,6 @@
         ]; 
 
     document.getElementById("data").innerHTML = data;
-
-    var tooltip = d3.select("#tooltip");
 
     function updateViz(data){
     d3.select("#viz")
@@ -49,7 +48,7 @@
                    .style("left",(d3.event.pageX)+"px")
                    .style("top",(d3.event.pageY)+"px")
                    .html("Item #"+i+" is "+d);})
-        .on("mouseout",function() { tooltip.style("opacity",0)});
+        .on("mouseout",function() { tooltip.style("opacity",0)})
 
     d3.select("#viz")
         .selectAll("rect")
@@ -66,13 +65,13 @@
                    .style("left",(d3.event.pageX)+"px")
                    .style("top",(d3.event.pageY)+"px")
                    .html("Item #"+i+" is "+d);})
-        .on("mouseout",function() { tooltip.style("opacity",0)});
+        .on("mouseout",function() { tooltip.style("opacity",0)})
 
     d3.select("#viz")
         .selectAll("rect")
         .data(data)
         .exit()
-        .remove();
+        .remove()
     }
 </script>
 <script>
