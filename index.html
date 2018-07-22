@@ -16,7 +16,7 @@ Chart 1
     position: absolute;
     text-align: center;
     width: 75px; height: 20px;
-    background: lightgray;
+    background: darkgray;
     border: 0px;
     color: white;
 }
@@ -81,6 +81,14 @@ Chart 1
         
         svg.append("g")
         .call(d3.axisLeft(y));
+
+        svg.append("text")
+        .attr("x", (width / 2))             
+        .attr("y", 0 - (margin.top / 2))
+        .attr("text-anchor", "middle")  
+        .style("font-size", "16px") 
+        .style("text-decoration", "underline")  
+        .text("Value vs Date Graph");
         });
 </script>
 </body>
