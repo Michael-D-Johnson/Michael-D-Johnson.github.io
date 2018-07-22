@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<body>
+
+<svg id="viz" width="720" height="405"></svg>
+<div id="tooltip"></div>
+<style>
+#tooltip {
+    opacity: 0;
+    position: absolute;
+    text-align: center;
+    width: 30px; height: 20px;
+    background: white;
+    border: 0px;
+}
+</style>
+<script>
+    var tooltip = d3.select("#tooltip");
+    var width = 720;
+    var height = 405;
+    var data = 
+        [
+            10,
+            5,
+            5,
+            8,
+            9,
+            3,
+            2
+        ]; 
+
+    document.getElementById("data").innerHTML = data;
+
+    function updateViz(data){
+    d3.select("#viz")
+        .selectAll("rect")
+        .data(data)
+        .attr("width",15)
+        .attr("height",function(d) {return 10* d;})
+        .attr("x",function(d,i) {return i*20;})
+        .attr("y",function(d) {return (height/2.0) - 5.0*d;})
+        .attr("tokenid",function(d,i) {return d*i *64;})
+        .attr("fill","steelblue ")
+        .on("mouseover",function(d){
+            tooltip.style("opacity",1)
+                   .style("left",(d3.event.pageX)+"px")
+                   .style("top",(d3.event.pageY)+"px")
+                   .html(+d);
+                    d3.select(this).attr("fill","red")})
+        .on("mouseout",function() { tooltip.style("opacity",0);
+                                    d3.select(this).attr("fill", "steelblue")})
+
+    d3.select("#viz")
+        .selectAll("rect")
+        .data(data)
+        .enter().append("rect")
+        .attr("width",15)
+        .attr("height",function(d) {return 10* d;})
+        .attr("x",function(d,i) {return i*20;})
+        .attr("y",function(d) {return (height/2.0) - 5.0*d;})
+        .attr("tokenid",function(d,i) {return d*i *64;})
+        .attr("fill","steelblue ")
+        .on("mouseover",function(d){
+            tooltip.style("opacity",1)
+                   .style("left",(d3.event.pageX)+"px")
+                   .style("top",(d3.event.pageY)+"px")
+                   .html(+d);
+                    d3.select(this).attr("fill","red")})
+        .on("mouseout",function() { tooltip.style("opacity",0);
+                                    d3.select(this).attr("fill", "steelblue")})
+
+    d3.select("#viz")
+        .selectAll("rect")
+        .data(data)
+        .exit()
+        .remove()
+    }
+</script>
+<script>
+updateViz(data);
+</script>
+</body>
+</html>
