@@ -30,9 +30,6 @@
     var y = d3.scaleLinear()
         .range([height,0]);
 
-    var xAxis = d3.axisBottom(x).tickFormat(function(d){ return d.x;});
-    var yAxis = d3.axisLeft(y);
-
     d3.csv("static/all_natl_data.filtered.csv", function(error,data) {
         if (error) throw error;
             console.log(data); 
@@ -88,26 +85,12 @@
         .remove()
         });
 
-        d3.select("#viz")
-        .append("g")
-        .attr("class","x axis")
-        .attr("transform", "translate(0," + height + ")")
-        .call(xAxis);
-
-        d3.select("#viz")
-        .append("g")
-        .attr("class","y axis")
-        .call(yAxis);
+        d3.select("#viz").append("g")
+        .call(d3.axisBottom(x));
         
         d3.select("#viz").append("g")
-        .attr("class", "y axis")
-        .call(yAxis)
-        .append("text")
-        .attr("transform", "rotate(-90)")
-        .attr("y", 6)
-        .attr("dy", ".71em")
-        .style("text-anchor", "end")
-        .text("Total Salary");
+        .call(d3.axisLeft(y));
+        
 </script>
 </body>
 </html>
