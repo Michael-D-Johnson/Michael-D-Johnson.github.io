@@ -21,9 +21,7 @@ Chart 1
     color: white;
 }
 </style>
-<form action="https://michael-d-johnson.github.io/next_scene.html>
-    <input type="Next" value="Go to next scene" />
-</form>
+ <input type="button" onclick="location.href="https://michael-d-johnson.github.io/next_scene.html";" value="Next" />
 <script>
     // Source: https://www.kdnuggets.com/2018/03/simple-bar-chart-d3.html
     var tooltip = d3.select("#tooltip");
@@ -92,11 +90,11 @@ Chart 1
         .style("font-size", "16px") 
         .style("text-decoration", "underline")  
         .text("Average Total Salary vs. Year");
-
-         svg.selectAll("button")
-          .data(data)
-          .enter().append("button")
-          .attr("id", function(d) { return d; })
+         
+         //svg.selectAll("button")
+         // .data(data)
+         // .enter().append("button")
+         // .attr("id", function(d) { return d; })
         });
 </script>
 </body>
