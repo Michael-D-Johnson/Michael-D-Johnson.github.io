@@ -30,7 +30,7 @@
     var y = d3.scaleLinear()
         .range([height,0]);
 
-    d3.csv("static/all_natl_data.0003", function(error,data) {
+    d3.csv("static/all_natl_data.0003.filtered.csv", function(error,data) {
         if (error) throw error;
             console.log(data); 
 
@@ -48,7 +48,7 @@
         .selectAll("rect")
         .data(data)
         .attr("width",x.bandwidth())
-        .attr("height",function(d) {return height - y(d.TOTSAL/10.);})
+        .attr("height",function(d) {return height - y(d3.mean(d.TOTSAL);})
         .attr("x",function(d) {return x(d.YEAR);})
         .attr("y",function(d) {return y(d.TOTSAL);})
         .attr("fill","steelblue ")
