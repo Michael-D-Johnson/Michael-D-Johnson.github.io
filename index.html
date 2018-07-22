@@ -86,6 +86,7 @@
         });
 
         d3.select("#viz").append("g")
+        .attr("transform","translate(0," + height + ")")
         .call(d3.axisBottom(x));
         
         d3.select("#viz").append("g")
