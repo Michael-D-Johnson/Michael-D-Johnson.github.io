@@ -89,13 +89,15 @@
         });
 
         d3.select("#viz")
-        //.attr("transform","translate(" + margin + "," + (height+margin) + ")")
-        .attr("class","axis")
+        .append("g")
+        .attr("transform","translate(" + margin + "," + (height+margin) + ")")
+        .attr("class","x axis")
         .call(xAxis);
 
         d3.select("#viz")
-       // .attr("transform", "translate(" + margin + "," + margin + ")")
-        .attr("class","axis")
+        .append("g")
+        .attr("transform", "translate(" + margin + "," + margin + ")")
+        .attr("class","y axis")
         .call(yAxis);
         
 
