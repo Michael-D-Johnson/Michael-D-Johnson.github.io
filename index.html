@@ -21,6 +21,7 @@ Chart 1
 }
 </style>
 <script>
+    // Source: https://www.kdnuggets.com/2018/03/simple-bar-chart-d3.html
     var tooltip = d3.select("#tooltip");
     
     //set the margin of the SVG
@@ -59,10 +60,10 @@ Chart 1
         .data(data)
         .enter().append("rect")
         .attr("class","bar")
-        .attr("width",x.bandwidth())
         .attr("x",function(d) {return x(d.YEAR);})
-        .attr("height",function(d) { return y(d.TOTSAL);})
+        .attr("width",x.bandwidth())
         .attr("y",function(d) {return y(d.TOTSAL);})
+        .attr("height",function(d) { return height - y(d.TOTSAL);})
         .attr("fill","steelblue ")
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
@@ -72,7 +73,6 @@ Chart 1
                     d3.select(this).attr("fill","red")})
         .on("mouseout",function() { tooltip.style("opacity",0);
                                     d3.select(this).attr("fill", "steelblue")})
-
 
         svg.append("g")
         .attr("transform", "translate(0," + height + ")")
