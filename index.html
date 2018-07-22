@@ -18,10 +18,18 @@
 </style>
 <script>
     var tooltip = d3.select("#tooltip");
-    var width = 1000;
-    var height = 1000;
-    var x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
-        y = d3.scaleLinear().rangeRound([height, 0]);
+
+    // set the dimensions and margins of the graph
+    var margin = {top: 20, right: 20, bottom: 30, left: 40},
+        width = 960 - margin.left - margin.right,
+        height = 500 - margin.top - margin.bottom;
+
+    // set the ranges
+    var x = d3.scaleBand()
+          .range([0, width])
+          .padding(0.1);
+    var y = d3.scaleLinear()
+          .range([height, 0]);
 
     var data = d3.csv("static/all_natl_data.0003", function(d) {
         d.YEAR = +d.YEAR;
@@ -31,10 +39,9 @@
         if (error) throw error;
             x.domain(data.map(function(d) { return d.YEAR; }));
             y.domain([0, d3.max(data, function(d) { return d.TOTSAL; })]);
-        });
     
-    function updateViz(data){
-    d3.select("#viz")
+            //    function updateViz(data){
+         d3.select("#viz")
         .selectAll("rect")
         .data(data)
         .attr("width",15)
@@ -71,10 +78,10 @@
         .selectAll("rect")
         .data(data)
         .exit()
-        .remove()}
+        .remove()}});
 </script>
 <script>
-updateViz(data);
+//updateViz(data);
 </script>
 </body>
 </html>
