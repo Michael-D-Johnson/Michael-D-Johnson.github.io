@@ -50,12 +50,13 @@
         x.domain(data.map(function(d) { return d.YEAR;}));
         y.domain([0,d3.max(data,function(d) {return d.TOTSAL;})]);
 
-        svg.selectAll("rect")
+        svg.selectAll(".bar")
         .data(data)
         .enter().append("rect")
+        .attr("class","bar")
         .attr("width",x.bandwidth())
-        .attr("height",function(d) { return y(d.TOTSAL);})
         .attr("x",function(d) {return x(d.YEAR);})
+        .attr("height",function(d) { return y(d.TOTSAL);})
         .attr("y",function(d) {return y(d.TOTSAL);})
         .attr("fill","steelblue ")
         .on("mouseover",function(d){
