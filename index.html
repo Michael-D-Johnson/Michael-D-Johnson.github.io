@@ -12,7 +12,7 @@ Chart 1
 <div class="toplinks">  
     <a href="https://michael-d-johnson.github.io/about">Description</a>
 </div>
-<div id="viz" width="400" height="400"></div>
+<div id="viz" width="600" height="600"></div>
 <div id="tooltip"></div>
 <input type="button" onclick="location.href='https://michael-d-johnson.github.io/next_scene';" value="Next" style="float:right"/>
 </center>
@@ -35,8 +35,8 @@ Chart 1
     var margin = {top: 50, right: 50, bottom: 50, left: 50}
 
     //set the width and height using the current width and height of the SVG
-    var width = 400 - margin.left - margin.right;
-    var height = 400 - margin.top - margin.bottom;
+    var width = 600 - margin.left - margin.right;
+    var height = 600 - margin.top - margin.bottom;
     
     var svg = d3.select("#viz").append("svg")
                 .attr("width", width + margin.left + margin.right)
