@@ -86,10 +86,11 @@
         });
 
         d3.select("#viz").append("g")
-        .attr("transform","translate(0," + height + ")")
+        .attr("transform", "translate(" + margin + "," + (height+margin) + ")")
         .call(d3.axisBottom(x));
         
         d3.select("#viz").append("g")
+        .attr("transform", "translate(" + margin + "," + margin + ")")
         .call(d3.axisLeft(y));
         
 </script>
