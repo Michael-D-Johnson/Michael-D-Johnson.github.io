@@ -42,10 +42,9 @@
         
         x.domain(data.map(function(d) { return d.YEAR;}));
         y.domain([0,d3.max(data,function(d) {return d.TOTSAL;})]);
-        });
 
     
-    d3.select("#viz")
+        d3.select("#viz")
         .selectAll("rect")
         .data(data)
         .attr("width",x.bandwidth())
@@ -62,7 +61,7 @@
         .on("mouseout",function() { tooltip.style("opacity",0);
                                     d3.select(this).attr("fill", "steelblue")})
 
-    d3.select("#viz")
+        d3.select("#viz")
         .selectAll("rect")
         .data(data)
         .enter().append("rect")
@@ -80,11 +79,13 @@
         .on("mouseout",function() { tooltip.style("opacity",0);
                                     d3.select(this).attr("fill", "steelblue")})
 
-    d3.select("#viz")
+        d3.select("#viz")
         .selectAll("rect")
         .data(data)
         .exit()
         .remove()
+        });
+
 </script>
 </body>
 </html>
