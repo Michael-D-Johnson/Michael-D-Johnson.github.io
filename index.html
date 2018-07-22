@@ -40,8 +40,8 @@
             d.TOTSAL = +d.TOTSAL;
          });
         
-        x.domain(data.map(function(d) { return d.YEAR;}));
-        y.domain([0,d3.max(data,function(d) {return d.TOTSAL;})]);
+        //x.domain(data.map(function(d) { return d.YEAR;}));
+        //y.domain([0,d3.max(data,function(d) {return d.TOTSAL;})]);
 
         d3.select("#viz")
         .selectAll("rect")
