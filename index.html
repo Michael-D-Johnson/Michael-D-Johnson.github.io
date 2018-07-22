@@ -88,12 +88,12 @@
         .remove()
         });
 
-        d3.select("#viz").append("g")
+        d3.select("#viz")
         .attr("transform","translate(" + margin + "," + (height+margin) + ")")
         .attr("class","axis")
         .call(xAxis);
 
-        d3.select("#viz").append("g")
+        d3.select("#viz")
         .attr("transform", "translate(" + margin + "," + margin + ")")
         .attr("class","axis")
         .call(yAxis);
