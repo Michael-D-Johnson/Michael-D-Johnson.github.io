@@ -51,8 +51,6 @@
         .attr("x",function(d) {return x(d.YEAR);})
         .attr("y",function(d) {return y(d.TOTSAL);})
         .attr("fill","steelblue ")
-        .attr("transform","translate(0," + height + ")")
-        .call(d3.axisBottom(x))
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
                    .style("left",(d3.event.pageX)+"px")
@@ -71,8 +69,6 @@
         .attr("x",function(d) {return x(d.YEAR);})
         .attr("y",function(d) {return y(d.TOTSAL);})
         .attr("fill","steelblue ")
-        .attr("transform","translate(0," + height + ")")
-        .call(d3.axisBottom(x))
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
                    .style("left",(d3.event.pageX)+"px")
