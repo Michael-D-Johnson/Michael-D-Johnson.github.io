@@ -1,98 +1,71 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
-
-<head>
-	<style>
-
-	.axis {
-	  font: 10px sans-serif;
-	}
-
-	.axis path,
-	.axis line {
-	  fill: none;
-	  stroke: #000;
-	  shape-rendering: crispEdges;
-	}
-
-	</style>
-</head>
-
+<html>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <body>
-	
-<script src="http://d3js.org/d3.v3.min.js"></script>
 
+<svg id="viz" width="720" height="405"></svg>
+<div id="tooltip"></div>
+<style>
+#tooltip {
+    opacity: 0;
+    position: absolute;
+    text-align: center;
+    width: 30px; height: 20px;
+    background: white;
+    border: 0px;
+}
+</style>
 <script>
+    var tooltip = d3.select("#tooltip");
 
-var margin = {top: 20, right: 20, bottom: 70, left: 40},
-    width = 600 - margin.left - margin.right,
-    height = 300 - margin.top - margin.bottom;
+    var data = d3.csv("static/all_natl_data.0003", function(d) {
+        d.YEAR = +d.YEAR;
+        d.TOTSAL = +d.TOTSAL;
+        return d;});
+    
+       function updateViz(data){
+         d3.select("#viz")
+        .selectAll("rect")
+        .data(data)
+        .attr("width",15)
+        .attr("height",function(d) {return 10* d;})
+        .attr("x",function(d) {return d.YEAR;})
+        .attr("y",function(d) {return d3.sum(d.TOTSAL);})
+        .attr("fill","steelblue ")
+        .on("mouseover",function(d){
+            tooltip.style("opacity",1)
+                   .style("left",(d3.event.pageX)+"px")
+                   .style("top",(d3.event.pageY)+"px")
+                   .html(+d);
+                    d3.select(this).attr("fill","red")})
+        .on("mouseout",function() { tooltip.style("opacity",0);
+                                    d3.select(this).attr("fill", "steelblue")})
 
-// Parse the date / time
-var	parseDate = d3.time.format("%Y-%m").parse;
+    d3.select("#viz")
+        .selectAll("rect")
+        .data(data)
+        .enter().append("rect")
+        .attr("x",function(d) {return d.YEAR;})
+        .attr("y",function(d) {return d3.sum(d.TOTSAL);})
+        .attr("fill","steelblue ")
+        .on("mouseover",function(d){
+            tooltip.style("opacity",1)
+                   .style("left",(d3.event.pageX)+"px")
+                   .style("top",(d3.event.pageY)+"px")
+                   .html(+d);
+                    d3.select(this).attr("fill","red")})
+        .on("mouseout",function() { tooltip.style("opacity",0);
+                                    d3.select(this).attr("fill", "steelblue")})
 
-var x = d3.scale.ordinal().rangeRoundBands([0, width], .05);
-
-var y = d3.scale.linear().range([height, 0]);
-
-var xAxis = d3.svg.axis()
-    .scale(x)
-    .orient("bottom")
-    .tickFormat(d3.time.format("%Y-%m"));
-
-var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient("left")
-    .ticks(10);
-
-var svg = d3.select("body").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform", 
-          "translate(" + margin.left + "," + margin.top + ")");
-
-d3.csv("static/all_natl_data.0003", function(error, data) {
-
-    data.forEach(function(d) {
-        d.date = parseDate(d.date);
-        d.value = +d.value;
-    });
-	
-  x.domain(data.map(function(d) { return d.date; }));
-  y.domain([0, d3.max(data, function(d) { return d.value; })]);
-
-  svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis)
-    .selectAll("text")
-      .style("text-anchor", "end")
-      .attr("dx", "-.8em")
-      .attr("dy", "-.55em")
-      .attr("transform", "rotate(-90)" );
-
-  svg.append("g")
-      .attr("class", "y axis")
-      .call(yAxis)
-    .append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .text("Value ($)");
-
-  svg.selectAll("bar")
-      .data(data)
-    .enter().append("rect")
-      .style("fill", "steelblue")
-      .attr("x", function(d) { return x(d.YEAR); })
-      .attr("width", x.rangeBand())
-      .attr("y", function(d) { return y(d3.sum(d.TOTSAL); })
-      .attr("height", function(d) { return height - 0.4; });
-
-});
-
+    d3.select("#viz")
+        .selectAll("rect")
+        .data(data)
+        .exit()
+        .remove()}
 </script>
-
+<script>
+updateViz(data);
+</script>
 </body>
+</html>
