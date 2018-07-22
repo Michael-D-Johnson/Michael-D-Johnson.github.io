@@ -19,7 +19,7 @@
     var tooltip = d3.select("#tooltip");
     
     //set the margin of the SVG
-    var margin = {top: 50, right: 50, bottom: 50, left: 50}
+    var margin = {top: 75, right: 75, bottom: 75, left: 75}
 
     //set the width and height using the current width and height of the SVG
     var width = 600 - margin.left - margin.right;
@@ -46,10 +46,8 @@
         d3.select("#viz")
         .selectAll("rect")
         .data(data)
-        .attr("width",width + 2*margin.left)
-        .attr("height",height + 2*margin.left)
-        //.attr("width",x.bandwidth())
-        //.attr("height",function(d) {return height - y(d.TOTSAL);})
+        .attr("width",width + 4*margin.left)
+        .attr("height",height + 4*margin.top)
         .attr("x",function(d) {return x(d.YEAR);})
         .attr("y",function(d) {return y(d.TOTSAL);})
         .attr("fill","steelblue ")
@@ -68,8 +66,6 @@
         .enter().append("rect")
         .attr("width",width + 2*margin.left)
         .attr("height",height + 2*margin.left)
-        //.attr("width",x.bandwidth())
-        //.attr("height",function(d) {return height - y(d.TOTSAL);})
         .attr("x",function(d) {return x(d.YEAR);})
         .attr("y",function(d) {return y(d.TOTSAL);})
         .attr("fill","steelblue ")
