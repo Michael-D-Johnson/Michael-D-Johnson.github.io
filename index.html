@@ -43,7 +43,6 @@
         x.domain(data.map(function(d) { return d.YEAR;}));
         y.domain([0,d3.max(data,function(d) {return d.TOTSAL;})]);
 
-    
         d3.select("#viz")
         .selectAll("rect")
         .data(data)
@@ -52,6 +51,8 @@
         .attr("x",function(d) {return x(d.YEAR);})
         .attr("y",function(d) {return y(d.TOTSAL);})
         .attr("fill","steelblue ")
+        .attr("transform","translate(0," + height + ")")
+        .call(d3.axisBottom(x))
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
                    .style("left",(d3.event.pageX)+"px")
@@ -70,6 +71,8 @@
         .attr("x",function(d) {return x(d.YEAR);})
         .attr("y",function(d) {return y(d.TOTSAL);})
         .attr("fill","steelblue ")
+        .attr("transform","translate(0," + height + ")")
+        .call(d3.axisBottom(x))
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
                    .style("left",(d3.event.pageX)+"px")
