@@ -52,8 +52,6 @@ Chart 1
     var y = d3.scaleLinear()
         .range([height,0]);
 
-    var legend_data = d3.csv("static/totalcostsal_legend.csv",function(error,data){
-        console.log(data);})
     d3.csv("static/all_natl_data.filtered.totalcostsal.csv", function(error,data) {
         if (error) throw error;
             console.log(data); 
@@ -146,7 +144,7 @@ Chart 1
 	    .attr("width", 50)
       
         legend.selectAll("rect")
-        .data(legend_data)
+        .data(data)
         .enter().append("rect")
         .attr("x", width + 20)
         .attr("y", function(d){ return i *  20;})
@@ -155,7 +153,7 @@ Chart 1
 	    .style("fill", function(d,i) { return colors[i];})
       
         legend.selectAll("text")
-        .data(legend_data)
+        .data(data)
         .enter()
         .append("text")
 	    .attr("x", width + 30)
