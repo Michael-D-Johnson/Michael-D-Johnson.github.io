@@ -134,7 +134,7 @@ Chart 1
       .data(dataset)
       .enter()
       .append("rect")
-	  .attr("x", w - 65)
+	  .attr("x", width - 65)
       .attr("y", function(d, i){ return i *  20;})
 	  .attr("width", 10)
 	  .attr("height", 10)
@@ -147,7 +147,7 @@ Chart 1
       .data(dataset)
       .enter()
       .append("text")
-	  .attr("x", w - 52)
+	  .attr("x", width - 52)
       .attr("y", function(d, i){ return i *  20 + 9;})
 	  .text(function(d) {
         var text = color_hash[dataset.indexOf(d)][0];
