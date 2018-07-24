@@ -145,7 +145,7 @@ Chart 1
       
         indices = [1,2]
         legend.selectAll("rect")
-        .data(indices)
+        .data(data.FMTASSISTED)
         .enter().append("rect")
         .attr("x", width + 20)
         .attr("y", function(d){ return i *  20;})
