@@ -66,9 +66,8 @@ Chart 1
             x.domain(data.map(function(d) { return d.YEAR;}));
             y.domain([0,d3.max(data,function(d) {return d.TOTALCOST;})]);
 
-        svg.selectAll(".line")
+        svg.append("path")
         .data(data)
-        .enter().append("path")
         .filter(function(d) {return d.FMTASSISTED= "'1 Assisted'";})
         .attr("class","line1")
         .attr("fill", "none")
@@ -88,9 +87,8 @@ Chart 1
         .on("mouseout",function() { tooltip.style("opacity",0);
                                     d3.select(this).attr("stroke-width", 1.5)})
 
-        svg.selectAll(".line")
+        svg.append("path")
         .data(data)
-        .enter().append("path")
         .filter(function(d) {return d.FMTASSISTED= "'0 Not Assisted'";})
         .attr("class","line2")
         .attr("fill", "none")
