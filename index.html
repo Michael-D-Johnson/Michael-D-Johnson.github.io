@@ -57,20 +57,22 @@ Chart 1
         .x(function(d) { return x(d.YEAR); })
         .y(function(d) { return y(d.TOTALCOST); });
 
-    d3.csv("static/all_natl_data.filtered.totalcostsal.csv", function(error,data) {
-        if (error) throw error;
+    d3.csv("static/all_natl_data.filtered.NotAssisted.csv", function(error1,data1) {
+        d3.csv("static/all_natl_data.filtered.Assisted.csv",function(error2,data2) {
+        if (error1) throw error;
+        if (error2) throw error;
             //format the data
-            data.forEach(function(d) {
+            data1.forEach(function(d) {
                 d.YEAR = +d.YEAR;
                 d.TOTALCOST = +d.TOTALCOST
                 d.TOTSAL = +d.TOTSAL;
-
-            var data1 = data.filter(function(d) {return d.FMTASSISTED="0 Not Assisted";})
-            var data2 = data.filter(function(d) {return d.FMTASSISTED="1 Assisted";})
-
+            data2.forEach(function(d) {
+                d.YEAR = +d.YEAR;
+                d.TOTALCOST = +d.TOTALCOST
+                d.TOTSAL = +d.TOTSAL;
             });
 
-            //console.log(data1); 
+            console.log(data1); 
 
             x.domain(data.map(function(d) { return d.YEAR;}));
             y.domain([0,d3.max(data,function(d) {return d.TOTALCOST;})]);
@@ -135,6 +137,7 @@ Chart 1
         .attr("y", height + margin.bottom)
         .text("Year");
 
+        });
         });
 </script>
 </body>
