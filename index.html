@@ -68,7 +68,9 @@ Chart 1
                 d.TOTSAL = +d.TOTSAL;
             });
 
-            var data1 = data.filter(function(d) {return d.FMTASSISTED=="0 Not Assisted";})
+            var data1 = svg.selectAll('.line')
+                    .data(data)
+                    .filter(function(d) {return d.FMTASSISTED=="0 Not Assisted";})
 
         
             x.domain(data.map(function(d) { return d.YEAR;}));
