@@ -59,8 +59,8 @@ Chart 1
 
     d3.csv("static/all_natl_data.filtered.NotAssisted.csv", function(error1,data1) {
         d3.csv("static/all_natl_data.filtered.Assisted.csv",function(error2,data2) {
-        if (error1) throw error;
-        if (error2) throw error;
+        //if (error1) throw error;
+        //if (error2) throw error;
             //format the data
             data1.forEach(function(d) {
                 d.YEAR = +d.YEAR;
@@ -81,31 +81,31 @@ Chart 1
         .datum(data1)
         .attr("fill", "none")
         .attr("stroke", "orange")
-        .attr("stroke-width", 1.5)
+        .attr("stroke-width", 3)
         .attr("d", line)
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
                    .style("left",(d3.event.pageX)+"px")
                    .style("top",(d3.event.pageY)+"px")
                    .html(+d.TOTALCOST);
-                    d3.select(this).attr("stroke-width",3)})
+                    d3.select(this).attr("stroke-width",6)})
         .on("mouseout",function() { tooltip.style("opacity",0);
-                                    d3.select(this).attr("stroke-width", 1.5)})
+                                    d3.select(this).attr("stroke-width", 3)})
 
         svg.append("path")
         .datum(data2)
         .attr("fill", "none")
         .attr("stroke", "steelblue")
-        .attr("stroke-width", 1.5)
+        .attr("stroke-width", 3)
         .attr("d", line)
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
                    .style("left",(d3.event.pageX)+"px")
                    .style("top",(d3.event.pageY)+"px")
                    .html(+d.TOTALCOST);
-                    d3.select(this).attr("stroke-width",3)})
+                    d3.select(this).attr("stroke-width",6)})
         .on("mouseout",function() { tooltip.style("opacity",0);
-                                    d3.select(this).attr("stroke-width", 1.5)})
+                                    d3.select(this).attr("stroke-width", 3)})
 
         svg.append("g")
         .attr("transform", "translate(0," + height + ")")
