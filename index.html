@@ -69,7 +69,7 @@ Chart 1
         .enter().append("rect")
         .filter(function(d) {return d.FMTASSISTED = "'1 Assisted'";})
         .attr("class","bar1")
-        .attr("x",function(d) {return x(d.YEAR) + 10;})
+        .attr("x",function(d) {return x(d.YEAR);})
         .attr("width",x.bandwidth() - 20)
         .attr("y", function(d) { return y(d.TOTALCOST)})
         .attr("height",function(d) { return height - y(d.TOTALCOST);})
