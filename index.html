@@ -122,6 +122,11 @@ Chart 1
          // .data(data)
          // .enter().append("button")
          // .attr("id", function(d) { return d; })
+        legend = svg.append("g")
+        .attr("class","legend")
+        .attr("transform","translate(50,30)")
+        .style("font-size","12px")
+        .call(d3.legend)
         });
 </script>
 </body>
