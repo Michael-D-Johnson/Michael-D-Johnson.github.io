@@ -50,18 +50,18 @@ Chart 1
     var y = d3.scaleLinear()
         .range([height,0]);
 
-    d3.csv("static/all_natl_data.filtered.csv", function(error,data) {
+    d3.csv("static/all_natl_data.filtered.totalcostsal.csv", function(error,data) {
         if (error) throw error;
             console.log(data); 
 
             //format the data
             data.forEach(function(d) {
                 d.YEAR = +d.YEAR;
-                d.TOTSAL = +d.TOTSAL;
+                d.TOTALCOST = +d.TOTALCOST;
             });
         
             x.domain(data.map(function(d) { return d.YEAR;}));
-            y.domain([0,d3.max(data,function(d) {return d.TOTSAL;})]);
+            y.domain([0,d3.max(data,function(d) {return d.TOTALCOST;})]);
 
         svg.selectAll(".bar")
         .data(data)
@@ -69,14 +69,14 @@ Chart 1
         .attr("class","bar")
         .attr("x",function(d) {return x(d.YEAR);})
         .attr("width",x.bandwidth())
-        .attr("y",function(d) {return y(d.TOTSAL);})
-        .attr("height",function(d) { return height - y(d.TOTSAL);})
+        .attr("y",function(d) {return y(d.TOTALCOST);})
+        .attr("height",function(d) { return height - y(d.TOTALCOST);})
         .attr("fill","steelblue ")
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
                    .style("left",(d3.event.pageX)+"px")
                    .style("top",(d3.event.pageY)+"px")
-                   .html(+d.TOTSAL);
+                   .html(+d.TOTALCOST);
                     d3.select(this).attr("fill","red")})
         .on("mouseout",function() { tooltip.style("opacity",0);
                                     d3.select(this).attr("fill", "steelblue")})
