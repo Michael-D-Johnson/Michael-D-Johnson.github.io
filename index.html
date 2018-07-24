@@ -59,20 +59,20 @@ Chart 1
 
     d3.csv("static/all_natl_data.filtered.NotAssisted.csv", function(error1,data1) {
         d3.csv("static/all_natl_data.filtered.Assisted.csv",function(error2,data2) {
-        //if (error1) throw error;
-        //if (error2) throw error;
-            //format the data
-            data1.forEach(function(d) {
-                d.YEAR = +d.YEAR;
-                d.TOTALCOST = +d.TOTALCOST
-                d.TOTSAL = +d.TOTSAL;})
-            data2.forEach(function(d) {
-                d.YEAR = +d.YEAR;
-                d.TOTALCOST = +d.TOTALCOST
-                d.TOTSAL = +d.TOTSAL;
-            });
+            if (error1) throw error;
+                if (error2) throw error;
+                //format the data
+                data1.forEach(function(d) {
+                    d.YEAR = +d.YEAR;
+                    d.TOTALCOST = +d.TOTALCOST
+                    d.TOTSAL = +d.TOTSAL;})
+                data2.forEach(function(d) {
+                    d.YEAR = +d.YEAR;
+                    d.TOTALCOST = +d.TOTALCOST
+                    d.TOTSAL = +d.TOTSAL;});
 
             console.log(data1); 
+            console.log(data2);
 
             x.domain(data1.map(function(d) { return d.YEAR;}));
             y.domain([0,d3.max(data1,function(d) {return d.TOTALCOST;})]);
