@@ -90,13 +90,13 @@ Scene 1
                    .style("top",(d3.event.pageY)+"px")
                     d3.select(this).attr("stroke-width",6)})
         .on("mouseout",function() { tooltip.style("opacity",0);
-                                    d3.select(this).attr("stroke-width", 0)})
+                                    d3.select(this).attr("stroke-width", 3)})
 
         svg.append("path")
         .datum(data2)
         .attr("fill", "none")
         .attr("stroke", "steelblue")
-        .attr("stroke-width", 3)
+        .attr("stroke-width", 0)
         .attr("d", line)
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
