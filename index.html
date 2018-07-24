@@ -67,7 +67,7 @@ Chart 1
             y.domain([0,d3.max(data,function(d) {return d.TOTALCOST;})]);
 
         svg.append("path")
-        .datum(data)
+        .datum([data])
         .attr("class","line1")
         .attr("fill", "none")
         .attr("stroke", "orange")
