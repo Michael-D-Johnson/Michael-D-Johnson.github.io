@@ -30,7 +30,6 @@ Chart 1
 <script>
     // Source: https://www.kdnuggets.com/2018/03/simple-bar-chart-d3.html
     var tooltip = d3.select("#tooltip");
-    var colors = ['steelblue','darkgreen'];    
 
     //set the margin of the SVG
     var margin = {top: 50, right: 50, bottom: 50, left: 50}
@@ -67,12 +66,13 @@ Chart 1
         svg.selectAll(".bar")
         .data(data)
         .enter().append("rect")
-        .attr("class","bar")
+        .attr("class","bar1")
         .attr("x",function(d) {return x(d.YEAR);})
         .attr("width",x.bandwidth())
-        .attr("y",function(d) {return y(d.TOTALCOST);})
+        .attr("y",function(d) {
+                    if (d.FMTASSISTED=='1 Assisted' {return y(d.TOTALCOST);})})
         .attr("height",function(d) { return height - y(d.TOTALCOST);})
-        .attr("fill", function(d, i) { return colors[i]; })
+        .attr("fill", "steelblue")
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
                    .style("left",(d3.event.pageX)+"px")
@@ -80,7 +80,27 @@ Chart 1
                    .html(+d.TOTALCOST);
                     d3.select(this).attr("fill","red")})
         .on("mouseout",function() { tooltip.style("opacity",0);
-                                    d3.select(this).attr("fill", function(d, i) { return colors[i]; })})
+                                    d3.select(this).attr("fill", "steelblue")})
+
+        svg.selectAll(".bar")
+        .data(data)
+        .enter().append("rect")
+        .attr("class","bar2")
+        .attr("x",function(d) {return x(d.YEAR);})
+        .attr("width",x.bandwidth())
+        .attr("y",function(d) {
+                    if (d.FMTASSISTED == '0 Not Assisted' {return y(d.TOTALCOST);})})
+        .attr("height",function(d) { return height - y(d.TOTALCOST);})
+        .attr("fill", "darkgray")
+        .attr("opacity",.75)
+        .on("mouseover",function(d){
+            tooltip.style("opacity",1)
+                   .style("left",(d3.event.pageX)+"px")
+                   .style("top",(d3.event.pageY)+"px")
+                   .html(+d.TOTALCOST);
+                    d3.select(this).attr("fill","red")})
+        .on("mouseout",function() { tooltip.style("opacity",0);
+                                    d3.select(this).attr("fill", "darkgray")})
 
         svg.append("g")
         .attr("transform", "translate(0," + height + ")")
