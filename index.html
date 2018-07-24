@@ -52,13 +52,6 @@ Chart 1
     var y = d3.scaleLinear()
         .range([height,0]);
 
-    var line1 = d3.svg.line()
-                 .data(data)
-                 .filter()
-                 .interpolate("basis")
-                 .x(function(d) { return x(d.YEAR);})
-                 .y(function(d) { return y(d.TOTALCOST);});   
-
     d3.csv("static/all_natl_data.filtered.totalcostsal.csv", function(error,data) {
         if (error) throw error;
             console.log(data); 
