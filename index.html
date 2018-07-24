@@ -153,7 +153,6 @@ Scene 1
             .attr("fill", function (d, i) {return color_scale[i]; })
             .attr("width", 10).attr("height", 10);
 
-     var totalLength = path.node().getTotalLength();
 
      var path1 = svg.append("path")
       .attr("d", line(data1))
@@ -161,8 +160,10 @@ Scene 1
       .attr("stroke-width", "3")
       .attr("fill", "none");
 
+    var totalLength1 = path1.node().getTotalLength();
+
     path1
-      .attr("stroke-dasharray", totalLength + " " + totalLength)
+      .attr("stroke-dasharray", totalLength1 + " " + totalLength1)
       .attr("stroke-dashoffset", totalLength)
       .transition()
         .duration(2000)
@@ -174,7 +175,7 @@ Scene 1
         .transition()
         .duration(2000)
         .ease("linear")
-        .attr("stroke-dashoffset", totalLength);
+        .attr("stroke-dashoffset", totalLength1);
     });
 
      var path2 = svg.append("path")
@@ -183,9 +184,11 @@ Scene 1
       .attr("stroke-width", "3")
       .attr("fill", "none");
 
+     var totalLength2 = path2.node().getTotalLength(); 
+
     path2
-      .attr("stroke-dasharray", totalLength + " " + totalLength)
-      .attr("stroke-dashoffset", totalLength)
+      .attr("stroke-dasharray", totalLength2 + " " + totalLength2)
+      .attr("stroke-dashoffset", totalLength2)
       .transition()
         .duration(2000)
         .ease("linear")
@@ -196,7 +199,7 @@ Scene 1
         .transition()
         .duration(2000)
         .ease("linear")
-        .attr("stroke-dashoffset", totalLength);});
+        .attr("stroke-dashoffset", totalLength2);});
         });
         });
 
