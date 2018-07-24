@@ -54,6 +54,7 @@ Chart 1
 
     // define the 1st line
     var line = d3.line()
+        .interpolate("basis")
         .x(function(d) { return x(d.YEAR); })
         .y(function(d) { return y(d.TOTALCOST); });
 
