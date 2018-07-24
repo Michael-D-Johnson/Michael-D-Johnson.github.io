@@ -81,6 +81,7 @@ Scene 1
         svg.append("path")
         .datum(data1)
         .attr("fill", "none")
+        .attr("class","line")
         .attr("stroke", "orange")
         .attr("stroke-width", 0)
         .attr("d", line)
@@ -95,6 +96,7 @@ Scene 1
         svg.append("path")
         .datum(data2)
         .attr("fill", "none")
+        .attr("class","line")
         .attr("stroke", "steelblue")
         .attr("stroke-width", 0)
         .attr("d", line)
@@ -153,7 +155,7 @@ Scene 1
             .attr("fill", function (d, i) {return color_scale[i]; })
             .attr("width", 10).attr("height", 10);
 
-        svg.selectAll("path")
+        svg.selectAll(".line")
             .transition()
             .delay(500)
             .duration(750)
