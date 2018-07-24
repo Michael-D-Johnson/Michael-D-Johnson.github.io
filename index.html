@@ -72,8 +72,8 @@ Scene 1
                     d.TOTSAL = +d.TOTSAL;});
 
             //printing data
-            console.log(data1); 
-            console.log(data2);
+            //console.log(data1); 
+            //console.log(data2);
 
             x.domain(data1.map(function(d) { return d.YEAR;}));
             y.domain([0,d3.max(data1,function(d) {return d.TOTALCOST;})]);
@@ -150,7 +150,7 @@ Scene 1
             .attr("transform", "translate(15,9)"); //align texts with boxes
 
         lineLegend.append("rect")
-            .attr("fill", function (d, i) {return color_scale(d); })
+            .attr("fill", function (d, i) {return color_scale(i); })
             .attr("width", 10).attr("height", 10);
 
         });
