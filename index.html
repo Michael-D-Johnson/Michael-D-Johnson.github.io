@@ -161,8 +161,8 @@ Chart 1
       .data(data)
       .enter()
       .append("text")
-	  .attr("x", width - 52)
-      .attr("y", function(d, i){ return i *  20 + 9;})
+	  .attr("x", width + margin.right)
+      .attr("y", function(d, i){ return i *  2 + 9;})
 	  .text(function(d,i) {
         var texts = ["Assisted","Not Assisted"]
         var text = texts[i];
