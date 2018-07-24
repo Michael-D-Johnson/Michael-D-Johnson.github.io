@@ -143,11 +143,12 @@ Chart 1
 	    .attr("height", 50)
 	    .attr("width", 50)
       
-        legend.selectAll("legend")
-        .data(data)
+        indices = [1,2]
+        legend.selectAll("rect")
+        .data(indices)
         .enter().append("rect")
         .attr("x", width + 20)
-        .attr("y", function(d, i){ return i *  20;})
+        .attr("y", function(d){ return i *  20;})
 	    .attr("width", 10)
 	    .attr("height", 10)
 	    .style("fill", function(d,i) { return colors[i];})
