@@ -53,7 +53,7 @@ Scene 1
         .range([height,0]);
 
     // define the 1st line
-    var line = d3.line()
+    var line = d3.svg.line()
         .x(function(d) { return x(d.YEAR); })
         .y(function(d) { return y(d.TOTALCOST); });
 
