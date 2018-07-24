@@ -89,7 +89,7 @@ Chart 1
         .filter(function(d) {return d.FMTASSISTED= "'0 Not Assisted'";})
         .attr("class","bar2")
         .attr("x",function(d) {return x(d.YEAR);})
-        .attr("width",x.bandwidth())
+        .attr("width",x.rangeBand())
         .attr("y",function(d) {return y(d.TOTALCOST)})
         .attr("height",function(d) { return height - y(d.TOTALCOST);})
         .attr("fill", "darkgray")
