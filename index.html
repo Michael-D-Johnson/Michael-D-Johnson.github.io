@@ -138,30 +138,6 @@ Chart 1
         .attr("y", height + margin.bottom)
         .text("Year");
 
-        // add legend   
-	    var legend = svg.append("g")
-	    .attr("class", "legend")
-	    .attr("height", 50)
-	    .attr("width", 50)
-      
-        legend.selectAll("rect")
-        .data(data)
-        .enter().append("rect")
-        .attr("x", width + 20)
-        .attr("y", function(d,i){ return i *  20;})
-	    .attr("width", 10)
-	    .attr("height", 10)
-	    .style("fill", function(d,i) { return colors[i];})
-      
-        legend.selectAll("text")
-        .data(data)
-        .enter().append("text")
-	    .attr("x", width + 30)
-        .attr("y", function(d, i){ return i *  20 + 9;})
-	    .text(function(d,i) {
-            var texts = ["Assisted","Unassisted"]
-            var text = texts[i];
-            return text;});
         });
 </script>
 </body>
