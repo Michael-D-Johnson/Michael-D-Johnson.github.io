@@ -66,46 +66,49 @@ Chart 1
             x.domain(data.map(function(d) { return d.YEAR;}));
             y.domain([0,d3.max(data,function(d) {return d.TOTALCOST;})]);
 
-        svg.selectAll(".bar")
+        svg.append("g").append("path")
         .data(data)
-        .enter().append("rect")
-        .filter(function(d) {return d.FMTASSISTED = "'1 Assisted'";})
-        .attr("class","bar1")
-        .attr("x",function(d) {return x(d.YEAR);})
-        .attr("width",x.bandwidth())
-        .attr("y", function(d) { return y(d.TOTALCOST);})
-        .attr("height",function(d) { return height - y(d.TOTALCOST);})
-        .attr("fill", "blue")
+        .enter().append("path")
+        .filter(function(d) {return d.FMTASSISTED= "'1 Assisted'";})
+        .attr("class","line2")
+        .attr("fill", "none")
+        .attr("stroke", "orange")
+        .attr("stroke-linejoin", "round")
+        .attr("stroke-linecap", "round")
+        .attr("stroke-width", 1.5)
+        .attr("d", d3.line()
+            .x(function(d) {return x(d.YEAR);})
+            .y(function(d) {return x(d.TOTALCOST);}))
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
                    .style("left",(d3.event.pageX)+"px")
                    .style("top",(d3.event.pageY)+"px")
                    .html(+d.TOTALCOST);
-                    d3.select(this).attr("fill","red")})
+                    d3.select(this).attr("stroke-width",3)})
         .on("mouseout",function() { tooltip.style("opacity",0);
-                                    d3.select(this).attr("fill", "blue")})
+                                    d3.select(this).attr("stroke-width", 1.5")})
 
-        svg.selectAll(".bar")
+        svg.append("g").append("path")
         .data(data)
-        .enter().append("rect")
+        .enter().append("path")
         .filter(function(d) {return d.FMTASSISTED= "'0 Not Assisted'";})
-        .attr("class","bar2")
-        .attr("x",function(d) {return x(d.YEAR);})
-        .attr("width",x.bandwidth())
-        .attr("y",function(d) {return y(d.TOTALCOST);})
-        .attr("height",function(d) { return height - y(d.TOTALCOST);})
-        .attr("fill", "darkgray")
-        .attr("opacity",0.75)
+        .attr("class","line2")
+        .attr("fill", "none")
+        .attr("stroke", "steelblue")
+        .attr("stroke-linejoin", "round")
+        .attr("stroke-linecap", "round")
+        .attr("stroke-width", 1.5)
+        .attr("d", d3.line()
+            .x(function(d) {return x(d.YEAR);})
+            .y(function(d) {return x(d.TOTALCOST);}))
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
                    .style("left",(d3.event.pageX)+"px")
                    .style("top",(d3.event.pageY)+"px")
                    .html(+d.TOTALCOST);
-                    d3.select(this).attr("fill","red")})
+                    d3.select(this).attr("stroke-width",3)})
         .on("mouseout",function() { tooltip.style("opacity",0);
-                                    d3.select(this).attr("fill", "darkgray")})
-
-
+                                    d3.select(this).attr("stroke-width", 1.5)})
 
         svg.append("g")
         .attr("transform", "translate(0," + height + ")")
