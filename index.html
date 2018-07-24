@@ -134,12 +134,11 @@ Chart 1
       .enter()
       .append("rect")
 	  .attr("x", width - 65)
-      .attr("y", function(d, i){ return i *  2;})
+      .attr("y", function(d, i){ return i *  20;})
 	  .attr("width", 10)
 	  .attr("height", 10)
 	  .style("fill", function(d,i) { 
-        var color = colors[i];
-        return color;
+        return colors[i];
       })
       
     legend.selectAll("text")
@@ -147,7 +146,7 @@ Chart 1
       .enter()
       .append("text")
 	  .attr("x", width - 52)
-      .attr("y", function(d, i){ return i *  2 + 9;})
+      .attr("y", function(d, i){ return i *  20 + 9;})
 	  .text(function(d,i) {
         var texts = ["Assisted","Not Assisted"]
         var text = texts[i];
