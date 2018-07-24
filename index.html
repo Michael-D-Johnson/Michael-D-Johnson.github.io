@@ -142,15 +142,14 @@ Chart 1
 	    .attr("class", "legend")
 	    .attr("height", 100)
 	    .attr("width", 100)
-        //.attr("transform", "translate(-20,50)")    
       
         legend.selectAll("rect")
         .data(data)
         .enter().append("rect")
         .attr("x", width + 20)
         .attr("y", function(d, i){ return i *  20;})
-	    .attr("width", 10)
-	    .attr("height", 10)
+	    .attr("width", 5)
+	    .attr("height", 5)
 	    .style("fill", function(d,i) { return colors[i];})
       
         legend.selectAll("text")
