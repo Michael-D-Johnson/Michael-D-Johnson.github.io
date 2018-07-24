@@ -73,15 +73,15 @@ Chart 1
         .attr("width",x.bandwidth())
         .attr("y", function(d) { return y(d.TOTALCOST);})
         .attr("height",function(d) { return height - y(d.TOTALCOST);})
-        .attr("fill", "steelblue")
+        .attr("fill", "blue")
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
                    .style("left",(d3.event.pageX)+"px")
                    .style("top",(d3.event.pageY)+"px")
                    .html(+d.TOTALCOST);
-                    d3.select(this).attr("fill","darkgreen")})
+                    d3.select(this).attr("fill","red")})
         .on("mouseout",function() { tooltip.style("opacity",0);
-                                    d3.select(this).attr("fill", "steelblue")})
+                                    d3.select(this).attr("fill", "blue")})
 
         svg.selectAll(".bar")
         .data(data)
@@ -99,7 +99,7 @@ Chart 1
                    .style("left",(d3.event.pageX)+"px")
                    .style("top",(d3.event.pageY)+"px")
                    .html(+d.TOTALCOST);
-                    d3.select(this).attr("fill","blue")})
+                    d3.select(this).attr("fill","red"))
         .on("mouseout",function() { tooltip.style("opacity",0);
                                     d3.select(this).attr("fill", "darkgray")})
 
