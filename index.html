@@ -150,7 +150,7 @@ Scene 1
             .attr("transform", "translate(15,9)"); //align texts with boxes
 
         lineLegend.append("rect")
-            .attr("fill", function (d, i) {return color_scale(i); })
+            .attr("fill", function (d, i) {return color_scale[i]; })
             .attr("width", 10).attr("height", 10);
 
         });
