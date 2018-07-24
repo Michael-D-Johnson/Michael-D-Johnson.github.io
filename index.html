@@ -86,7 +86,7 @@ Chart 1
         svg.selectAll(".bar")
         .data(data)
         .enter().append("rect")
-        .filter(function(d) {retrun d.FMTASSISTED= "'0 Not Assisted'";})
+        .filter(function(d) {return d.FMTASSISTED= "'0 Not Assisted'";})
         .attr("class","bar2")
         .attr("x",function(d) {return x(d.YEAR);})
         .attr("width",x.bandwidth())
