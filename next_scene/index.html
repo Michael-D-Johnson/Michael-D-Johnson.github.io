@@ -83,7 +83,7 @@ Scene 2
         .datum(data1)
         .attr("fill", "none")
         .attr("stroke", "orange")
-        .attr("stroke-width", 3)
+        .attr("stroke-width", 0)
         .attr("d", line)
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
@@ -97,7 +97,7 @@ Scene 2
         .datum(data2)
         .attr("fill", "none")
         .attr("stroke", "steelblue")
-        .attr("stroke-width", 3)
+        .attr("stroke-width", 0)
         .attr("d", line)
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
@@ -153,6 +153,12 @@ Scene 2
         lineLegend.append("rect")
             .attr("fill", function (d, i) {return color_scale[i]; })
             .attr("width", 10).attr("height", 10);
+
+        svg.selectAll(".line")
+            .transition()
+            .delay(500)
+            .duration(750)
+            .attr("stroke-width",3);
 
         });
         });
