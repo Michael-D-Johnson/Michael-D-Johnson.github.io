@@ -66,16 +66,8 @@ Chart 1
             x.domain(data.map(function(d) { return d.YEAR;}));
             y.domain([0,d3.max(data,function(d) {return d.TOTALCOST;})]);
 
-        var data1 = svg.selectAll(".line")
-            .data(data)
-            .filter(function(d) {return d.FMTASSISTED="'1 Assisted'";})
-
-        var data2 = svg.selectAll(".line")
-            .data(data)
-            .filter(function(d) {return d.FMTASSISTED="'0 Not Assisted'";})
-
         svg.append("path")
-        .datum(data1)
+        .datum(data)
         .attr("class","line1")
         .attr("fill", "none")
         .attr("stroke", "orange")
@@ -95,7 +87,7 @@ Chart 1
                                     d3.select(this).attr("stroke-width", 1.5)})
 
         svg.append("path")
-        .datum(data2)
+        .datum(data)
         .attr("class","line2")
         .attr("fill", "none")
         .attr("stroke", "steelblue")
