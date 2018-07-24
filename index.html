@@ -114,6 +114,7 @@ Chart 1
         svg.append("g")
         .call(d3.axisLeft(y));
 
+        // add labels
         svg.append("text")
         .attr("x", (width / 2))             
         .attr("y", 0 - (margin.top / 2))
@@ -124,7 +125,7 @@ Chart 1
 
         svg.append("text")
         .attr("transform", "rotate(-90)")
-        .attr("y", (height/2))
+        .attr("y", 0+ (height / 2))
         .attr("x",0 - margin.left)
         .style("text-anchor", "middle")
         .text("Average Total Cost of Housing");
@@ -143,7 +144,6 @@ Chart 1
 	    .attr("width", 100)
         .attr("transform", "translate(-20,50)")    
       
-    
         legend.selectAll("rect")
         .data(data)
         .enter().append("rect")
