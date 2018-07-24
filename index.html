@@ -125,8 +125,7 @@ Chart 1
         svg.append("text")
         .attr("class", "y label")
         .attr("text-anchor", "end")
-        .attr("y", 6)
-        .attr("dy", ".75em")
+        .attr("y", function(d) {return (max(y) - min(y))/2;})
         .attr("transform", "rotate(-90)")
         .text("Average Total Cost of Housing");
 
