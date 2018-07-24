@@ -175,7 +175,8 @@ Scene 1
         .duration(2000)
         .ease("linear")
         .attr("stroke-dashoffset", totalLength);
-    })
+    });
+
      var path2 = svg.append("path")
       .attr("d", line(data2))
       .attr("stroke", "blue")
@@ -195,10 +196,7 @@ Scene 1
         .transition()
         .duration(2000)
         .ease("linear")
-        .attr("stroke-dashoffset", totalLength);
-    })
-
-
+        .attr("stroke-dashoffset", totalLength);});
         });
         });
 
