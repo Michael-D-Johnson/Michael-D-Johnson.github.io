@@ -82,7 +82,7 @@ Scene 1
         .datum(data1)
         .attr("fill", "none")
         .attr("stroke", "orange")
-        .attr("stroke-width", 3)
+        .attr("stroke-width", 0)
         .attr("d", line)
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
@@ -90,7 +90,7 @@ Scene 1
                    .style("top",(d3.event.pageY)+"px")
                     d3.select(this).attr("stroke-width",6)})
         .on("mouseout",function() { tooltip.style("opacity",0);
-                                    d3.select(this).attr("stroke-width", 3)})
+                                    d3.select(this).attr("stroke-width", 0)})
 
         svg.append("path")
         .datum(data2)
@@ -157,7 +157,7 @@ Scene 1
             .transition()
             .delay(500)
             .duration(750)
-            .attr("stroke","black");
+            .attr("stroke-width",3);
         });
         });
 
