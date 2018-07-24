@@ -93,7 +93,7 @@ Chart 1
         .attr("y",function(d) {return y(d.TOTALCOST);})
         .attr("height",function(d) { return height - y(d.TOTALCOST);})
         .attr("fill", "darkgray")
-        .attr("opacity",0.5)
+        .attr("opacity",0.75)
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
                    .style("left",(d3.event.pageX)+"px")
