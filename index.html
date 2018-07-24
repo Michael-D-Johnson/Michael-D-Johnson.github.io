@@ -149,7 +149,7 @@ Chart 1
       .data(data)
       .enter()
       .append("rect")
-	  .attr("x", width )
+	  .attr("x", width + margin.right)
       .attr("y", function(d, i){ return i *  20;})
 	  .attr("width", 10)
 	  .attr("height", 10)
@@ -162,7 +162,7 @@ Chart 1
       .enter()
       .append("text")
 	  .attr("x", width + margin.right)
-      .attr("y", function(d, i){ return i *  2 + 9;})
+      .attr("y", function(d, i){ return i *  20 + 9;})
 	  .text(function(d,i) {
         var texts = ["Assisted","Not Assisted"]
         var text = texts[i];
