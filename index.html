@@ -89,7 +89,7 @@ Chart 1
         .attr("x",function(d) {return x(d.YEAR);})
         .attr("width",x.bandwidth())
         .attr("y",function(d) {
-                    if (d.FMTASSISTED == '0 Not Assisted' {return y(d.TOTALCOST);})})
+                    if (d.FMTASSISTED =='0 Not Assisted' {return y(d.TOTALCOST);})})
         .attr("height",function(d) { return height - y(d.TOTALCOST);})
         .attr("fill", "darkgray")
         .attr("opacity",.75)
