@@ -79,7 +79,7 @@ Chart 1
                    .style("left",(d3.event.pageX)+"px")
                    .style("top",(d3.event.pageY)+"px")
                    .html(+d.TOTALCOST);
-                    d3.select(this).attr("fill","red")})
+                    d3.select(this).attr("fill","blue")})
         .on("mouseout",function() { tooltip.style("opacity",0);
                                     d3.select(this).attr("fill", "steelblue")})
 
@@ -89,11 +89,10 @@ Chart 1
         .filter(function(d) {return d.FMTASSISTED= "'0 Not Assisted'";})
         .attr("class","bar2")
         .attr("x",function(d) {return x(d.YEAR);})
-        .attr("width",x.bandwidth())
+        .attr("width",x.bandwidth()-.1)
         .attr("y",function(d) {return y(d.TOTALCOST)})
         .attr("height",function(d) { return height - y(d.TOTALCOST);})
         .attr("fill", "darkgray")
-        .attr("opacity",.75)
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
                    .style("left",(d3.event.pageX)+"px")
