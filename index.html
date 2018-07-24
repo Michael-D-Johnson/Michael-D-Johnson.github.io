@@ -152,6 +152,12 @@ Scene 1
         lineLegend.append("rect")
             .attr("fill", function (d, i) {return color_scale[i]; })
             .attr("width", 10).attr("height", 10);
+
+        svg.selectAll("path")
+            .transition()
+            .delay(500)
+            .duration(750)
+            .attr("stroke":"black");
         });
         });
 
