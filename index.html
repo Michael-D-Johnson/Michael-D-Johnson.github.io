@@ -67,7 +67,7 @@ Chart 1
             y.domain([0,d3.max(data,function(d) {return d.TOTALCOST;})]);
 
         svg.append("path")
-        .datum(data)
+        .datum(data[0])
         .attr("class","line1")
         .attr("fill", "none")
         .attr("stroke", "orange")
@@ -87,7 +87,7 @@ Chart 1
                                     d3.select(this).attr("stroke-width", 1.5)})
 
         svg.append("path")
-        .datum(data)
+        .datum(data[0])
         .attr("class","line2")
         .attr("fill", "none")
         .attr("stroke", "steelblue")
