@@ -54,7 +54,6 @@ Chart 1
 
     // define the 1st line
     var line = d3.line()
-        .interpolate("basis")
         .x(function(d) { return x(d.YEAR); })
         .y(function(d) { return y(d.TOTALCOST); });
 
@@ -66,8 +65,8 @@ Chart 1
                 d.TOTALCOST = +d.TOTALCOST
                 d.TOTSAL = +d.TOTSAL;
 
-            data1 = data.filter(function(d) {return d.FMTASSISTED="0 Not Assisted";})
-            data2 = data.filter(function(d) {return d.FMTASSISTED="1 Assisted";})
+            var data1 = data.filter(function(d) {return d.FMTASSISTED="0 Not Assisted";})
+            var data2 = data.filter(function(d) {return d.FMTASSISTED="1 Assisted";})
 
             });
 
