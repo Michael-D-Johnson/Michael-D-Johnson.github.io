@@ -73,6 +73,7 @@ Chart 1
 
         svg.append("path")
         .datum(data)
+        .filter(function(d) {return d.FMTASSISTED=="0 Not Assisted";})
         .attr("fill", "none")
         .attr("stroke", "orange")
         .attr("stroke-width", 1.5)
