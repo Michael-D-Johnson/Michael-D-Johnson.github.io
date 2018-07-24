@@ -52,7 +52,7 @@ Chart 1
     var y = d3.scaleLinear()
         .range([height,0]);
 
-    legend_data = d3.csv("static/totalcostsal_legend.csv",function(error,data){
+    var legend_data = d3.csv("static/totalcostsal_legend.csv",function(error,data){
         console.log(data);})
     d3.csv("static/all_natl_data.filtered.totalcostsal.csv", function(error,data) {
         if (error) throw error;
