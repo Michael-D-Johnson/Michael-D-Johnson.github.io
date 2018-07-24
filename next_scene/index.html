@@ -14,7 +14,7 @@ Scene 2
 </div>
 <div id="viz" width="600" height="600"></div>
 <div id="tooltip"></div>
-<input type="button" onclick="location.href='https://michael-d-johnson.github.io/next_scene';" value="Next" style="float:right"/>
+<input type="button" onclick="location.href='https://michael-d-johnson.github.io/next_scene';" value="Back" style="float:left,clear:both"/>
 </center>
 <style>
 #tooltip {
@@ -57,8 +57,8 @@ Scene 2
         .x(function(d) { return x(d.YEAR); })
         .y(function(d) { return y(d.TOTSAL); });
 
-    d3.csv("static/all_natl_data.filtered.NotAssisted.csv", function(error1,data1) {
-        d3.csv("static/all_natl_data.filtered.Assisted.csv",function(error2,data2) {
+    d3.csv("../static/all_natl_data.filtered.NotAssisted.csv", function(error1,data1) {
+        d3.csv("../static/all_natl_data.filtered.Assisted.csv",function(error2,data2) {
             if (error1) throw error;
                 if (error2) throw error;
                 //format the data
