@@ -30,7 +30,8 @@ Chart 1
 <script>
     // Source: https://www.kdnuggets.com/2018/03/simple-bar-chart-d3.html
     var tooltip = d3.select("#tooltip");
-    
+    var colors = ['#7fc97f','#beaed4','#fdc086','#ffff99','#386cb0','#f0027f','#bf5b17','#666666'];    
+
     //set the margin of the SVG
     var margin = {top: 50, right: 50, bottom: 50, left: 50}
 
@@ -71,7 +72,7 @@ Chart 1
         .attr("width",x.bandwidth())
         .attr("y",function(d) {return y(d.TOTALCOST);})
         .attr("height",function(d) { return height - y(d.TOTALCOST);})
-        .attr("fill","steelblue ")
+        .attr("fill", function(d, i, j) { return colors[(j*4)+i]; });
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
                    .style("left",(d3.event.pageX)+"px")
