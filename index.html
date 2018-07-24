@@ -137,8 +137,8 @@ Chart 1
       .attr("y", function(d, i){ return i *  20;})
 	  .attr("width", 10)
 	  .attr("height", 10)
-	  .style("fill", function(d) { 
-        var color = colors[data.indexOf(d)][1];
+	  .style("fill", function(d,i) { 
+        var color = colors[i];
         return color;
       })
       
@@ -148,8 +148,8 @@ Chart 1
       .append("text")
 	  .attr("x", width - 52)
       .attr("y", function(d, i){ return i *  20 + 9;})
-	  .text(function(d) {
-        var text = colors[data.indexOf(d)][0];
+	  .text(function(d,i) {
+        var text = colors[i];
         return text;
       });
         });
