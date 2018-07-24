@@ -52,6 +52,11 @@ Chart 1
     var y = d3.scaleLinear()
         .range([height,0]);
 
+    // define the 1st line
+    var line = d3.line()
+        .x(function(d) { return x(d.YEAR); })
+        .y(function(d) { return y(d.TOTALCOST); });
+
     d3.csv("static/all_natl_data.filtered.totalcostsal.csv", function(error,data) {
         if (error) throw error;
             console.log(data); 
@@ -71,9 +76,7 @@ Chart 1
         .attr("fill", "none")
         .attr("stroke", "orange")
         .attr("stroke-width", 1.5)
-        .attr("d", d3.line()
-            .x(function(d) {return x(d.YEAR);})
-            .y(function(d) {return x(d.TOTALCOST);}))
+        .attr("d", line)
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
                    .style("left",(d3.event.pageX)+"px")
