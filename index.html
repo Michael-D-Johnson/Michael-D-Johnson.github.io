@@ -70,8 +70,8 @@ Chart 1
         .filter(function(d) {return d.FMTASSISTED = "'1 Assisted'";})
         .attr("class","bar1")
         .attr("x",function(d) {return x(d.YEAR);})
-        .attr("width",x.bandwidth() )
-        .attr("y", function(d) { return y(d.TOTALCOST)})
+        .attr("width",x.bandwidth())
+        .attr("y", function(d) { return y(d.TOTALCOST);})
         .attr("height",function(d) { return height - y(d.TOTALCOST);})
         .attr("fill", "steelblue")
         .on("mouseover",function(d){
@@ -90,7 +90,7 @@ Chart 1
         .attr("class","bar2")
         .attr("x",function(d) {return x(d.YEAR);})
         .attr("width",x.bandwidth())
-        .attr("y",function(d) {return y(d.TOTALCOST)})
+        .attr("y",function(d) {return y(d.TOTALCOST);})
         .attr("height",function(d) { return height - y(d.TOTALCOST);})
         .attr("fill", "darkgray")
         .on("mouseover",function(d){
