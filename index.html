@@ -66,8 +66,16 @@ Chart 1
             x.domain(data.map(function(d) { return d.YEAR;}));
             y.domain([0,d3.max(data,function(d) {return d.TOTALCOST;})]);
 
+        var data1 = svg.selectAll(".line")
+            .data(data)
+            .filter(function(d) {return d.FMTASSISTED="'1 Assisted'";})
+
+        var data2 = svg.selectAll(".line")
+            .data(data)
+            .filter(function(d) {return d.FMTASSISTED="'0 Not Assisted'";})
+
         svg.append("path")
-        .datum(data)
+        .datum(data1)
         .attr("class","line1")
         .attr("fill", "none")
         .attr("stroke", "orange")
@@ -75,8 +83,6 @@ Chart 1
         .attr("stroke-linecap", "round")
         .attr("stroke-width", 1.5)
         .attr("d", d3.line()
-            .data(data)
-            .filter(function(d) {return d.FMTASSISTED="'1 Assisted'";})
             .x(function(d) {return x(d.YEAR);})
             .y(function(d) {return x(d.TOTALCOST);}))
         .on("mouseover",function(d){
@@ -89,7 +95,7 @@ Chart 1
                                     d3.select(this).attr("stroke-width", 1.5)})
 
         svg.append("path")
-        .datum(data)
+        .datum(data2)
         .attr("class","line2")
         .attr("fill", "none")
         .attr("stroke", "steelblue")
@@ -97,8 +103,6 @@ Chart 1
         .attr("stroke-linecap", "round")
         .attr("stroke-width", 1.5)
         .attr("d", d3.line()
-            .data(data)
-            .filter(function(d) {return d.FMTASSISTED = "'0 Not Assisted'";})
             .x(function(d) {return x(d.YEAR);})
             .y(function(d) {return x(d.TOTALCOST);}))
         .on("mouseover",function(d){
