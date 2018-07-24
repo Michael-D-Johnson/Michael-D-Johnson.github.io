@@ -52,8 +52,9 @@ Scene 1
     var y = d3.scaleLinear()
         .range([height,0]);
 
-    // define the 1st line
+    // define the line
     var line = d3.svg.line()
+        .interpolate("basis")
         .x(function(d) { return x(d.YEAR); })
         .y(function(d) { return y(d.TOTALCOST); });
 
