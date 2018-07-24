@@ -125,15 +125,15 @@ Chart 1
         svg.append("text")
         .attr("class", "y label")
         .attr("text-anchor", "end")
-        .attr("y", function(d) {return (max(y) - min(y))/2;})
+        .attr("y", 6)
         .attr("transform", "rotate(-90)")
         .text("Average Total Cost of Housing");
 
         svg.append("text")
         .attr("class", "x label")
         .attr("text-anchor", "end")
-        .attr("x", width - width/2)
-        .attr("y", height +6)
+        .attr("x", width )
+        .attr("y", height -6)
         .text("Year");
 
         // add legend   
@@ -148,7 +148,7 @@ Chart 1
       .data(data)
       .enter()
       .append("rect")
-	  .attr("x", width - 35)
+	  .attr("x", width )
       .attr("y", function(d, i){ return i *  20;})
 	  .attr("width", 10)
 	  .attr("height", 10)
