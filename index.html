@@ -64,9 +64,9 @@ Chart 1
             y.domain([0,d3.max(data,function(d) {return d.TOTALCOST;})]);
 
         var ya = function(d) {
-                    if (d.FMTASSISTED=="1 Assisted" {return y(d.TOTALCOST);})}
+                    if (d.FMTASSISTED=="1 Assisted" {return d.TOTALCOST;})}
         var yna = function(d) {
-                    if (d.FMTASSISTED=="0 Not Assisted" {return y(d.TOTALCOST);})}
+                    if (d.FMTASSISTED=="0 Not Assisted" {return d.TOTALCOST;})}
 
         svg.selectAll(".bar")
         .data(data)
@@ -74,8 +74,8 @@ Chart 1
         .attr("class","bar1")
         .attr("x",function(d) {return x(d.YEAR);})
         .attr("width",x.bandwidth())
-        .attr("y", function(d) { return ya})
-        .attr("height",function(d) { return height - ya;})
+        .attr("y", function(d) { return y(ya)})
+        .attr("height",function(d) { return height - y(ya);})
         .attr("fill", "steelblue")
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
@@ -92,8 +92,8 @@ Chart 1
         .attr("class","bar2")
         .attr("x",function(d) {return x(d.YEAR);})
         .attr("width",x.bandwidth())
-        .attr("y",function(d) {return yna})
-        .attr("height",function(d) { return height - yna;})
+        .attr("y",function(d) {return y(yna)})
+        .attr("height",function(d) { return height - y(yna);})
         .attr("fill", "darkgray")
         .attr("opacity",.75)
         .on("mouseover",function(d){
