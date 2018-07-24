@@ -68,11 +68,8 @@ Chart 1
 
         svg.append("path")
         .datum(data)
-        .attr("class","line1")
         .attr("fill", "none")
         .attr("stroke", "orange")
-        .attr("stroke-linejoin", "round")
-        .attr("stroke-linecap", "round")
         .attr("stroke-width", 1.5)
         .attr("d", d3.line()
             .x(function(d) {return x(d.YEAR);})
@@ -88,11 +85,8 @@ Chart 1
 
         //svg.append("path")
         //.datum(data[0])
-        //.attr("class","line2")
         //.attr("fill", "none")
         //.attr("stroke", "steelblue")
-        //.attr("stroke-linejoin", "round")
-        //.attr("stroke-linecap", "round")
         //.attr("stroke-width", 1.5)
         //.attr("d", d3.line()
          //   .x(function(d) {return x(d.YEAR);})
