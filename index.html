@@ -72,7 +72,7 @@ Chart 1
         .attr("width",x.bandwidth())
         .attr("y",function(d) {return y(d.TOTALCOST);})
         .attr("height",function(d) { return height - y(d.TOTALCOST);})
-        .attr("fill", function(d, i, j) { return colors[(j*2)+i]; })
+        .attr("fill", function(d, i) { return colors[i]; })
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
                    .style("left",(d3.event.pageX)+"px")
@@ -80,7 +80,7 @@ Chart 1
                    .html(+d.TOTALCOST);
                     d3.select(this).attr("fill","red")})
         .on("mouseout",function() { tooltip.style("opacity",0);
-                                    d3.select(this).attr("fill", function(d, i, j) { return colors[(j*2)+i]; })})
+                                    d3.select(this).attr("fill", function(d, i) { return colors[i]; })})
 
         svg.append("g")
         .attr("transform", "translate(0," + height + ")")
