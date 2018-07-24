@@ -54,7 +54,7 @@ Chart 1
 
     d3.csv("static/all_natl_data.filtered.totalcostsal.csv", function(error,data) {
         if (error) throw error;
-            console.log(data); 
+            console.log(data[0]); 
 
             //format the data
             data.forEach(function(d) {
