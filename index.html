@@ -67,13 +67,15 @@ Chart 1
                 d.TOTALCOST = +d.TOTALCOST
                 d.TOTSAL = +d.TOTSAL;
             });
+
+            var data1 = data.filter(function(d) {return d.FMTASSISTED=="0 Not Assisted";})
+
         
             x.domain(data.map(function(d) { return d.YEAR;}));
             y.domain([0,d3.max(data,function(d) {return d.TOTALCOST;})]);
 
         svg.append("path")
-        .datum(data)
-        .filter(function(d) {return d.FMTASSISTED=="0 Not Assisted";})
+        .datum(data1)
         .attr("fill", "none")
         .attr("stroke", "orange")
         .attr("stroke-width", 1.5)
