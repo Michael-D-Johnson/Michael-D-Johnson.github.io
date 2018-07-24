@@ -45,6 +45,8 @@ Chart 1
                 .attr("transform",
                       "translate(" + margin.left + "," + margin.top + ")");
 
+    var colors = ["darkgray","blue"];
+
     var x = d3.scaleBand()
         .range([0,width]);
     var y = d3.scaleLinear()
@@ -118,8 +120,22 @@ Chart 1
         .attr("text-anchor", "middle")  
         .style("font-size", "16px") 
         .style("text-decoration", "underline")  
-        .text("Average Total Salary vs. Year");
-      var colors = ["darkgray","blue"];
+        .text("Average Total Cost of Housing per Year");
+
+        svg.append("text")
+        .attr("class", "y label")
+        .attr("text-anchor", "end")
+        .attr("y", 6)
+        .attr("dy", ".75em")
+        .attr("transform", "rotate(-90)")
+        .text("Average Total Cost of Housing");
+
+        svg.append("text")
+        .attr("class", "x label")
+        .attr("text-anchor", "end")
+        .attr("x", width)
+        .attr("y", height - 6)
+        .text("Year");
 
         // add legend   
 	var legend = svg.append("g")
