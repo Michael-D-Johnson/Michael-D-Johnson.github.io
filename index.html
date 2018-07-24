@@ -52,6 +52,13 @@ Chart 1
     var y = d3.scaleLinear()
         .range([height,0]);
 
+    var line1 = d3.svg.line()
+                 .data(data)
+                 .filter()
+                 .interpolate("basis")
+                 .x(function(d) { return x(d.YEAR);})
+                 .y(function(d) { return y(d.TOTALCOST);});   
+
     d3.csv("static/all_natl_data.filtered.totalcostsal.csv", function(error,data) {
         if (error) throw error;
             console.log(data); 
@@ -67,8 +74,7 @@ Chart 1
             y.domain([0,d3.max(data,function(d) {return d.TOTALCOST;})]);
 
         svg.append("path")
-        .data(data)
-        .filter(function(d) {return d.FMTASSISTED= "'1 Assisted'";})
+        .datum(data)
         .attr("class","line1")
         .attr("fill", "none")
         .attr("stroke", "orange")
@@ -76,6 +82,8 @@ Chart 1
         .attr("stroke-linecap", "round")
         .attr("stroke-width", 1.5)
         .attr("d", d3.line()
+            .data(data)
+            .filter(function(d) {return d.FMTASSISTED="'1 Assisted'";})
             .x(function(d) {return x(d.YEAR);})
             .y(function(d) {return x(d.TOTALCOST);}))
         .on("mouseover",function(d){
@@ -88,8 +96,7 @@ Chart 1
                                     d3.select(this).attr("stroke-width", 1.5)})
 
         svg.append("path")
-        .data(data)
-        .filter(function(d) {return d.FMTASSISTED= "'0 Not Assisted'";})
+        .datum(data)
         .attr("class","line2")
         .attr("fill", "none")
         .attr("stroke", "steelblue")
@@ -97,6 +104,8 @@ Chart 1
         .attr("stroke-linecap", "round")
         .attr("stroke-width", 1.5)
         .attr("d", d3.line()
+            .data(data)
+            .filter(function(d) {return d.FMTASSISTED = "'0 Not Assisted'";})
             .x(function(d) {return x(d.YEAR);})
             .y(function(d) {return x(d.TOTALCOST);}))
         .on("mouseover",function(d){
