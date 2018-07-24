@@ -88,7 +88,7 @@ Chart 1
         .on("mouseout",function() { tooltip.style("opacity",0);
                                     d3.select(this).attr("stroke-width", 1.5")})
 
-        svg.append("g")
+        svg.selectAll(".line")
         .data(data)
         .enter().append("path")
         .filter(function(d) {return d.FMTASSISTED= "'0 Not Assisted'";})
