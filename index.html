@@ -147,7 +147,7 @@ Chart 1
         legend.selectAll("rect")
         .data(data)
         .enter().append("rect")
-        .attr("x", width + 30)
+        .attr("x", width + 25)
         .attr("y", function(d, i){ return i *  20;})
 	    .attr("width", 10)
 	    .attr("height", 10)
@@ -157,7 +157,7 @@ Chart 1
         .data(data)
         .enter()
         .append("text")
-	    .attr("x", width + 40)
+	    .attr("x", width + 35)
         .attr("y", function(d, i){ return i *  20 + 9;})
 	    .text(function(d,i) {
             var texts = ["Assisted","Unassisted"]
