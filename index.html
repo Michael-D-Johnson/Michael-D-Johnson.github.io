@@ -122,13 +122,12 @@ Chart 1
         .style("text-decoration", "underline")  
         .text("Average Total Cost of Housing per Year");
 
-        //svg.append("text")
-        //.attr("transform", "rotate(-90)")
-        //.attr("y", 0 – margin.left)
-        //.attr("x",0 - (height / 2))
-        //.attr("dy", "1em")
-        //.style("text-anchor", "middle")
-        //.text("Average Total Cost of Housing");
+        svg.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0 - (height / 2))
+        .attr("x",0 - margin.left)
+        .style("text-anchor", "middle")
+        .text("Average Total Cost of Housing");
 
         svg.append("text")
         .attr("class", "x label")
@@ -138,36 +137,32 @@ Chart 1
         .text("Year");
 
         // add legend   
-	var legend = svg.append("g")
-	  .attr("class", "legend")
-	  .attr("height", 100)
-	  .attr("width", 100)
-    .attr("transform", "translate(-20,50)")    
+	    var legend = svg.append("g")
+	    .attr("class", "legend")
+	    .attr("height", 100)
+	    .attr("width", 100)
+        .attr("transform", "translate(-20,50)")    
       
     
-    legend.selectAll("rect")
-      .data(data)
-      .enter()
-      .append("rect")
-	  .attr("x", width + margin.right)
-      .attr("y", function(d, i){ return i *  20;})
-	  .attr("width", 10)
-	  .attr("height", 10)
-	  .style("fill", function(d,i) { 
-        return colors[i];
-      })
+        legend.selectAll("rect")
+        .data(data)
+        .enter().append("rect")
+        .attr("x", width + margin.right)
+        .attr("y", function(d, i){ return i *  20;})
+	    .attr("width", 10)
+	    .attr("height", 10)
+	    .style("fill", function(d,i) { return colors[i];})
       
-    legend.selectAll("text")
-      .data(data)
-      .enter()
-      .append("text")
-	  .attr("x", width + margin.right)
-      .attr("y", function(d, i){ return i *  20 + 9;})
-	  .text(function(d,i) {
-        var texts = ["Assisted","Not Assisted"]
-        var text = texts[i];
-        return text;
-      });
+        legend.selectAll("text")
+        .data(data)
+        .enter()
+        .append("text")
+	    .attr("x", width + margin.right)
+        .attr("y", function(d, i){ return i *  20 + 9;})
+	    .text(function(d,i) {
+            var texts = ["Assisted","Not Assisted"]
+            var text = texts[i];
+            return text;});
         });
 </script>
 </body>
