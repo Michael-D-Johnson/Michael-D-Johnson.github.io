@@ -109,6 +109,7 @@ Scene 1
         svg.selectAll("dot")
         .data(data1)
         .enter().append("circle")
+        .attr("class","dot")
         .attr("fill","orange")
         .attr("r",6)
         .attr("cx", function(d) { return x(d.YEAR); })		 
@@ -210,7 +211,6 @@ Scene 1
                    d3.select(this).attr("r",10)})
             .on("mouseout",function() { tooltip.style("opacity",0);
                                     d3.select(this).attr("r", 6)})
-
         .transition()
         .delay(1000)
         .duration(1200)
