@@ -78,7 +78,7 @@ Scene 1
             x.domain(data1.map(function(d) { return d.YEAR;}));
             y.domain([0,d3.max(data1,function(d) {return d.TOTALCOST;})]);
 
-        svgselectAll("dot")
+        svg.selectAll("dot")
         .data(data)
         .enter().append("circle")
         .attr("r",5)
