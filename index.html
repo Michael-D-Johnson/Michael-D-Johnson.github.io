@@ -111,10 +111,6 @@ Scene 1
         .enter().append("circle")
         .attr("fill","orange")
         .attr("r",6)
-        .attr("class",function(d) {
-            if (d.YEAR ==1997){
-                return "changedot";}
-            else{return "dot";}})
         .attr("cx", function(d) { return x(d.YEAR); })		 
         .attr("cy", function(d) { return y(d.TOTALCOST); })	
         .on("mouseover",function(d){
@@ -126,6 +122,7 @@ Scene 1
                    d3.select(this).attr("r",10)})
         .on("mouseout",function() { tooltip.style("opacity",0);
                                     d3.select(this).attr("r", 6)})
+        
         svg.selectAll("dot")
         .data(data2)
         .enter().append("circle")
@@ -201,7 +198,9 @@ Scene 1
             .attr("fill", function (d, i) {return color_scale[i]; })
             .attr("width", 10).attr("height", 10);
 
-        svg.selectAll(".changedot")
+        svg.selectAll(".dot")
+        .data(data1)
+        .filter(function(d) {return d.YEAR==1997;})
         .transition()
         .delay(1000)
         .duration(1200)
