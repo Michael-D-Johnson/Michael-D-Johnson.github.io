@@ -107,12 +107,13 @@ Scene 1
                    .style("left",(d3.event.pageX)+"px")
                    .style("top",(d3.event.pageY)+"px")
                    .html(+d.TOTALCOST)
-                   d3.select(this).attr("r",8)})
+                   d3.select(this).attr("r",10)})
         .on("mouseout",function() { tooltip.style("opacity",0);
-                                    d3.select(this).attr("r", 5)})
+                                    d3.select(this).attr("r", 6)})
         svg.selectAll("dot")
         .data(data2)
         .enter().append("circle")
+        .attr("class","dot")
         .attr("r",0)
         .attr("cx", function(d) { return x(d.YEAR); })		 
         .attr("cy", function(d) { return y(d.TOTALCOST); })	
@@ -121,9 +122,9 @@ Scene 1
                    .style("left",(d3.event.pageX)+"px")
                    .style("top",(d3.event.pageY)+"px")
                    .html(+d.TOTALCOST)
-                   d3.select(this).attr("r",8)})
+                   d3.select(this).attr("r",10)})
         .on("mouseout",function() { tooltip.style("opacity",0);
-                                    d3.select(this).attr("r", 5)})
+                                    d3.select(this).attr("r", 6)})
 
         svg.append("g")
         .attr("transform", "translate(0," + height + ")")
@@ -182,7 +183,7 @@ Scene 1
         .transition()
         .delay(600)
         .duration(800)
-        .attr("r",5)
+        .attr("r",6)
 
         });
         });
