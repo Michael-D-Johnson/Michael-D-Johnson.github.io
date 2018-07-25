@@ -78,6 +78,22 @@ Scene 1
             x.domain(data1.map(function(d) { return d.YEAR;}));
             y.domain([0,d3.max(data1,function(d) {return d.TOTALCOST;})]);
 
+        svgselectAll("dot")
+        .data(data)
+        .enter().append("circle")
+        .attr("r",5)
+        .attr("cx", function(d) { return x(d.YEAR); })		 
+        .attr("cy", function(d) { return y(d.TOTALCOST; })	
+        .on("mouseover",function(d){
+            tooltip.style("opacity",1)
+                   .style("left",(d3.event.pageX)+"px")
+                   .style("top",(d3.event.pageY)+"px")
+                   .html(+d.TOTALCOST)
+                   d3.select(this).attr("r",8)})
+        .on("mouseout",function() { tooltip.style("opacity",0);
+                                    d3.select(this).attr("r", 5)})
+
+
         svg.append("path")
         .datum(data1)
         .attr("fill", "none")
@@ -161,6 +177,13 @@ Scene 1
             .delay(500)
             .duration(750)
             .attr("stroke-width",3);
+
+        svg.selectAll(".line")
+            .transition()
+            .delay(500)
+            .duration(750)
+            .attr("stroke-width",3);
+
         });
         });
 
