@@ -201,8 +201,6 @@ Scene 1
         .data(data1)
         .enter().append("circle")
         .filter(function(d) {return d.YEAR==1997;})
-            .attr("fill","orange")
-            .attr("r",6)
             .attr("cx", function(d) { return x(d.YEAR); })
             .attr("cy", function(d) { return y(d.TOTALCOST); })
             .on("mouseover",function(d){
