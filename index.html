@@ -100,7 +100,7 @@ Scene 1
         .data(data1)
         .enter().append("circle")
         .attr("class","dot")
-        .attr("r",6)
+        .attr("r",0)
         .attr("fill","orange")
         .attr("cx", function(d) { return x(d.YEAR); })		 
         .attr("cy", function(d) { return y(d.TOTALCOST); })	
@@ -185,11 +185,11 @@ Scene 1
             .duration(750)
             .attr("stroke-width",3);
 
-        //svg.selectAll(".dot")
-        //.transition()
-        //.delay(600)
-        //.duration(800)
-        //.attr("r",6)
+        svg.selectAll(".dot")
+        .transition()
+        .delay(600)
+        .duration(800)
+        .attr("r",6)
         });
         });
 
