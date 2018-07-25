@@ -206,14 +206,14 @@ Scene 1
         .transition()
         .delay(600)
         .duration(800)
-        .attr("r",6)
+        .attr("r",6);
 
         svg.selectAll(".annotation")
         .transition()
         .delay(1000)
         .duration(1200)
         .style("opacity",1)
-        .classed("annotation",true)
+        .attr("class","annotation");
 
         });
         });
