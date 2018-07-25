@@ -203,6 +203,16 @@ Scene 1
             .attr("r",6)
             .attr("cx", function(d) { return x(d.YEAR); })
             .attr("cy", function(d) { return y(d.TOTALCOST); })
+            .on("mouseover",function(d){
+            tooltip.style("opacity",1)
+                   .style("left",(d3.event.pageX)+"px")
+                   .style("top",(d3.event.pageY)+"px")
+                   .html("Year: " + d.YEAR + "<br/>Cost: $" + d.TOTALCOST)
+                   .style("font-size","14px")
+                   d3.select(this).attr("r",10)})
+            .on("mouseout",function() { tooltip.style("opacity",0);
+                                    d3.select(this).attr("r", 6)})
+
         .transition()
         .delay(1000)
         .duration(1200)
