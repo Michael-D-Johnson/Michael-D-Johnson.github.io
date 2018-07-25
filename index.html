@@ -130,8 +130,8 @@ Scene 1
         .attr("r",0)
         .attr("fill", funtion(d) { 
           if (d.YEAR = 2007)
-              return "coral ;}
-         else{return "steelblue;}
+              {return "coral";}
+         else{return "steelblue"}})
 
         .attr("cx", function(d) { return x(d.YEAR); })		 
         .attr("cy", function(d) { return y(d.TOTALCOST); })	
