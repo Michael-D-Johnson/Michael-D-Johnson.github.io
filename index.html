@@ -15,6 +15,16 @@ Scene 1
 <input id="button" type="button" onclick="location.href='https://michael-d-johnson.github.io/about';" value="Description" style="float:right"/>
 </center>
 <style>
+.annotation {
+    opacity: 0;
+    position: absolute;
+    text-align: left;
+    width: 80px; height: 40px;
+    background: lightcoral;
+    border: 2px;
+    color: white;
+}
+
 #tooltip {
     opacity: 0;
     position: absolute;
@@ -166,9 +176,7 @@ Scene 1
         .attr("class", "annotation")
         .attr("text-anchor", "middle")
         .attr("x", width/2 )
-        .attr("y", height + margin.bottom)
-        .style("background","lightred")
-        .style("color","white")
+        .attr("y", height/2)
         .text("This is an annotation");
 
         var legend_keys = ["Assisted", "Unassisted"]
