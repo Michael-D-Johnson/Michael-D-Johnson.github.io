@@ -202,6 +202,7 @@ Scene 1
         .filter(function(d) {return d.YEAR==1997;})
             .attr("cx", function(d) { return x(d.YEAR); })
             .attr("cy", function(d) { return y(d.TOTALCOST); })
+            .attr("fill","orange")
             .on("mouseover",function(d){
             tooltip.style("opacity",1)
                    .style("left",(d3.event.pageX)+"px")
