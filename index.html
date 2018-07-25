@@ -19,10 +19,7 @@ Scene 1
     opacity: 0;
     position: absolute;
     text-align: left;
-    width: 80px; height: 40px;
     background: red;
-    border: 2px solid red;
-    color: white;
 }
 #tooltip {
     opacity: 0;
@@ -54,14 +51,17 @@ Scene 1
                 .append("g")
                 .attr("transform",
                       "translate(" + margin.left + "," + margin.top + ")");
+    
     var x = d3.scaleBand()
         .range([0,width]);
+    
     var y = d3.scaleLinear()
         .range([height,0]);
-    // define the line
+    
     var line = d3.line()
         .x(function(d) { return x(d.YEAR); })
         .y(function(d) { return y(d.TOTALCOST); });
+
     d3.csv("static/all_natl_data.filtered.NotAssisted.csv", function(error1,data1) {
         d3.csv("static/all_natl_data.filtered.Assisted.csv",function(error2,data2) {
             if (error1) throw error;
@@ -80,6 +80,7 @@ Scene 1
             //console.log(data2);
             x.domain(data1.map(function(d) { return d.YEAR;}));
             y.domain([0,d3.max(data1,function(d) {return d.TOTALCOST;})]);
+
         svg.append("path")
         .datum(data1)
         .attr("fill", "none")
@@ -87,6 +88,7 @@ Scene 1
         .attr("stroke", "orange")
         .attr("stroke-width", 3)
         .attr("d", line)
+
         svg.append("path")
         .datum(data2)
         .attr("fill", "none")
@@ -94,6 +96,7 @@ Scene 1
         .attr("stroke", "steelblue")
         .attr("stroke-width", 3)
         .attr("d", line)
+
         svg.selectAll("dot")
         .data(data1)
         .enter().append("circle")
@@ -142,34 +145,42 @@ Scene 1
         .style("text-decoration", "underline")  
         .style("text-decoration","bold")
         .text("Average Total Cost of Housing per Year");
+
         svg.append("text")
         .attr("transform", "rotate(-90)")
         .attr("x", 0 - (height / 2))
         .attr("y",0 - 50)
         .style("text-anchor", "middle")
         .text("Average Total Cost of Housing (USD)");
+
         svg.append("text")
         .attr("class", "x label")
         .attr("text-anchor", "middle")
         .attr("x", width/2 )
         .attr("y", height + margin.bottom)
         .text("Year");
+
         svg.append("text")
         .attr("class", "annotation")
         .attr("text-anchor", "middle")
         .attr("y", margin.top + height/2)
         .attr("x", .75*width)
         .text("This is an annotation.");
+
         var legend_keys = ["Assisted", "Unassisted"]
+
         var color_scale = ["steelblue","orange"]
+
         var lineLegend = svg.selectAll(".lineLegend").data(legend_keys)
         .enter().append("g")
         .attr("class","lineLegend")
         .attr("transform", function (d,i) {
                 return "translate(" + width + "," + (i*20)+")";
             });
+
         lineLegend.append("text").text(function (d) {return d;})
             .attr("transform", "translate(15,9)"); //align texts with boxes
+
         lineLegend.append("rect")
             .attr("fill", function (d, i) {return color_scale[i]; })
             .attr("width", 10).attr("height", 10);
