@@ -105,7 +105,7 @@ Scene 1
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
                    .style("left",(d3.event.pageX)+"px")
-                   .style("top",(d3.event.pageY)+"px")
+                   .style("top",(d3.event.pageY)+10)
                    .html(+d.TOTALCOST)
                    d3.select(this).attr("r",10)})
         .on("mouseout",function() { tooltip.style("opacity",0);
