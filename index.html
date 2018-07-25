@@ -95,7 +95,7 @@ Scene 1
         .attr("fill", "none")
         .attr("class","line")
         .attr("stroke", "orange")
-        .attr("stroke-width", 0)
+        .attr("stroke-width", 3)
         .attr("d", line)
 
         svg.append("path")
@@ -103,14 +103,14 @@ Scene 1
         .attr("fill", "none")
         .attr("class","line")
         .attr("stroke", "steelblue")
-        .attr("stroke-width", 0)
+        .attr("stroke-width", 3)
         .attr("d", line)
 
         svg.selectAll("dot")
         .data(data1)
         .enter().append("circle")
         .attr("class","dot")
-        .attr("r",0)
+        .attr("r",6)
         .attr("fill", function(d) { 
           if (d.YEAR == 1997){
               return "darkcoral";}
@@ -130,7 +130,7 @@ Scene 1
         .data(data2)
         .enter().append("circle")
         .attr("class","dot")
-        .attr("r",0)
+        .attr("r",6)
         .attr("fill", function(d) { 
           if (d.YEAR == 2007){
               return "darkcoral";}
