@@ -38,6 +38,10 @@ Scene 1
    background: steelblue;
    color: white;
 }
+.changedot {
+  fill: darkcoral;
+  r: 6; 
+}
 </style>
 <center>
 <script>
@@ -109,7 +113,9 @@ Scene 1
         svg.selectAll("dot")
         .data(data1)
         .enter().append("circle")
+        .attr("fill","orange")
         .attr("r",6)
+        
         .attr("class",function(d) {
             if (d.YEAR ==1997){
                 return "changedot";}})
