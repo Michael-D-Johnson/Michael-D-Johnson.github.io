@@ -172,7 +172,8 @@ Scene 1
         .attr("y", height + margin.bottom)
         .text("Year");
 
-        svg.append("text")
+        svg.selectAll(".annotation")
+        .enter().append("text")
         .attr("class", "annotation")
         .attr("text-anchor", "left")
         .attr("y", margin.top + height/2)
