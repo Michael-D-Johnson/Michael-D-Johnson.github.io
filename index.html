@@ -106,7 +106,7 @@ Scene 1
             tooltip.style("opacity",1)
                    .style("left",(d3.event.pageX)+"px"+1)
                    .style("top",(d3.event.pageY)+"px"+1)
-                   .html(+d.TOTALCOST)
+                   .html("Year:"+d.YEAR"\nCost: $"+d.TOTALCOST)
                    d3.select(this).attr("r",10)})
         .on("mouseout",function() { tooltip.style("opacity",0);
                                     d3.select(this).attr("r", 6)})
