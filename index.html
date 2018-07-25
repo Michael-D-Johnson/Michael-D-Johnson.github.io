@@ -200,7 +200,7 @@ Scene 1
         svg.selectAll(".dot")
         .data(data2)
         .enter().append("circle")
-        .filter(function(d) {return d.YEAR==2007;})
+        .filter(function(d) {return d.YEAR==2007 || d.YEAR==2007;})
             .attr("fill","steelblue")
             .attr("r",6)
             .attr("cx", function(d) { return x(d.YEAR); })
