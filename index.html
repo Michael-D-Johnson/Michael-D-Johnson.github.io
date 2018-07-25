@@ -15,12 +15,25 @@ Scene 1
 <input id="button" type="button" onclick="location.href='https://michael-d-johnson.github.io/about';" value="Description" style="float:right"/>
 </center>
 <style>
-.annotation {
+.annotation1 {
     opacity: 0;
     position: absolute;
     text-align: left;
     background: red;
 }
+.annotation2 {
+    opacity: 0;
+    position: absolute;
+    text-align: left;
+    background: red;
+}
+.annotation3 {
+    opacity: 0;
+    position: absolute;
+    text-align: left;
+    background: red;
+}
+
 #tooltip {
     opacity: 0;
     position: absolute;
@@ -161,11 +174,26 @@ Scene 1
         .text("Year");
 
         svg.append("text")
-        .attr("class", "annotation")
+        .attr("class", "annotation1")
         .attr("text-anchor", "middle")
         .attr("y", margin.top + height/2)
         .attr("x", .75*width)
         .text("This is an annotation.");
+
+        svg.append("text")
+        .attr("class", "annotation2")
+        .attr("text-anchor", "middle")
+        .attr("y", margin.top + height/2)
+        .attr("x", .75*width)
+        .text("This is an another annotation.");
+
+        svg.append("text")
+        .attr("class", "annotation3")
+        .attr("text-anchor", "middle")
+        .attr("y", margin.top + height/2)
+        .attr("x", .75*width)
+        .text("This is yet another annotation.");
+
 
         var legend_keys = ["Assisted", "Unassisted"]
 
@@ -254,13 +282,30 @@ Scene 1
         .attr("opacity", 1)
         .attr("fill","red");
 
-        svg.selectAll(".annotation")
+        svg.selectAll(".annotation2")
+        .transition()
+        .delay(1000)
+        .duration(1200)
+        .style("opacity",1)
+        .attr("class","annotation2")
+        .attr("fill","red");
+
+        svg.selectAll(".annotation2")
         .transition()
         .delay(5000)
         .duration(1200)
         .style("opacity",1)
-        .attr("class","annotation")
+        .attr("class","annotation2")
         .attr("fill","red");
+
+        svg.selectAll(".annotation3")
+        .transition()
+        .delay(9000)
+        .duration(1200)
+        .style("opacity",1)
+        .attr("class","annotation3")
+        .attr("fill","red");
+
         });
         });
 </script>
