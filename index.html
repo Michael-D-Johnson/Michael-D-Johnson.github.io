@@ -193,6 +193,35 @@ Scene 1
         });
         });
 
+        const annotations = [
+        {
+          note: {
+            label: "Changed connector type to 'curve'",
+            title: "d3.annotationLabel",
+            wrap: 150
+          },
+          connector: {
+            end: "dot",
+            type: "curve",
+            //can also add a curve type, e.g. curve: d3.curveStep
+            points: [[100, 14],[190, 52]]
+          },
+          x: 350,
+          y: 150,
+          dy: 137,
+          dx: 262
+        }
+        ]
+
+        const makeAnnotations = d3.annotation()
+          .type(d3.annotationLabel)
+          .annotations(annotations)
+
+        d3.select("svg")
+          .append("g")
+          .attr("class", "annotation-group")
+          .call(makeAnnotations)
+
 </script>
 </center>
 </body>
