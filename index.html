@@ -203,6 +203,7 @@ Scene 1
             .attr("cx", function(d) { return x(d.YEAR); })
             .attr("cy", function(d) { return y(d.TOTALCOST); })
             .attr("fill","orange")
+            .attr("r",6)
             .on("mouseover",function(d){
             tooltip.style("opacity",1)
                    .style("left",(d3.event.pageX)+"px")
