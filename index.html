@@ -111,10 +111,9 @@ Scene 1
         .enter().append("circle")
         .attr("class","dot")
         .attr("r",6)
-        .attr("fill", function(d) { 
-          if (d.YEAR == 1997){
-              return "darkcoral";}
-         else{return "orange"}})
+        if (d.YEAR ==1997){
+            .attr("class","changedot")}
+            
         .attr("cx", function(d) { return x(d.YEAR); })		 
         .attr("cy", function(d) { return y(d.TOTALCOST); })	
         .on("mouseover",function(d){
@@ -208,11 +207,11 @@ Scene 1
            // .duration(750)
            // .attr("stroke-width",3);
 
-        //svg.selectAll(".dot")
-        //.transition()
-        //.delay(600)
-        //.duration(800)
-        //.attr("r",6);
+        svg.selectAll(".changedot")
+        .transition()
+        .delay(600)
+        .duration(800)
+        .attr("fill","darkcoral");
 
         svg.selectAll(".annotation")
         .transition()
