@@ -129,7 +129,6 @@ Scene 1
         svg.selectAll("dot")
         .data(data2)
         .enter().append("circle")
-        .attr("class","dot")
         .attr("r",6)
         .attr("fill", function(d) { 
           if (d.YEAR == 2007){
@@ -202,12 +201,6 @@ Scene 1
             .attr("fill", function (d, i) {return color_scale[i]; })
             .attr("width", 10).attr("height", 10);
 
-        //svg.selectAll(".line")
-         //   .transition()
-          //  .delay(500)
-           // .duration(750)
-           // .attr("stroke-width",3);
-
         svg.selectAll(".changedot")
         .transition()
         .delay(1000)
@@ -221,8 +214,6 @@ Scene 1
         .style("opacity",1)
         .attr("class","annotation")
         .attr("fill","lightcoral");
-
-
         });
         });
 
