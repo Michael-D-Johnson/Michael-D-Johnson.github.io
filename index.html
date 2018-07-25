@@ -112,7 +112,7 @@ Scene 1
         .attr("class","dot")
         .attr("r",6)
         if (d.YEAR ==1997){
-            .attr("class","changedot")}
+            return .attr("class","changedot");}
             
         .attr("cx", function(d) { return x(d.YEAR); })		 
         .attr("cy", function(d) { return y(d.TOTALCOST); })	
