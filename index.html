@@ -172,10 +172,9 @@ Scene 1
         .attr("y", height + margin.bottom)
         .text("Year");
 
-        svg.selectAll(".annotation")
-        .enter().append("text")
+        svg.append("text")
         .attr("class", "annotation")
-        .attr("text-anchor", "left")
+        .attr("text-anchor", "middle")
         .attr("y", margin.top + height/2)
         .attr("x", .75*width)
         .text("This is an annotation.");
