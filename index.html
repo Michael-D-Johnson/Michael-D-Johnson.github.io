@@ -16,7 +16,7 @@ Scene 1
 </center>
 <style>
 .annotation {
-    opacity: 1;
+    opacity: 0;
     position: absolute;
     text-align: left;
     width: 80px; height: 40px;
@@ -207,6 +207,12 @@ Scene 1
         .delay(600)
         .duration(800)
         .attr("r",6)
+
+        svg.selectAll(".annotation")
+        .transition()
+        .delay(650)
+        .duration(850)
+        .style("opacity",1)
         });
         });
 
