@@ -130,7 +130,7 @@ Scene 1
         .attr("r",0)
         .attr("fill", funtion(d) { 
           if (d.YEAR == 2007){
-              {return "coral";}}
+              return "coral";}
          else{return "steelblue"}})
 
         .attr("cx", function(d) { return x(d.YEAR); })		 
