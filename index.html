@@ -162,6 +162,15 @@ Scene 1
         .attr("y", height + margin.bottom)
         .text("Year");
 
+        svg.append("text")
+        .attr("class", "annotation")
+        .attr("text-anchor", "middle")
+        .attr("x", width/2 )
+        .attr("y", height + margin.bottom)
+        .style("background","lightred")
+        .style("color","white")
+        .text("This is an annotation");
+
         var legend_keys = ["Assisted", "Unassisted"]
 
         var color_scale = ["steelblue","orange"]
@@ -192,31 +201,6 @@ Scene 1
         .attr("r",6)
         });
         });
-
-        const annotations = [
-        {
-          note: {
-            label: "Changed connector type to 'arrow'",
-            title: "d3.annotationLabel",
-            wrap: 150
-          },
-          connector: {
-            end: "arrow",
-            points: [[100, 14],[190, 52]]
-          },
-          x: 350,
-          y: 150,
-          dy: 137,
-          dx: 262
-        }].map(function(d){ d.color = "#E8336D"; return d})
-
-        const makeAnnotations = d3.annotation()
-          .type(d3.annotationLabel)
-          .annotations(annotations)
-
-          svg.append("g")
-          .attr("class", "annotation-group")
-          .call(makeAnnotations)
 
 </script>
 </center>
