@@ -196,14 +196,12 @@ Scene 1
         const annotations = [
         {
           note: {
-            label: "Changed connector type to 'curve'",
+            label: "Changed connector type to 'arrow'",
             title: "d3.annotationLabel",
             wrap: 150
           },
           connector: {
-            end: "dot",
-            type: "curve",
-            //can also add a curve type, e.g. curve: d3.curveStep
+            end: "arrow",
             points: [[100, 14],[190, 52]]
           },
           x: 350,
@@ -217,8 +215,7 @@ Scene 1
           .type(d3.annotationLabel)
           .annotations(annotations)
 
-        d3.select("svg")
-          .append("g")
+          svg.append("g")
           .attr("class", "annotation-group")
           .call(makeAnnotations)
 
