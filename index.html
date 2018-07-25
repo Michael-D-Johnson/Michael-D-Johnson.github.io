@@ -81,7 +81,8 @@ Scene 1
         svg.selectAll("dot")
         .data(data1)
         .enter().append("circle")
-        .attr("r",5)
+        .attr("class","dot")
+        .attr("r",0)
         .attr("cx", function(d) { return x(d.YEAR); })		 
         .attr("cy", function(d) { return y(d.TOTALCOST); })	
         .on("mouseover",function(d){
@@ -95,7 +96,7 @@ Scene 1
         svg.selectAll("dot")
         .data(data2)
         .enter().append("circle")
-        .attr("r",5)
+        .attr("r",0)
         .attr("cx", function(d) { return x(d.YEAR); })		 
         .attr("cy", function(d) { return y(d.TOTALCOST); })	
         .on("mouseover",function(d){
@@ -198,6 +199,12 @@ Scene 1
             .delay(500)
             .duration(750)
             .attr("stroke-width",3);
+
+        svg.selectAll(".dot")
+        .transition()
+        .delay(600)
+        .duration(800)
+        .attr("r",5)
 
         });
         });
