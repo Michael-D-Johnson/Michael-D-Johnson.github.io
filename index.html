@@ -11,8 +11,8 @@ Scene 1
 <center>
 <div id="viz" width="600" height="600"></div>
 <div id="tooltip"></div>
-<input type="button" onclick="location.href='https://michael-d-johnson.github.io';" value="Description" style="float:right,background-color:steelblue,color:white"/>
-<input type="button" onclick="location.href='https://michael-d-johnson.github.io/next_scene';" value="Next" style="float:right"/>
+<input id="button" type="button" onclick="location.href='https://michael-d-johnson.github.io';" value="Description" style="float:right"/>
+<input id="button" type="button" onclick="location.href='https://michael-d-johnson.github.io/next_scene';" value="Next" style="float:right"/>
 </center>
 <style>
 #tooltip {
@@ -23,6 +23,10 @@ Scene 1
     background: white;
     border: 0px;
     color: black;
+}
+#button {
+   background: steelblue;
+   color: white;
 }
 </style>
 <center>
