@@ -176,7 +176,7 @@ Scene 1
         .data(data2)
         .attr("class", "annotation")
         .attr("text-anchor", "middle")
-        .attr("y", functio(d) {return y(d.YEAR=2009);} )
+        .attr("y", function(d) {return y(d.YEAR=2009);} )
         .attr("x", width/2)
         .text("This is an annotation");
 
