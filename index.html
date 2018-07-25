@@ -109,10 +109,10 @@ Scene 1
         svg.selectAll("dot")
         .data(data1)
         .enter().append("circle")
-        .attr("class","dot")
         .attr("r",6)
-        if (d.YEAR ==1997){
-            return .attr("class","changedot");}
+        .attr("class",function(d) {
+            if (d.YEAR ==1997){
+                return "changedot";})
             
         .attr("cx", function(d) { return x(d.YEAR); })		 
         .attr("cy", function(d) { return y(d.TOTALCOST); })	
