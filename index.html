@@ -175,8 +175,8 @@ Scene 1
         svg.append("text")
         .attr("class", "annotation")
         .attr("text-anchor", "left")
-        .attr("y", 300)
-        .attr("x", 300)
+        .attr("y", margin.top + height/2)
+        .attr("x", (width/2))
         .text("This is an annotation.");
 
         var legend_keys = ["Assisted", "Unassisted"]
