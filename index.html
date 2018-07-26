@@ -10,6 +10,12 @@ Scene 1
 <center>
 <div id="viz" width="600" height="600">
 </div>
+<select onchange="filterData()" id="checkbox">
+  <option >All Data</option>
+  <option >Prior to 2000</option>
+  <option >After 2000 </option>
+</select>
+
 <div id="tooltip"></div>
 <input id="button" type="button" onclick="location.href='https://michael-d-johnson.github.io/next_scene';" value="Next" style="float:right"/>
 <input id="button" type="button" onclick="location.href='https://michael-d-johnson.github.io/about';" value="Description" style="float:right"/>
@@ -77,20 +83,10 @@ Scene 1
         .x(function(d) { return x(d.YEAR); })
         .y(function(d) { return y(d.TOTALCOST); });
 
-    var selections = ["All Data", "After 2000", "Prior to 2000"];
-
-    var select = svg.append('select')
-  	    .attr('class','select')
-        .on('change',filterData)
-
-    var options = select.selectAll('option')
-	    .data(selections)
-        .enter().append('option')
-		.text(function (d) { return d; });
-
     var filterData = function(){
-        var selection =  document.getElementById("select")
+        var selection =  document.getElementById("checkbox")
         var parameter = selection.options[selection.selectedIndex].value
+        //var parameter = document.getElementById('checkbox').selectedOptions[0].text;
 
     d3.csv("static/all_natl_data.filtered.NotAssisted.csv", function(error1,data1) {
         d3.csv("static/all_natl_data.filtered.Assisted.csv",function(error2,data2) {
