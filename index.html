@@ -90,7 +90,7 @@ Scene 1
 		.text(function (d) { return d; });
 
     var filterData = function(){
-        var selection =  document.getElementById("option")
+        var selection =  document.getElementById("select")
         var parameter = selection.options[selection.selectedIndex].value
 
     d3.csv("static/all_natl_data.filtered.NotAssisted.csv", function(error1,data1) {
