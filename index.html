@@ -85,7 +85,7 @@ Scene 1
 
     var filterData = function(){
         var selection =  document.getElementById("checkbox")
-        var parameter = selection.selectedIndex.value
+        var parameter = selection.options[selection.selectedIndex].value
         //var parameter = document.getElementById('checkbox').selectedOptions[0].text;
 
     d3.csv("static/all_natl_data.filtered.NotAssisted.csv", function(error1,data1) {
