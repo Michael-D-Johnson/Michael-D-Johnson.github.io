@@ -87,7 +87,11 @@ Scene 1
 	//	.attr("value", function (d, i) {
 	//		return i;
 	//	});
-
+    
+    d3.select("#checkbox")
+	.on("change", function(d) {
+		index = this.value;
+		filterupdate();});
     var filterData = function(){
         var selection =  document.getElementById("checkbox")
         var parameter = selection.options[selection.selectedIndex].value
@@ -345,7 +349,7 @@ Scene 1
         });
         });
         };
-filterData();
+//filterData();
 </script>
 </center>
 </body>
