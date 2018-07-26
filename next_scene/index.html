@@ -14,6 +14,24 @@ Scene 2
 <input id="button" type="button" onclick="location.href='https://michael-d-johnson.github.io/about';" value="Description" style="float:right"/>
 <input id="button" type="button" onclick="location.href='https://michael-d-johnson.github.io';" value="Back" style="float:right"/>
 <style>
+.annotation1 {
+    opacity: 0;
+    position: absolute;
+    text-align: left;
+    background: red;
+}
+.annotation2 {
+    opacity: 0;
+    position: absolute;
+    text-align: left;
+    background: red;
+}
+.annotation3 {
+    opacity: 0;
+    position: absolute;
+    text-align: left;
+    background: red;
+}
 #tooltip {
     opacity: 0;
     position: absolute;
@@ -27,8 +45,8 @@ Scene 2
    background: steelblue;
    color: white;
 }
-
 </style>
+<center>
 <script>
     // Source: https://bl.ocks.org/mbostock/3884955
     var tooltip = d3.select("#tooltip");
@@ -52,7 +70,6 @@ Scene 2
     var y = d3.scaleLinear()
         .range([height,0]);
 
-    // define the line
     var line = d3.line()
         .x(function(d) { return x(d.YEAR); })
         .y(function(d) { return y(d.TOTSAL); });
@@ -97,9 +114,8 @@ Scene 2
          svg.selectAll("dot")
         .data(data1)
         .enter().append("circle")
-        .attr("class","dot")
-        .attr("r",0)
         .attr("fill","orange")
+        .attr("r",6)
         .attr("cx", function(d) { return x(d.YEAR); })
         .attr("cy", function(d) { return y(d.TOTSAL); })
         .on("mouseover",function(d){
@@ -114,9 +130,8 @@ Scene 2
         svg.selectAll("dot")
         .data(data2)
         .enter().append("circle")
-        .attr("class","dot")
-        .attr("r",0)
         .attr("fill","steelblue")
+        .attr("r",0)
         .attr("cx", function(d) { return x(d.YEAR); })
         .attr("cy", function(d) { return y(d.TOTSAL); })
         .on("mouseover",function(d){
@@ -160,6 +175,27 @@ Scene 2
         .attr("y", height + margin.bottom)
         .text("Year");
 
+        svg.append("text")
+        .attr("class", "annotation1")
+        .attr("text-anchor", "middle")
+        .attr("y", 250)
+        .attr("x", 85)
+        .text("This is an annotation.");
+
+        svg.append("text")
+        .attr("class", "annotation2")
+        .attr("text-anchor", "middle")
+        .attr("y", 260)
+        .attr("x", 300)
+        .text("This is another annotation.");
+
+        svg.append("text")
+        .attr("class", "annotation3")
+        .attr("text-anchor", "middle")
+        .attr("y", 100)
+        .attr("x", 400)
+        .text("This is yet another annotation.");
+
         var legend_keys = ["Assisted", "Unassisted"]
 
         var color_scale = ["steelblue","orange"]
@@ -183,14 +219,103 @@ Scene 2
             .duration(750)
             .attr("stroke-width",3);
 
-         svg.selectAll(".dot")
+        svg.selectAll(".dot")
+        .data(data1)
+        .enter().append("circle")
+        .filter(function(d) {return d.YEAR==1997;})
+            .attr("fill","orange")
+            .attr("r",6)
+            .attr("cx", function(d) { return x(d.YEAR); })
+            .attr("cy", function(d) { return y(d.TOTALCOST); })
+            .on("mouseover",function(d){
+            tooltip.style("opacity",1)
+                   .style("left",(d3.event.pageX)+"px")
+                   .style("top",(d3.event.pageY)+"px")
+                   .html("Year: " + d.YEAR + "<br/>Cost: $" + d.TOTALCOST)
+                   .style("font-size","14px")
+                   d3.select(this).attr("r",10)})
+            .on("mouseout",function() { tooltip.style("opacity",0);
+                                    d3.select(this).attr("r", 6)})
         .transition()
-        .delay(600)
-        .duration(800)
-        .attr("r",6)
+        .delay(1000)
+        .duration(1200)
+        .attr("opacity", 1)
+        .attr("fill","red");
+
+        svg.selectAll(".dot")
+        .data(data2)
+        .enter().append("circle")
+        .filter(function(d) {return d.YEAR==2007;})
+            .attr("fill","steelblue")
+            .attr("r",6)
+            .attr("cx", function(d) { return x(d.YEAR); })
+            .attr("cy", function(d) { return y(d.TOTALCOST); })
+            .on("mouseover",function(d){
+            tooltip.style("opacity",1)
+                   .style("left",(d3.event.pageX)+"px")
+                   .style("top",(d3.event.pageY)+"px")
+                   .html("Year: " + d.YEAR + "<br/>Cost: $" + d.TOTALCOST)
+                   .style("font-size","14px")
+                   d3.select(this).attr("r",10)})
+            .on("mouseout",function() { tooltip.style("opacity",0);
+                                    d3.select(this).attr("r", 6)})
+        .transition()
+        .delay(5000)
+        .duration(1200)
+        .attr("opacity", 1)
+        .attr("fill","red");
+
+        svg.selectAll(".dot")
+        .data(data1)
+        .enter().append("circle")
+        .filter(function(d) {return d.YEAR==2007;})
+            .attr("fill","orange")
+            .attr("r",6)
+            .attr("cx", function(d) { return x(d.YEAR); })
+            .attr("cy", function(d) { return y(d.TOTALCOST); })
+            .on("mouseover",function(d){
+            tooltip.style("opacity",1)
+                   .style("left",(d3.event.pageX)+"px")
+                   .style("top",(d3.event.pageY)+"px")
+                   .html("Year: " + d.YEAR + "<br/>Cost: $" + d.TOTALCOST)
+                   .style("font-size","14px")
+                   d3.select(this).attr("r",10)})
+            .on("mouseout",function() { tooltip.style("opacity",0);
+                                    d3.select(this).attr("r", 6)})
+        .transition()
+        .delay(9000)
+        .duration(1200)
+        .attr("opacity", 1)
+        .attr("fill","red");
+
+        svg.selectAll(".annotation1")
+        .transition()
+        .delay(1000)
+        .duration(1200)
+        .style("opacity",1)
+        .attr("class","annotation1")
+        .attr("fill","red");
+
+        svg.selectAll(".annotation2")
+        .transition()
+        .delay(5000)
+        .duration(1200)
+        .style("opacity",1)
+        .attr("class","annotation2")
+        .attr("fill","red");
+
+        svg.selectAll(".annotation3")
+        .transition()
+        .delay(9000)
+        .duration(1200)
+        .style("opacity",1)
+        .attr("class","annotation3")
+        .attr("fill","red");
+
         });
         });
 
 </script>
+</center>
 </body>
 </html>
