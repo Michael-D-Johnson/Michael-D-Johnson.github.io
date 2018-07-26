@@ -9,10 +9,9 @@ Scene 1
 <body>
 <center>
 <div id="viz" width="600" height="600">
-<select onchange="loadData()" id="metric">
-  <option >snow</option>
-  <option >precipitation</option>
-  <option >temperature</option>
+<select onchange="filterData()" id="checkbox">
+  <option >Prior to 2000</option>
+  <option > After 2000 </option>
 </select>
 </div>
 <div id="tooltip"></div>
@@ -55,6 +54,7 @@ Scene 1
 </style>
 <center>
 <script>
+
     // Source: https://bl.ocks.org/mbostock/3884955
     var tooltip = d3.select("#tooltip");
 
@@ -98,6 +98,8 @@ Scene 1
             //printing data
             //console.log(data1); 
             //console.log(data2);
+            data1 = data1.filter(function(d) {
+                    return d.YEAR > 1999;}
 
             x.domain(data1.map(function(d) { return d.YEAR;}));
             y.domain([0,d3.max(data1,function(d) {return d.TOTALCOST;})]);
