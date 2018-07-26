@@ -91,7 +91,7 @@ Scene 1
     d3.select("#checkbox")
 	.on("change", function(d) {
 		index = this.value;
-		filterupdate();});
+		filterData();});
     var filterData = function(){
         var selection =  document.getElementById("checkbox")
         var parameter = selection.options[selection.selectedIndex].value
