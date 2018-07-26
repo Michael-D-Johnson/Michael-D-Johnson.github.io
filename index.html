@@ -92,10 +92,11 @@ Scene 1
 	.on("change", function(d) {
 		index = this.value;
 		filterData();});
+
     var filterData = function(){
         var selection =  document.getElementById("checkbox")
         var parameter = selection.options[selection.selectedIndex].value
-
+        console.log(parameter);
     d3.csv("static/all_natl_data.filtered.NotAssisted.csv", function(error1,data1) {
         d3.csv("static/all_natl_data.filtered.Assisted.csv",function(error2,data2) {
             if (error1) throw error;
