@@ -116,8 +116,9 @@ Scene 1
                     return d.YEAR < 2000;})};
 
             //printing data
-            console.log(data1); 
+            //console.log(data1); 
             //console.log(data2);
+            console.log(parameter);
 
             x.domain(data1.map(function(d) { return d.YEAR;}));
             y.domain([0,d3.max(data1,function(d) {return d.TOTALCOST;})]);
