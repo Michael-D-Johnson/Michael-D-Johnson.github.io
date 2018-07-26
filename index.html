@@ -83,9 +83,9 @@ Scene 1
 		.selectAll("option")
 		.data(options)
 		.enter().append("option")
-		.text(function(d) { return d; })
-		.attr("value", function (d, i) {
-			return i;
+		.text(function(d) { return d; });
+	//	.attr("value", function (d, i) {
+	//		return i;
 		});
 
     var filterData = function(){
