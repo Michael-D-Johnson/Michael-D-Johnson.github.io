@@ -66,13 +66,6 @@ Scene 1
         .enter().append("option")
         .text(function(d) { return d;});
     
-    function updateFilter(d1,d2) {
-        selectOption = document.getElementById("checkbox").selectedOptions[0].text;
-
-        if (selectOption = 'All Data'){
-            return d1,d2;};
-}
-
 
     var tooltip = d3.select("#tooltip");
 
@@ -99,6 +92,9 @@ Scene 1
         .x(function(d) { return x(d.YEAR); })
         .y(function(d) { return y(d.TOTALCOST); });
 
+    function updateFilter(d1,d2) {
+        selectOption = document.getElementById("checkbox").selectedOptions[0].text;
+
     d3.csv("static/all_natl_data.filtered.NotAssisted.csv", function(error1,data1) {
         d3.csv("static/all_natl_data.filtered.Assisted.csv",function(error2,data2) {
             if (error1) throw error;
@@ -114,7 +110,10 @@ Scene 1
                     d.TOTALCOST = +d.TOTALCOST
                     d.TOTSAL = +d.TOTSAL;});
             
-                updateFilter(data1,data2); 
+                if (selectOption = "All Data") {
+                    data1 = data1;
+                    data2 = data2;};
+     
 
             //printing data
             //console.log(data1); 
@@ -339,6 +338,7 @@ Scene 1
 
         });
         });
+};
 </script>
 </center>
 </body>
