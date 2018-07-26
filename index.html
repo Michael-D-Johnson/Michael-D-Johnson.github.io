@@ -75,7 +75,7 @@ Scene 1
         .x(function(d) { return x(d.YEAR); })
         .y(function(d) { return y(d.TOTALCOST); });
 
-    // create the drop down menu of cities
+    // create the drop down menu
     var options = ["All Data", "Prior to 2000", "After 2000"];
 	var selector = d3.select("body")
 		.append("select")
@@ -86,7 +86,7 @@ Scene 1
 		.text(function(d) { return d; });
 	//	.attr("value", function (d, i) {
 	//		return i;
-		});
+	//	});
 
     var filterData = function(){
         var selection =  document.getElementById("checkbox")
