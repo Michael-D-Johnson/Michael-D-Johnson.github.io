@@ -8,8 +8,7 @@ Scene 1
 </head>
 <body>
 <center>
-<div id="viz" width="600" height="600">
-</div>
+<div id="viz" width="600" height="600"></div>
 <div id="tooltip"></div>
 <input id="button" type="button" onclick="location.href='https://michael-d-johnson.github.io/next_scene';" value="Next" style="float:right"/>
 <input id="button" type="button" onclick="location.href='https://michael-d-johnson.github.io/about';" value="Description" style="float:right"/>
@@ -47,7 +46,6 @@ Scene 1
    color: white;
 }
 </style>
-<center>
 <script>
     // Source: https://bl.ocks.org/mbostock/3884955
     var tooltip = d3.select("#tooltip");
@@ -58,7 +56,6 @@ Scene 1
     //set the width and height using the current width and height of the SVG
     var width = 600 - margin.left - margin.right;
     var height = 600 - margin.top - margin.bottom;
-    
     
     var x = d3.scaleBand()
         .range([0,width]);
@@ -354,6 +351,5 @@ Scene 1
         };
 filterData();
 </script>
-</center>
 </body>
 </html>
