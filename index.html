@@ -10,6 +10,7 @@ Scene 1
 <center>
 <div id="viz" width="600" height="600">
 <select onchange="filterData()" id="checkbox">
+  <option >All Data</option>
   <option >Prior to 2000</option>
   <option > After 2000 </option>
 </select>
@@ -81,7 +82,7 @@ Scene 1
         .x(function(d) { return x(d.YEAR); })
         .y(function(d) { return y(d.TOTALCOST); });
 
-    var filterData(){
+    var filterData = function(d){
         return{ document.getElementById('checkbox').selectedOptions[0].text;}}
 
     d3.csv("static/all_natl_data.filtered.NotAssisted.csv", function(error1,data1) {
@@ -99,12 +100,15 @@ Scene 1
                     d.TOTSAL = +d.TOTSAL;});
             
             parameter = filterData()
+            if parameter == "All Data"{
+                data1 = data1
+                data2 = data2}
             if parameter =="Post 2000" {
                 data1 = data1.filter(function(d) {
                     return d.YEAR > 1999;});
                 data2 = data2.filter(function(d) {
                     return d.YEAR > 1999;});
-            else { 
+            if parameter =="Prior to 2000"{ 
                 data1 = data1.filter(function(d) {
                     return d.YEAR < 2000;});
                 data2 = data2.filter(function(d) {
