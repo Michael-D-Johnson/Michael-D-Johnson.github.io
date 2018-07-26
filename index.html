@@ -100,17 +100,17 @@ Scene 1
                     d.TOTSAL = +d.TOTSAL;});
             
             if (parameter = "All Data"){
-                data1 = data1
-                data2 = data2};
+                var data1 = data1
+                var data2 = data2};
             if (parameter ="After 2000" ){
-                data1 = data1.filter(function(d) {
+                var data1 = data1.filter(function(d) {
                     return d.YEAR > 1999;});
-                data2 = data2.filter(function(d) {
+                var data2 = data2.filter(function(d) {
                     return d.YEAR > 1999;})};
             if (parameter =="Prior to 2000"){ 
-                data1 = data1.filter(function(d) {
+                var data1 = data1.filter(function(d) {
                     return d.YEAR < 2000;});
-                data2 = data2.filter(function(d) {
+                var data2 = data2.filter(function(d) {
                     return d.YEAR < 2000;})};
 
             //printing data
