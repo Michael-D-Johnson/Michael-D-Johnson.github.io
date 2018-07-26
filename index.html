@@ -85,7 +85,7 @@ Scene 1
 		.enter().append("option")
 		.text(function(d) { return d; })
 		.attr("value", function (d, i) {
-			return i;
+			return d;
 		});
     
     d3.select("#checkbox")
