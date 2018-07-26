@@ -348,10 +348,22 @@ Scene 1
         .attr("class","annotation3")
         .attr("fill","red");
 
+        
+        d3.select("#viz")
+        .selectAll("rect")
+        .data(data1)
+        .exit()
+        .remove();
+
+        d3.select("#viz")
+        .selectAll("rect")
+        .data(data2)
+        .exit()
+        .remove();
         });
         });
         };
-//filterData();
+filterData();
 </script>
 </center>
 </body>
