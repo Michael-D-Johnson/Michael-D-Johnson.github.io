@@ -179,7 +179,7 @@ Scene 2
         .attr("class", "annotation1")
         .attr("text-anchor", "middle")
         .attr("y", 200)
-        .attr("x", 85)
+        .attr("x", 95)
         .text("This is an annotation.");
 
         svg.append("text")
@@ -212,12 +212,6 @@ Scene 2
         lineLegend.append("rect")
             .attr("fill", function (d, i) {return color_scale[i]; })
             .attr("width", 10).attr("height", 10);
-
-        svg.selectAll(".line")
-            .transition()
-            .delay(500)
-            .duration(750)
-            .attr("stroke-width",3);
 
         svg.selectAll(".dot")
         .data(data1)
