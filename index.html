@@ -10,12 +10,6 @@ Scene 1
 <center>
 <div id="viz" width="600" height="600">
 </div>
-<select onchange="filterData()" id="checkbox">
-  <option >All Data</option>
-  <option >Prior to 2000</option>
-  <option >After 2000 </option>
-</select>
-
 <div id="tooltip"></div>
 <input id="button" type="button" onclick="location.href='https://michael-d-johnson.github.io/next_scene';" value="Next" style="float:right"/>
 <input id="button" type="button" onclick="location.href='https://michael-d-johnson.github.io/about';" value="Description" style="float:right"/>
@@ -58,6 +52,28 @@ Scene 1
 <script>
 
     // Source: https://bl.ocks.org/mbostock/3884955
+
+    // checkbox
+    var selections = ["All Data","Prior to 2000", "After 2000"]
+    var select = d3.select("body")
+        .append("select")
+        .attr("class","checkbox")
+        .on("change",updateFilter)
+
+    var options = select
+        .selectAll("option")
+        .data(selections)
+        .enter().append("option")
+        .text(function(d) { return d;});
+    
+    function updateFilter(d1,d2) {
+        selectOption = d3.select("checkbox").property("value");
+
+        if (selectOption = 'All Data'){
+            return d1,d2;};
+}
+
+
     var tooltip = d3.select("#tooltip");
 
     //set the margin of the SVG
@@ -83,9 +99,6 @@ Scene 1
         .x(function(d) { return x(d.YEAR); })
         .y(function(d) { return y(d.TOTALCOST); });
 
-    var filterData = function(){
-        var parameter = document.getElementById('checkbox').selectedOptions[0].text;
-
     d3.csv("static/all_natl_data.filtered.NotAssisted.csv", function(error1,data1) {
         d3.csv("static/all_natl_data.filtered.Assisted.csv",function(error2,data2) {
             if (error1) throw error;
@@ -101,19 +114,7 @@ Scene 1
                     d.TOTALCOST = +d.TOTALCOST
                     d.TOTSAL = +d.TOTSAL;});
             
-                if (parameter = "All Data"){
-                    data1 =  data1;
-                    data2 = data2;};
-                //if (parameter ="After 2000" ){
-                  //  data1 = data1.filter(function(d) {
-                   //     return d.YEAR > 1999;});
-                   // data2 = data2.filter(function(d) {
-                    //    return d.YEAR > 1999;})};
-                if (parameter =="Prior to 2000"){ 
-                    data1 = data1.filter(function(d) {
-                        return d.YEAR < 2000;});
-                    data2 = data2.filter(function(d) {
-                        return d.YEAR < 2000;})};
+                updateFilter(data1,data2); 
 
             //printing data
             //console.log(data1); 
@@ -338,7 +339,6 @@ Scene 1
 
         });
         });
-        };
 filterData();
 </script>
 </center>
