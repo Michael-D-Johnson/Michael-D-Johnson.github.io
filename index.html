@@ -349,6 +349,12 @@ Scene 1
         .attr("fill","red");
 
         d3.select("#viz")
+        .data(data1)
+        .exit()
+        .remove();
+
+        d3.select("#viz")
+        .data(data2)
         .exit()
         .remove();
 
