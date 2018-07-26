@@ -48,6 +48,8 @@ Scene 1
 }
 </style>
 <center>
+<input id="param" type="button" onclick="updatePlot();" value="Description" style="float:right"/>
+
 <script>
     // Source: https://bl.ocks.org/mbostock/3884955
     var tooltip = d3.select("#tooltip");
@@ -215,6 +217,45 @@ Scene 1
         lineLegend.append("rect")
             .attr("fill", function (d, i) {return color_scale[i]; })
             .attr("width", 10).attr("height", 10);
+
+        //checkboxes
+		legend.enter().append("rect")
+		  .attr("width", 10)
+		  .attr("height", 10)
+		  .attr("x", 0)
+		  .attr("y", function (d, i) { return 0 +i*15; })  // spacing
+		  .attr("fill",function(d) { 
+		    return color(d.key);
+         })
+		  .attr("class", function(d,i){return "legendcheckbox " + d.key})
+			.on("click", function(d){
+			  d.active = !d.active;
+			  
+			  d3.select(this).attr("fill", function(d){
+			    if(d3.select(this).attr("fill")  == "#ccc"){
+			      return color(d.key);
+			    }else {
+			      return "#ccc";
+			    }
+			  })
+        var result = dataNest.filter(function(val,idx, arr){
+         return $("." + val.key).attr("fill") != "#ccc" 
+       // matching the data with selector status
+      })
+      
+       // Hide or show the lines based on the ID
+       svg.selectAll(".line").data(result, function(d){return d.key})
+         .enter()
+         .append("path")
+         .attr("class", "line")
+         .style("stroke", function(d,i) { return d.color = color(d.key); })
+        .attr("d", function(d){
+                return stateline(d.values);
+         });
+ 
+      svg.selectAll(".line").data(result, function(d){return d.key}).exit().remove()  
+					
+			})
 
         svg.selectAll(".dot")
         .data(data1)
