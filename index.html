@@ -347,28 +347,6 @@ Scene 1
         .style("opacity",1)
         .attr("class","annotation3")
         .attr("fill","red");
-
-        d3.select("#viz")
-        .selectAll("path")
-        .data(data1)
-        .exit()
-        .remove();
-        d3.select("#viz")
-        .selectAll("text")
-        .data(data1)
-        .exit()
-        .remove();
-        d3.select("#viz")
-        .selectAll("dot")
-        .data(data1)
-        .exit()
-        .remove();
-
-        d3.select("#viz")
-        .data(data2)
-        .exit()
-        .remove();
-
         });
         });
         };
