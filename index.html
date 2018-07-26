@@ -350,16 +350,29 @@ Scene 1
 
         
         d3.select("#viz")
-        .selectAll("rect")
+        .selectAll("path")
         .data(data1)
         .exit()
         .remove();
 
         d3.select("#viz")
-        .selectAll("rect")
+        .selectAll("dot")
+        .data(data1)
+        .exit()
+        .remove();
+
+        d3.select("#viz")
+        .selectAll("path")
         .data(data2)
         .exit()
         .remove();
+
+        d3.select("#viz")
+        .selectAll("dot")
+        .data(data2)
+        .exit()
+        .remove();
+
         });
         });
         };
