@@ -112,11 +112,11 @@ Scene 1
                     d.TOTALCOST = +d.TOTALCOST
                     d.TOTSAL = +d.TOTSAL;});
             
-                if (parameter = "All Data"){
+                if (parameter == "All Data"){
                     data1 =  data1;
                     data2 = data2;}
                 else{
-                    if (parameter ="Post 2000" ){
+                    if (parameter =="Post 2000" ){
                         data1 = data1.filter(function(d) {
                             return d.YEAR > 1999;});
                         data2 = data2.filter(function(d) {
