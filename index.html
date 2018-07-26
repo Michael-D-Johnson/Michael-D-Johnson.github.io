@@ -83,10 +83,9 @@ Scene 1
   	    .attr('class','select')
         .on('change',filterData)
 
-    var options = select
-        .selectAll('option')
-	    .data(selections).enter()
-	    .append('option')
+    var options = select.selectAll('option')
+	    .data(selections)
+        .enter().append('option')
 		.text(function (d) { return d; });
 
     var filterData = function(){
