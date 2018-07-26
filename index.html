@@ -84,7 +84,7 @@ Scene 1
         .y(function(d) { return y(d.TOTALCOST); });
 
     var filterData = function(){
-        var parameter = document.getElementById('checkbox').selectedOptions[0].text;
+        var parameter = document.getElementById('checkbox').selectedOptions;
 
     d3.csv("static/all_natl_data.filtered.NotAssisted.csv", function(error1,data1) {
         d3.csv("static/all_natl_data.filtered.Assisted.csv",function(error2,data2) {
