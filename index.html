@@ -9,7 +9,7 @@ Scene 1
 <body>
 <center>
 <div id="viz" width="600" height="600">
-<select onchange="filterData()" id="checkbox" x="0" y="0">
+<select onchange="filterData()" id="checkbox">
   <option >Prior to 2000</option>
   <option > After 2000 </option>
 </select>
@@ -81,6 +81,9 @@ Scene 1
         .x(function(d) { return x(d.YEAR); })
         .y(function(d) { return y(d.TOTALCOST); });
 
+    var filterData(){
+        return{ document.getElementById('checkbox').selectedOptions[0].text;}}
+
     d3.csv("static/all_natl_data.filtered.NotAssisted.csv", function(error1,data1) {
         d3.csv("static/all_natl_data.filtered.Assisted.csv",function(error2,data2) {
             if (error1) throw error;
@@ -94,11 +97,18 @@ Scene 1
                     d.YEAR = +d.YEAR;
                     d.TOTALCOST = +d.TOTALCOST
                     d.TOTSAL = +d.TOTSAL;});
-
-            data1 = data1.filter(function(d) {
+            
+            parameter = filterData()
+            if parameter =="Post 2000" {
+                data1 = data1.filter(function(d) {
                     return d.YEAR > 1999;});
-            data2 = data2.filter(function(d) {
+                data2 = data2.filter(function(d) {
                     return d.YEAR > 1999;});
+            else { 
+                data1 = data1.filter(function(d) {
+                    return d.YEAR < 2000;});
+                data2 = data2.filter(function(d) {
+                    return d.YEAR < 2000;});}
 
             //printing data
             console.log(data1); 
