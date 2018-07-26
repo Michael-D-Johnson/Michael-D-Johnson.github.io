@@ -71,6 +71,8 @@ Scene 1
 	var selector = d3.select("body")
 		.append("select")
 		.attr("id", "checkbox")
+        .attr("x",0)
+        .attr("y",0)
 		.selectAll("option")
 		.data(options)
 		.enter().append("option")
