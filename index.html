@@ -89,6 +89,20 @@ Scene 1
         d3.csv("static/all_natl_data.filtered.Assisted.csv",function(error2,data2) {
             if (error1) throw error;
                 if (error2) throw error;
+                    if (parameter = "All Data"){
+                        var data1 = data1
+                        var data2 = data2};
+                    if (parameter ="After 2000" ){
+                        var data1 = data1.filter(function(d) {
+                            return d.YEAR > 1999;});
+                        var data2 = data2.filter(function(d) {
+                            return d.YEAR > 1999;})};
+                    if (parameter =="Prior to 2000"){ 
+                        var data1 = data1.filter(function(d) {
+                            return d.YEAR < 2000;});
+                        var data2 = data2.filter(function(d) {
+                            return d.YEAR < 2000;})};
+
                 //format the data
                 data1.forEach(function(d) {
                     d.YEAR = +d.YEAR;
@@ -99,19 +113,6 @@ Scene 1
                     d.TOTALCOST = +d.TOTALCOST
                     d.TOTSAL = +d.TOTSAL;});
             
-            if (parameter = "All Data"){
-                data1 = data1
-                data2 = data2};
-            if (parameter ="After 2000" ){
-                data1 = data1.filter(function(d) {
-                    return d.YEAR > 1999;});
-                data2 = data2.filter(function(d) {
-                    return d.YEAR > 1999;})};
-            if (parameter =="Prior to 2000"){ 
-                data1 = data1.filter(function(d) {
-                    return d.YEAR < 2000;});
-                data2 = data2.filter(function(d) {
-                    return d.YEAR < 2000;})};
 
             //printing data
             //console.log(data1); 
