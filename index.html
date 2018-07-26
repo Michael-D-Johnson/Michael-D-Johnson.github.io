@@ -53,20 +53,6 @@ Scene 1
 
     // Source: https://bl.ocks.org/mbostock/3884955
 
-    // checkbox
-    var selections = ["All Data","Prior to 2000", "After 2000"]
-    var select = d3.select("body")
-        .append("select")
-        .attr("class","checkbox")
-        .on("change",updateFilter)
-
-    var options = select
-        .selectAll("option")
-        .data(selections)
-        .enter().append("option")
-        .text(function(d) { return d;});
-    
-
     var tooltip = d3.select("#tooltip");
 
     //set the margin of the SVG
@@ -92,7 +78,20 @@ Scene 1
         .x(function(d) { return x(d.YEAR); })
         .y(function(d) { return y(d.TOTALCOST); });
 
-    function updateFilter(d1,d2) {
+    // checkbox
+    var selections = ["All Data","Prior to 2000", "After 2000"]
+    var select = d3.select("body")
+        .append("select")
+        .attr("class","checkbox")
+        .on("change",updateFilter)
+
+    var options = select
+        .selectAll("option")
+        .data(selections)
+        .enter().append("option")
+        .text(function(d) { return d;});
+    
+    function updateFilter() {
         selectOption = document.getElementById("checkbox").selectedOptions[0].text;
 
     d3.csv("static/all_natl_data.filtered.NotAssisted.csv", function(error1,data1) {
