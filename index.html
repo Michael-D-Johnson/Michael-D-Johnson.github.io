@@ -82,7 +82,7 @@ Scene 1
         .x(function(d) { return x(d.YEAR); })
         .y(function(d) { return y(d.TOTALCOST); });
 
-    var filterData = function(d){
+    var filterData = function(){
         return document.getElementById('checkbox').selectedOptions[0].text;}
 
     d3.csv("static/all_natl_data.filtered.NotAssisted.csv", function(error1,data1) {
