@@ -85,7 +85,7 @@ Scene 1
 
     var options = select
         .selectAll('option')
-	    .data(data).enter()
+	    .data(selections).enter()
 	    .append('option')
 		.text(function (d) { return d; });
 
