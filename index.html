@@ -68,7 +68,7 @@ Scene 1
         .y(function(d) { return y(d.TOTALCOST); });
 
     // create the drop down menu
-    var options = ["All Data", "Prior to 2000", "Post 2000"];
+    var options = ["All Data", "Before 2000", "After 2000"];
 	var selector = d3.select("body")
 		.append("select")
 		.attr("id", "checkbox")
@@ -108,7 +108,7 @@ Scene 1
                     data1 =  data1;
                     data2 = data2;}
                 else{
-                    if (parameter =="Post 2000" ){
+                    if (parameter =="After 2000" ){
                         data1 = data1.filter(function(d) {
                             return d.YEAR > 1999;});
                         data2 = data2.filter(function(d) {
