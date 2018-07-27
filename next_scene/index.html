@@ -261,8 +261,8 @@ Scene 2
         .attr("fill","red")
         .attr("transform", function(d) {
             return "translate(" +
-                ((y(d.YEAR) ) + "," + 
-                ((x(d.YEAR) ) + ")"
+                y(d.YEAR) + "," + 
+                x(d.YEAR) + ")"
                 ;})
         .text("This is an annotation.");
 
