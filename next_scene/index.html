@@ -255,11 +255,12 @@ Scene 2
                                     d3.select(this).attr("r", 6)})
 
         // text 1
-        svg.append("text")
+        dot1.append("text")
+        .data(data1)
         .attr("class", "annotation1")
         .attr("text-anchor", "middle")
-        //.attr("y", function(d) {return y(d.YEAR) + d.r;}) 
-        //.attr("x", function(d) { return x(d.YEAR) + d.r;})
+        .attr("y", function(d) {return y(d.YEAR) + d.r;}) 
+        .attr("x", function(d) { return x(d.YEAR) + d.r;})
         .text("This is an annotation.");
 
         // transition 1
