@@ -220,8 +220,8 @@ Scene 2
         svg.append("text")
         .attr("class", "annotation1")
         .attr("text-anchor", "middle")
-        .attr("y", 200)
-        .attr("x", 95)
+        .attr("y", y(d.YEAR ==1997) )
+        .attr("x", x(d.YEAR==1997)+ "px")
         .text("This is an annotation.");
 
         svg.append("text")
