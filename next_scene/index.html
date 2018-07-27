@@ -107,17 +107,17 @@ Scene 2
             if (parameter == "All Data"){
                     data1 =  data1;
                     data2 = data2;}
+            else{
+                if (parameter =="Post 2000" ){
+                    data1 = data1.filter(function(d) {
+                        return d.YEAR > 1999;});
+                    data2 = data2.filter(function(d) {
+                        return d.YEAR > 1999;})}
                 else{
-                    if (parameter =="Post 2000" ){
-                        data1 = data1.filter(function(d) {
-                            return d.YEAR > 1999;});
-                        data2 = data2.filter(function(d) {
-                            return d.YEAR > 1999;})}
-                    else{
-                        data1 = data1.filter(function(d) {
-                            return d.YEAR < 2000;});
-                        data2 = data2.filter(function(d) {
-                            return d.YEAR < 2000;})};};
+                    data1 = data1.filter(function(d) {
+                        return d.YEAR < 2000;});
+                    data2 = data2.filter(function(d) {
+                        return d.YEAR < 2000;})};};
 
             //printing data
             //console.log(data1); 
@@ -166,6 +166,7 @@ Scene 2
                    d3.select(this).attr("r",10)})
         .on("mouseout",function() { tooltip.style("opacity",0);
                                     d3.select(this).attr("r", 6)});
+
         svg.selectAll("dot")
         .data(data2)
         .enter().append("circle")
@@ -238,6 +239,7 @@ Scene 2
         var legend_keys = ["Assisted", "Unassisted"];
 
         var color_scale = ["steelblue","orange"];
+
         var lineLegend = svg.selectAll(".lineLegend").data(legend_keys)
         .enter().append("g")
         .attr("class","lineLegend")
