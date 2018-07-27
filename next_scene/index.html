@@ -259,6 +259,7 @@ Scene 2
         .data(data1)
         .attr("class", "annotation1")
         .attr("text-anchor", "middle")
+        .attr("x", function(d) { return x(d.YEAR);})
         .text("This is an annotation.");
 
         // transition 1
