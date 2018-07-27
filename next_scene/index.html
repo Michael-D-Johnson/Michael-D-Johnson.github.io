@@ -257,7 +257,7 @@ Scene 2
             .attr("fill", function (d, i) {return color_scale[i]; })
             .attr("width", 10).attr("height", 10);
 
-        svg.selectAll(".dot")
+        var dot1 = svg.selectAll(".dot")
         .data(data1)
         .enter().append("circle")
         .filter(function(d) {return d.YEAR==1997;})
@@ -327,7 +327,8 @@ Scene 2
         .attr("opacity", 1)
         .attr("fill","red");
 
-        svg.selectAll(".annotation1")
+        //svg.selectAll(".annotation1")
+        dot1.append("text")
         .transition()
         .delay(1000)
         .duration(1200)
