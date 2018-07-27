@@ -255,6 +255,11 @@ Scene 2
             .on("mouseout",function() { tooltip.style("opacity",0);
                                     d3.select(this).attr("r", 6)})
 
+        var pvalue;
+        for (var pname in dot1){
+            pvalue = dot1[pname]
+            console.log(dot1);}
+            
         // text 1
         dot1.append("text")
         .attr("class", "annotation1")
