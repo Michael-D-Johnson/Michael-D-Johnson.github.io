@@ -239,7 +239,7 @@ Scene 2
         // annotation 1
         var dot1= svg.selectAll(".dot")
         .data(data1)
-        .enter().("g")
+        .enter().append("g")
 
         dot1.append("circle")
         .filter(function(d) {return d.YEAR==1997;})
