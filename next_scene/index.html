@@ -236,7 +236,7 @@ Scene 2
             .attr("width", 10).attr("height", 10);
 
         // annotation 1
-        svg.selectAll(".dot")
+        var dot1= svg.selectAll(".dot")
         .data(data1)
         .enter().append("circle")
         .filter(function(d) {return d.YEAR==1997;})
@@ -253,21 +253,21 @@ Scene 2
                    d3.select(this).attr("r",10)})
             .on("mouseout",function() { tooltip.style("opacity",0);
                                     d3.select(this).attr("r", 6)})
+
+        // text 1
+        dot1.append("text")
+        .attr("class", "annotation1")
+        .attr("text-anchor", "middle")
+        .text("This is an annotation.");
+
+        // transition 1
+        dot1
         .transition()
         .delay(1000)
         .duration(1200)
         .attr("opacity", 1)
         .attr("fill","red");
 
-        // text 1
-        svg.append("text")
-        .attr("class", "annotation1")
-        .attr("text-anchor", "middle")
-        .attr("y",250)
-        .attr("x",85)
-        .text("This is an annotation.");
-
-        // transition 1
         svg.selectAll(".annotation1")
         .transition()
         .delay(1000)
