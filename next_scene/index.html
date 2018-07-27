@@ -258,12 +258,8 @@ Scene 2
         dot1.append("text")
         .attr("class", "annotation1")
         .attr("text-anchor", "middle")
-        .attr("fill","red")
-        .attr("transform", function(d) {
-            return "translate(" +
-                y(d.YEAR) + "," + 
-                x(d.YEAR) + ")"
-                ;})
+        .attr("dy", y(d.YEAR) + d.r) 
+        .attr("dx", x(d.YEAR) + d.r)
         .text("This is an annotation.");
 
         // transition 1
