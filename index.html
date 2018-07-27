@@ -141,7 +141,7 @@ Scene 1
         .attr("class","line")
         .attr("stroke", "orange")
         .attr("stroke-width", 3)
-        .attr("d", line)
+        .attr("d", line);
 
         svg.append("path")
         .datum(data2)
@@ -149,7 +149,7 @@ Scene 1
         .attr("class","line")
         .attr("stroke", "steelblue")
         .attr("stroke-width", 3)
-        .attr("d", line)
+        .attr("d", line);
 
         svg.selectAll("dot")
         .data(data1)
@@ -166,7 +166,7 @@ Scene 1
                    .style("font-size","14px")
                    d3.select(this).attr("r",10)})
         .on("mouseout",function() { tooltip.style("opacity",0);
-                                    d3.select(this).attr("r", 6)})
+                                    d3.select(this).attr("r", 6)});
         
         svg.selectAll("dot")
         .data(data2)
@@ -183,7 +183,8 @@ Scene 1
                    .style("font-size","14px")
                    d3.select(this).attr("r",10)})
         .on("mouseout",function() { tooltip.style("opacity",0);
-                                    d3.select(this).attr("r", 6)})
+                                    d3.select(this).attr("r", 6)});
+        
         svg.append("g")
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x));
