@@ -217,7 +217,7 @@ Scene 2
         .attr("y", height + margin.bottom)
         .text("Year");
 
-        svg.append("text")
+        dot1.append("text")
         .data(data1)
         .attr("class", "annotation1")
         .attr("text-anchor", "middle")
@@ -327,8 +327,7 @@ Scene 2
         .attr("opacity", 1)
         .attr("fill","red");
 
-        //svg.selectAll(".annotation1")
-        dot1.append("text")
+        svg.selectAll(".annotation1")
         .transition()
         .delay(1000)
         .duration(1200)
