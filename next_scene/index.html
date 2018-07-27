@@ -239,8 +239,7 @@ Scene 2
         // annotation 1
         var dot1= svg.selectAll(".dot")
         .data(data1)
-        .enter().append("g")
-        .append("circle")
+        .enter().append("circle")
         .filter(function(d) {return d.YEAR==1997;})
             .attr("fill","orange")
             .attr("r",6)
@@ -262,7 +261,6 @@ Scene 2
         .attr("text-anchor", "middle")
         .attr("y", 250)
         .attr("x",85)
-        .attr("dx", 65)
         .text("This is an annotation.");
 
         // transition 1
