@@ -126,7 +126,7 @@ Scene 2
             x.domain(data1.map(function(d) { return d.YEAR;}));
             y.domain([0,d3.max(data1,function(d) {return d.TOTSAL;})]);
 
-        d3.selectAll("svg").remove()
+        d3.selectAll("svg").remove();
         var svg = d3.select("#viz").append("svg")
                 .attr("width", width + margin.left + margin.right)
                 .attr("height",height + margin.top + margin.bottom)
