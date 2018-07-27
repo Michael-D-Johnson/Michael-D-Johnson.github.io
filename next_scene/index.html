@@ -46,10 +46,10 @@ Scene 2
    color: white;
 }
 </style>
-<center>
 <script>
     // Source: https://bl.ocks.org/mbostock/3884955
     // http://blockbuilder.org/micahstubbs/d393bcfde0228430c00b
+
     var tooltip = d3.select("#tooltip");
 
     //set the margin of the SVG
@@ -87,8 +87,8 @@ Scene 2
         filterData();});
 
     var filterData = function(){
-        var selection =  document.getElementById("checkbox")
-        var parameter = selection.options[selection.selectedIndex].value
+        var selection =  document.getElementById("checkbox");
+        var parameter = selection.options[selection.selectedIndex].value;
     
     d3.csv("../static/all_natl_data.filtered.NotAssisted.csv", function(error1,data1) {
         d3.csv("../static/all_natl_data.filtered.Assisted.csv",function(error2,data2) {
@@ -351,6 +351,5 @@ Scene 2
 filterData();
 
 </script>
-</center>
 </body>
 </html>
