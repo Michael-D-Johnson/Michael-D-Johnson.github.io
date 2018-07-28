@@ -98,7 +98,7 @@ Scene 2
         filterData();});
 
     var filterData = function(){
-        var selection =  document.getElementById("checkbox");
+        var selection =  document.getElementById("dropdown");
         var parameter = selection.options[selection.selectedIndex].value;
     
     d3.csv("../static/all_natl_data.filtered.NotAssisted.csv", function(error1,data1) {
