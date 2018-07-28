@@ -78,7 +78,9 @@ Scene 1
 
     box.append("rect")
         .attr("id","textbox")
-     box.append("text")
+        .attr("x",0 - height)
+        .attr("y",0);
+    box.append("text")
         .attr("x", 0 - (height ))
         .attr("y",0 )
         .style("text-anchor", "left")
