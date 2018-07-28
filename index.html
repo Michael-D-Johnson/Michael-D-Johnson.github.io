@@ -9,8 +9,8 @@ Scene 1
 <body>
 <center>
 <div id="viz" width="600" height="600">
-<input id="button" type="button" onclick="location.href='https://michael-d-johnson.github.io/about';" value="Description" style="float:right"/>
 <input id="button" type="button" onclick="location.href='https://michael-d-johnson.github.io/next_scene';" value="Next" style="float:right"/>
+<input id="button" type="button" onclick="location.href='https://michael-d-johnson.github.io/about';" value="Description" style="float:right"/>
 </div>
 <div id="tooltip"></div>
 </center>
@@ -301,7 +301,7 @@ Scene 1
             .attr("r",6)
             .attr("id","dot2")
             .attr("cx", function(d) { return x(d.YEAR); })
-            .attr("cy", function(d) { return y(d.TOTALCOST)+50; })
+            .attr("cy", function(d) { return y(d.TOTALCOST); })
             .on("mouseover",function(d){
             tooltip.style("opacity",1)
                    .style("left",(d3.event.pageX)+"px")
@@ -318,7 +318,7 @@ Scene 1
         .attr("class", "annotation2")
         .attr("id","dot2")
         .attr("text-anchor", "left")
-        .attr("x",function(d) { return x(d.YEAR);})
+        .attr("x",function(d) { return x(d.YEAR)+50;})
         .attr("y",function(d) { return y(d.TOTALCOST);})
         .text("This is an annotation.");
 
