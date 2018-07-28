@@ -95,7 +95,7 @@ Scene 1
     var options = ["All Data", "Before 2000", "After 2000"];
 	var selector = d3.select("#viz")
 		.append("select")
-		.attr("id", "checkbox")
+		.attr("id", "dropdown")
         .attr("x",margin.left + width)
 		.selectAll("option")
         .attr("float","right")
@@ -106,13 +106,13 @@ Scene 1
 			return d;
 		});
     
-    d3.select("#checkbox")
+    d3.select("#dropdown")
 	.on("change", function(d) {
 		index = this.value;
 		filterData();});
 
     var filterData = function(){
-        var selection =  document.getElementById("checkbox");
+        var selection =  document.getElementById("dropdown");
         var parameter = selection.options[selection.selectedIndex].value;
     
     d3.csv("static/all_natl_data.filtered.NotAssisted.csv", function(error1,data1) {
