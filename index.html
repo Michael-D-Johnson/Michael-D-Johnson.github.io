@@ -10,8 +10,8 @@ Scene 1
 <center>
 <div id="viz" width="600" height="600"></div>
 <div id="tooltip"></div>
-<input id="button" type="button" onclick="location.href='https://michael-d-johnson.github.io/next_scene';" value="Next" style="float:right"/>
-<input id="button" type="button" onclick="location.href='https://michael-d-johnson.github.io/about';" value="Description" style="float:right"/>
+<input id="button" type="button" onclick="location.href='https://michael-d-johnson.github.io/next_scene';" value="Next" style="float:left"/>
+<input id="button" type="button" onclick="location.href='https://michael-d-johnson.github.io/about';" value="Description" style="float:left"/>
 </center>
 
 <style>
@@ -92,6 +92,7 @@ Scene 1
 		.append("select")
 		.attr("id", "checkbox")
 		.selectAll("option")
+        .attr("float","right")
 		.data(options)
 		.enter().append("option")
 		.text(function(d) { return d; })
