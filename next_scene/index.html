@@ -239,7 +239,7 @@ Scene 2
         // annotation 1
         var dot1 = svg.selectAll(".dot")
         .data(data1)
-        .enter().append("svg")
+        .enter().append("g")
 
         dot1.append("circle")
         .filter(function(d) {return d.YEAR==1997;})
@@ -273,6 +273,7 @@ Scene 2
         .delay(1000)
         .duration(1200)
         .attr("opacity", 1)
+        .attr("class","annotation1")
         .attr("fill","red");
 
         //svg.selectAll(".annotation1")
