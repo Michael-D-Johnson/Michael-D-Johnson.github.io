@@ -13,6 +13,7 @@ Scene 1
 <input id="button" type="button" onclick="location.href='https://michael-d-johnson.github.io/next_scene';" value="Next" style="float:right"/>
 <input id="button" type="button" onclick="location.href='https://michael-d-johnson.github.io/about';" value="Description" style="float:right"/>
 </center>
+
 <style>
 .annotation1 {
     opacity: 0;
@@ -36,7 +37,7 @@ Scene 1
     opacity: 0;
     position: absolute;
     text-align: left;
-    width: 80px; height: 35px;
+    width: 100px; height: 35px;
     background: whitesmoke;
     border: 1px solid black;
     color: black;
@@ -49,6 +50,7 @@ Scene 1
 <script>
     // Source: https://bl.ocks.org/mbostock/3884955
     // http://blockbuilder.org/micahstubbs/d393bcfde0228430c00b
+
     var tooltip = d3.select("#tooltip");
 
     //set the margin of the SVG
@@ -62,78 +64,77 @@ Scene 1
         .range([0,width]);
     var y = d3.scaleLinear()
         .range([height,0]);
-    
+
     var line = d3.line()
         .x(function(d) { return x(d.YEAR); })
         .y(function(d) { return y(d.TOTALCOST); });
 
     // create the drop down menu
     var options = ["All Data", "Before 2000", "After 2000"];
-	var selector = d3.select("#viz")
-		.append("select")
-		.attr("id", "checkbox")
-		.selectAll("option")
-		.data(options)
-		.enter().append("option")
-		.text(function(d) { return d; })
-		.attr("value", function (d, i) {
-			return d;
-		});
-    
+    var selector = d3.select("#viz")
+        .append("select")
+        .attr("id", "checkbox")
+        .selectAll("option")
+        .data(options)
+        .enter().append("option")
+        .text(function(d) { return d; })
+        .attr("value", function (d, i) {
+            return d;
+        });
+
     d3.select("#checkbox")
-	.on("change", function(d) {
-		index = this.value;
-		filterData();});
+    .on("change", function(d) {
+        index = this.value;
+        filterData();});
 
     var filterData = function(){
         var selection =  document.getElementById("checkbox");
         var parameter = selection.options[selection.selectedIndex].value;
     
-    d3.csv("static/all_natl_data.filtered.NotAssisted.csv", function(error1,data1) {
-        d3.csv("static/all_natl_data.filtered.Assisted.csv",function(error2,data2) {
+    d3.csv("../static/all_natl_data.filtered.NotAssisted.csv", function(error1,data1) {
+        d3.csv("../static/all_natl_data.filtered.Assisted.csv",function(error2,data2) {
             if (error1) throw error;
                 if (error2) throw error;
-
                 //format the data
                 data1.forEach(function(d) {
                     d.YEAR = +d.YEAR;
                     d.TOTALCOST = +d.TOTALCOST
-                    d.TOTSAL = +d.TOTSAL;});
+                    d.TOTALCOST = +d.TOTSAL;});
                 data2.forEach(function(d) {
                     d.YEAR = +d.YEAR;
                     d.TOTALCOST = +d.TOTALCOST
-                    d.TOTSAL = +d.TOTSAL;});
+                    d.TOTALCOST = +d.TOTSAL;});
             
-                if (parameter == "All Data"){
+            if (parameter == "All Data"){
                     data1 =  data1;
                     data2 = data2;}
+            else{
+                if (parameter =="After 2000" ){
+                    data1 = data1.filter(function(d) {
+                        return d.YEAR > 1999;});
+                    data2 = data2.filter(function(d) {
+                        return d.YEAR > 1999;})}
                 else{
-                    if (parameter =="After 2000" ){
-                        data1 = data1.filter(function(d) {
-                            return d.YEAR > 1999;});
-                        data2 = data2.filter(function(d) {
-                            return d.YEAR > 1999;})}
-                    else{ 
-                        data1 = data1.filter(function(d) {
-                            return d.YEAR < 2000;});
-                        data2 = data2.filter(function(d) {
-                            return d.YEAR < 2000;})};};
+                    data1 = data1.filter(function(d) {
+                        return d.YEAR < 2000;});
+                    data2 = data2.filter(function(d) {
+                        return d.YEAR < 2000;})};};
 
             //printing data
             //console.log(data1); 
             //console.log(data2);
-            //console.log(parameter);
 
             x.domain(data1.map(function(d) { return d.YEAR;}));
             y.domain([0,d3.max(data1,function(d) {return d.TOTALCOST;})]);
 
         d3.selectAll("svg").remove();
+
         var svg = d3.select("#viz").append("svg")
-            .attr("width", width + margin.left + margin.right)
-            .attr("height",height + margin.top + margin.bottom)
-            .append("g")
-            .attr("transform",
-                  "translate(" + margin.left + "," + margin.top + ")");
+                .attr("width", width + margin.left + margin.right)
+                .attr("height",height + margin.top + margin.bottom)
+                .append("g")
+                .attr("transform",
+                      "translate(" + margin.left + "," + margin.top + ")");
 
         svg.append("path")
         .datum(data1)
@@ -142,7 +143,7 @@ Scene 1
         .attr("stroke", "orange")
         .attr("stroke-width", 3)
         .attr("d", line);
-
+    
         svg.append("path")
         .datum(data2)
         .attr("fill", "none")
@@ -150,14 +151,14 @@ Scene 1
         .attr("stroke", "steelblue")
         .attr("stroke-width", 3)
         .attr("d", line);
-
+   
         svg.selectAll("dot")
         .data(data1)
         .enter().append("circle")
         .attr("fill","orange")
         .attr("r",6)
-        .attr("cx", function(d) { return x(d.YEAR); })		 
-        .attr("cy", function(d) { return y(d.TOTALCOST); })	
+        .attr("cx", function(d) { return x(d.YEAR); })
+        .attr("cy", function(d) { return y(d.TOTALCOST); })
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
                    .style("left",(d3.event.pageX)+"px")
@@ -167,14 +168,14 @@ Scene 1
                    d3.select(this).attr("r",10)})
         .on("mouseout",function() { tooltip.style("opacity",0);
                                     d3.select(this).attr("r", 6)});
-        
+
         svg.selectAll("dot")
         .data(data2)
         .enter().append("circle")
         .attr("fill","steelblue")
         .attr("r",6)
-        .attr("cx", function(d) { return x(d.YEAR); })		 
-        .attr("cy", function(d) { return y(d.TOTALCOST); })	
+        .attr("cx", function(d) { return x(d.YEAR); })
+        .attr("cy", function(d) { return y(d.TOTALCOST); })
         .on("mouseover",function(d){
             tooltip.style("opacity",1)
                    .style("left",(d3.event.pageX)+"px")
@@ -184,7 +185,7 @@ Scene 1
                    d3.select(this).attr("r",10)})
         .on("mouseout",function() { tooltip.style("opacity",0);
                                     d3.select(this).attr("r", 6)});
-        
+
         svg.append("g")
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x));
@@ -200,14 +201,14 @@ Scene 1
         .style("font-size", "20px") 
         .style("text-decoration", "underline")  
         .style("text-decoration","bold")
-        .text("Average Housing Costs: Subsidized vs. Unsubsidized");
+        .text("Average Cost of Housing : Subsidized vs. Unsubsidized");
 
         svg.append("text")
         .attr("transform", "rotate(-90)")
         .attr("x", 0 - (height / 2))
         .attr("y",0 - 50)
         .style("text-anchor", "middle")
-        .text("Average Housing Cost (USD)");
+        .text("Average Cost of Housing (USD)");
 
         svg.append("text")
         .attr("class", "x label")
@@ -216,28 +217,7 @@ Scene 1
         .attr("y", height + margin.bottom)
         .text("Year");
 
-        svg.append("text")
-        .attr("class", "annotation1")
-        .attr("text-anchor", "middle")
-        .attr("y", 250)
-        .attr("x", 85)
-        .text("This is an annotation.");
-
-        svg.append("text")
-        .attr("class", "annotation2")
-        .attr("text-anchor", "middle")
-        .attr("y", 260)
-        .attr("x", 300)
-        .text("This is another annotation.");
-
-        svg.append("text")
-        .attr("class", "annotation3")
-        .attr("text-anchor", "middle")
-        .attr("y", 100)
-        .attr("x", 400)
-        .text("This is yet another annotation.");
-
-
+        // adding legend
         var legend_keys = ["Assisted", "Unassisted"];
 
         var color_scale = ["steelblue","orange"];
@@ -256,12 +236,16 @@ Scene 1
             .attr("fill", function (d, i) {return color_scale[i]; })
             .attr("width", 10).attr("height", 10);
 
-        svg.selectAll(".dot")
+        // annotation 1
+        var dot1 = svg.selectAll(".dot")
         .data(data1)
-        .enter().append("circle")
+        .enter().append("g");
+
+        dot1.append("circle")
         .filter(function(d) {return d.YEAR==1997;})
             .attr("fill","orange")
             .attr("r",6)
+            .attr("id","dot1")
             .attr("cx", function(d) { return x(d.YEAR); })
             .attr("cy", function(d) { return y(d.TOTALCOST); })
             .on("mouseover",function(d){
@@ -272,42 +256,37 @@ Scene 1
                    .style("font-size","14px")
                    d3.select(this).attr("r",10)})
             .on("mouseout",function() { tooltip.style("opacity",0);
-                                    d3.select(this).attr("r", 6)})
+                                    d3.select(this).attr("r", 6)});
+
+        // text 1
+        dot1.append("text")
+        .filter(function(d) {return d.YEAR==1997;})
+        .attr("class", "annotation1")
+        .attr("id","dot1")
+        .attr("text-anchor", "left")
+        .attr("x",function(d) { return x(d.YEAR);})
+        .attr("y",function(d) { return y(d.TOTALCOST);})
+        .text("This is an annotation.");
+
+        // transition 1
+        dot1.selectAll("#dot1")
+        .style("opacity",0)
         .transition()
         .delay(1000)
         .duration(1200)
-        .attr("opacity", 1)
+        .style("opacity", 1)
         .attr("fill","red");
 
-        svg.selectAll(".dot")
+         // annotation 2
+        var dot2 = svg.selectAll(".dot")
         .data(data2)
-        .enter().append("circle")
-        .filter(function(d) {return d.YEAR==2007;})
-            .attr("fill","steelblue")
-            .attr("r",6)
-            .attr("cx", function(d) { return x(d.YEAR); })
-            .attr("cy", function(d) { return y(d.TOTALCOST); })
-            .on("mouseover",function(d){
-            tooltip.style("opacity",1)
-                   .style("left",(d3.event.pageX)+"px")
-                   .style("top",(d3.event.pageY)+"px")
-                   .html("Year: " + d.YEAR + "<br/>Cost: $" + d.TOTALCOST)
-                   .style("font-size","14px")
-                   d3.select(this).attr("r",10)})
-            .on("mouseout",function() { tooltip.style("opacity",0);
-                                    d3.select(this).attr("r", 6)})
-        .transition()
-        .delay(5000)
-        .duration(1200)
-        .attr("opacity", 1)
-        .attr("fill","red");
+        .enter().append("g");
 
-        svg.selectAll(".dot")
-        .data(data1)
-        .enter().append("circle")
+        dot2.append("circle")
         .filter(function(d) {return d.YEAR==2007;})
             .attr("fill","orange")
             .attr("r",6)
+            .attr("id","dot2")
             .attr("cx", function(d) { return x(d.YEAR); })
             .attr("cy", function(d) { return y(d.TOTALCOST); })
             .on("mouseover",function(d){
@@ -318,36 +297,68 @@ Scene 1
                    .style("font-size","14px")
                    d3.select(this).attr("r",10)})
             .on("mouseout",function() { tooltip.style("opacity",0);
-                                    d3.select(this).attr("r", 6)})
-        .transition()
-        .delay(9000)
-        .duration(1200)
-        .attr("opacity", 1)
-        .attr("fill","red");
+                                    d3.select(this).attr("r", 6)});
 
-        svg.selectAll(".annotation1")
-        .transition()
-        .delay(1000)
-        .duration(1200)
-        .style("opacity",1)
-        .attr("class","annotation1")
-        .attr("fill","red");
+        // text 2
+        dot2.append("text")
+        .filter(function(d) {return d.YEAR==2007;})
+        .attr("class", "annotation2")
+        .attr("id","dot2")
+        .attr("text-anchor", "left")
+        .attr("x",function(d) { return x(d.YEAR);})
+        .attr("y",function(d) { return y(d.TOTALCOST);})
+        .text("This is an annotation.");
 
-        svg.selectAll(".annotation2")
+        // transition 2
+        dot2.selectAll("#dot2")
+        .style("opacity",0)
         .transition()
         .delay(5000)
         .duration(1200)
-        .style("opacity",1)
-        .attr("class","annotation2")
+        .style("opacity", 1)
         .attr("fill","red");
+      
+         // annotation 3
+        var dot3 = svg.selectAll(".dot")
+        .data(data1)
+        .enter().append("g");
 
-        svg.selectAll(".annotation3")
+        dot3.append("circle")
+        .filter(function(d) {return d.YEAR==2007;})
+            .attr("fill","orange")
+            .attr("r",6)
+            .attr("id","dot3")
+            .attr("cx", function(d) { return x(d.YEAR); })
+            .attr("cy", function(d) { return y(d.TOTALCOST); })
+            .on("mouseover",function(d){
+            tooltip.style("opacity",1)
+                   .style("left",(d3.event.pageX)+"px")
+                   .style("top",(d3.event.pageY)+"px")
+                   .html("Year: " + d.YEAR + "<br/>Cost: $" + d.TOTALCOST)
+                   .style("font-size","14px")
+                   d3.select(this).attr("r",10)})
+            .on("mouseout",function() { tooltip.style("opacity",0);
+                                    d3.select(this).attr("r", 6)});
+
+        // text 3
+        dot3.append("text")
+        .filter(function(d) {return d.YEAR==2007;})
+        .attr("class", "annotation3")
+        .attr("id","dot3")
+        .attr("text-anchor", "left")
+        .attr("x",function(d) { return x(d.YEAR);})
+        .attr("y",function(d) { return y(d.TOTALCOST);})
+        .text("This is an annotation.");
+
+        // transition 3
+        dot3.selectAll("#dot3")
+        .style("opacity",0)
         .transition()
         .delay(9000)
         .duration(1200)
-        .style("opacity",1)
-        .attr("class","annotation3")
+        .style("opacity", 1)
         .attr("fill","red");
+
         });
         });
         };
