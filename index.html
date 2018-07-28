@@ -46,6 +46,9 @@ Scene 1
    background: steelblue;
    color: white;
 }
+#textbox{
+   border: 1px solid black;
+}
 </style>
 <script>
     // Source: https://bl.ocks.org/mbostock/3884955
@@ -69,6 +72,13 @@ Scene 1
         .x(function(d) { return x(d.YEAR); })
         .y(function(d) { return y(d.TOTALCOST); });
 
+    // create text box
+    var box = d3.select("#viz")
+    .append("g")
+
+    box.append("rect")
+    box.append("text")
+        .text(" This is where I'll put text")
     // create the drop down menu
     var options = ["All Data", "Before 2000", "After 2000"];
 	var selector = d3.select("#viz")
