@@ -8,12 +8,12 @@ Scene 2
 </head>
 <body>
 <center>
-<div id="viz" width="600" height="600"></div>
-<div id="tooltip"></div>
+<div id="viz" width="600" height="600">
 <input id="button" type="button" onclick="location.href='https://michael-d-johnson.github.io/about';" value="Description" style="float:right"/>
 <input id="button" type="button" onclick="location.href='https://michael-d-johnson.github.io';" value="Back" style="float:right"/>
+</div>
+<div id="tooltip"></div>
 </center>
-
 <style>
 .annotation1 {
     opacity: 0;
@@ -46,6 +46,9 @@ Scene 2
    background: steelblue;
    color: white;
 }
+#dropdown {
+  float:left;
+}
 </style>
 <script>
     // Source: https://bl.ocks.org/mbostock/3884955
@@ -69,11 +72,18 @@ Scene 2
         .x(function(d) { return x(d.YEAR); })
         .y(function(d) { return y(d.TOTSAL); });
 
+     // create text box
+    var box = d3.select("body")
+    box.append("text")
+        .attr("id","textbox")
+        .style("text-anchor", "left")
+        .html("<p>This is where the text will go.  The explanation of the graph.");
+
     // create the drop down menu
     var options = ["All Data", "Before 2000", "After 2000"];
     var selector = d3.select("#viz")
         .append("select")
-        .attr("id", "checkbox")
+        .attr("id", "dropdown")
         .selectAll("option")
         .data(options)
         .enter().append("option")
@@ -82,7 +92,7 @@ Scene 2
             return d;
         });
 
-    d3.select("#checkbox")
+    d3.select("#dropdown")
     .on("change", function(d) {
         index = this.value;
         filterData();});

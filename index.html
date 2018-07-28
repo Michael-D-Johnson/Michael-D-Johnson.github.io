@@ -84,8 +84,6 @@ Scene 1
 	var selector = d3.select("#viz")
 		.append("select")
 		.attr("id", "dropdown")
-        .attr("x",margin.left + width)
-        .attr("y",margin.bottom + height)
 		.selectAll("option")
         .attr("float","right")
 		.data(options)
