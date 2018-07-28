@@ -261,12 +261,12 @@ Scene 2
         dot1.append("text")
         .attr("class", "annotation1")
         .attr("text-anchor", "left")
-        //.attr("y", function(d){return y(d.YEAR=1997);})
+        .attr("y", function(d){return y(d.YEAR=1997);})
         .attr("x",function(d){return x(d.YEAR=1997);})
         .text("This is an annotation.");
 
         // transition 1
-        dot1.selectAll("g")
+        dot1.
         .transition()
         .delay(1000)
         .duration(1200)
