@@ -96,14 +96,11 @@ Scene 1
     // create next button
     var selector = d3.select("#viz")
         .append("button")
+        .attr("xlink:href", "https://michael-d-johnson.github.io/about")
         .attr("id", "button")
         .attr("x",width - 100)
         .attr("float","left")
         .text("Description");
-
-    d3.select("#button")
-    .on("click", function(d) {window.location = "https://michael-d-johnson.github.io/about";})
-    .attr("value", "Description");
 
     // create the drop down menu
     var options = ["All Data", "Before 2000", "After 2000"];
