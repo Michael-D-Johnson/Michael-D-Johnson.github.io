@@ -10,8 +10,6 @@ Scene 1
 <center>
 <div id="viz" width="600" height="600"></div>
 <div id="tooltip"></div>
-<input id="button" type="button" onclick="location.href='https://michael-d-johnson.github.io/about';" value="Description" style="float:left"/>
-<input id="button" type="button" onclick="location.href='https://michael-d-johnson.github.io/next_scene';" value="Next" style="float:left"/>
 </center>
 <style>
 .annotation1 {
@@ -91,6 +89,21 @@ Scene 1
         .attr("y",100 )
         .style("text-anchor", "left")
         .text("This is where the text will go. And i will gonintieajdj kdjkafjkdjfakjcdkjafdkfjakdfjadkkdjfakdjfadkfjakdjf");
+
+<input id="button" type="button" onclick="location.href='https://michael-d-johnson.github.io/next_scene';" value="Next" style="float:left"/>
+    
+    // create next button
+    var selector = d3.select("#viz")
+        .append("button")
+        .attr("id", "button")
+        .attr("x",width - 100)
+        .attr("float","right")
+        .text("Description");
+
+    d3.select("#button")
+    .on("click", "location.href='https://michael-d-johnson.github.io/about')
+    .attr("value", "Description");
+
     // create the drop down menu
     var options = ["All Data", "Before 2000", "After 2000"];
 	var selector = d3.select("#viz")
