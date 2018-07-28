@@ -320,7 +320,7 @@ Scene 1
         .attr("text-anchor", "left")
         .attr("x",function(d) { return x(d.YEAR);})
         .attr("y",function(d) { return y(d.TOTALCOST)+25;})
-        .text("2. This represents the 2008 recession. Cost levels out for those on subsidezed housing.");
+        .html("<p>2. This represents the 2008 recession. <br></br>Cost levels out for those on subsidezed housing.</p>");
 
         // transition 2
         dot2.selectAll("#dot2")
