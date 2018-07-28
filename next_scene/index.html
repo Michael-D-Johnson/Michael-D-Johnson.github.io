@@ -274,7 +274,7 @@ Scene 2
         .attr("class", "annotation1")
         .attr("id","dot1")
         .attr("text-anchor", "left")
-        .attr("x",function(d) { return x(d.YEAR)-150;})
+        .attr("x",function(d) { return x(d.YEAR)-125;})
         .attr("y",function(d) { return y(d.TOTSAL)+25;})
         .text("This is an annotation.");
 
@@ -316,7 +316,7 @@ Scene 2
         .attr("id","dot2")
         .attr("text-anchor", "left")
         .attr("x",function(d) { return x(d.YEAR)+15;})
-        .attr("y",function(d) { return y(d.TOTSAL)-25;})
+        .attr("y",function(d) { return y(d.TOTSAL)-15;})
         .text("This is an annotation.");
 
         // transition 2
@@ -356,8 +356,8 @@ Scene 2
         .attr("class", "annotation3")
         .attr("id","dot3")
         .attr("text-anchor", "left")
-        .attr("x",function(d) { return x(d.YEAR)+25;})
-        .attr("y",function(d) { return y(d.TOTSAL);})
+        .attr("x",function(d) { return x(d.YEAR)+15;})
+        .attr("y",function(d) { return y(d.TOTSAL)+10;})
         .text("This is an annotation.");
 
         // transition 3
