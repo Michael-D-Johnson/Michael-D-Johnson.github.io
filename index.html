@@ -163,7 +163,7 @@ Scene 1
             tooltip.style("opacity",1)
                    .style("left",(d3.event.pageX)+"px")
                    .style("top",(d3.event.pageY)+"px")
-                   .html("Year: " + d.YEAR + "<br/>Salary: $" + d.TOTALCOST)
+                   .html("Year: " + d.YEAR + "<br/>Cost: $" + d.TOTALCOST)
                    .style("font-size","14px")
                    d3.select(this).attr("r",10)})
         .on("mouseout",function() { tooltip.style("opacity",0);
@@ -180,7 +180,7 @@ Scene 1
             tooltip.style("opacity",1)
                    .style("left",(d3.event.pageX)+"px")
                    .style("top",(d3.event.pageY)+"px")
-                   .html("Year: " + d.YEAR + "<br/>Salary: $" + d.TOTALCOST)
+                   .html("Year: " + d.YEAR + "<br/>Cost: $" + d.TOTALCOST)
                    .style("font-size","14px")
                    d3.select(this).attr("r",10)})
         .on("mouseout",function() { tooltip.style("opacity",0);
@@ -201,14 +201,14 @@ Scene 1
         .style("font-size", "20px") 
         .style("text-decoration", "underline")  
         .style("text-decoration","bold")
-        .text("Average Household Salaries: Subsidized vs. Unsubsidized");
+        .text("Average Cost of Housing : Subsidized vs. Unsubsidized");
 
         svg.append("text")
         .attr("transform", "rotate(-90)")
         .attr("x", 0 - (height / 2))
         .attr("y",0 - 50)
         .style("text-anchor", "middle")
-        .text("Average Household Salary (USD)");
+        .text("Average Cost of Housing (USD)");
 
         svg.append("text")
         .attr("class", "x label")
@@ -252,7 +252,7 @@ Scene 1
             tooltip.style("opacity",1)
                    .style("left",(d3.event.pageX)+"px")
                    .style("top",(d3.event.pageY)+"px")
-                   .html("Year: " + d.YEAR + "<br/>Salary: $" + d.TOTALCOST)
+                   .html("Year: " + d.YEAR + "<br/>Cost: $" + d.TOTALCOST)
                    .style("font-size","14px")
                    d3.select(this).attr("r",10)})
             .on("mouseout",function() { tooltip.style("opacity",0);
@@ -293,7 +293,7 @@ Scene 1
             tooltip.style("opacity",1)
                    .style("left",(d3.event.pageX)+"px")
                    .style("top",(d3.event.pageY)+"px")
-                   .html("Year: " + d.YEAR + "<br/>Salary: $" + d.TOTALCOST)
+                   .html("Year: " + d.YEAR + "<br/>Cost: $" + d.TOTALCOST)
                    .style("font-size","14px")
                    d3.select(this).attr("r",10)})
             .on("mouseout",function() { tooltip.style("opacity",0);
@@ -334,7 +334,7 @@ Scene 1
             tooltip.style("opacity",1)
                    .style("left",(d3.event.pageX)+"px")
                    .style("top",(d3.event.pageY)+"px")
-                   .html("Year: " + d.YEAR + "<br/>Salary: $" + d.TOTALCOST)
+                   .html("Year: " + d.YEAR + "<br/>Cost: $" + d.TOTALCOST)
                    .style("font-size","14px")
                    d3.select(this).attr("r",10)})
             .on("mouseout",function() { tooltip.style("opacity",0);
