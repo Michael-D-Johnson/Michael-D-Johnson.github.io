@@ -12,7 +12,6 @@ Scene 1
 <input id="button" type="button" onclick="location.href='https://michael-d-johnson.github.io/about';" value="Description" style="float:left"/>
 <input id="button" type="button" onclick="location.href='https://michael-d-johnson.github.io/next_scene';" value="Next" style="float:left"/>
 </div>
-<div id="button"></div>
 <div id="tooltip"></div>
 </center>
 <style>
@@ -80,7 +79,7 @@ Scene 1
         .y(function(d) { return y(d.TOTALCOST); });
 
     // create text box
-    var box = d3.select("#button")
+    var box = d3.select("body")
     .append("g")
     box.append("rect")
         .attr("id","textbox")
