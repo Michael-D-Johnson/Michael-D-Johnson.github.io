@@ -320,7 +320,7 @@ Scene 1
         .attr("text-anchor", "left")
         .attr("x",function(d) { return x(d.YEAR);})
         .attr("y",function(d) { return y(d.TOTALCOST)+25;})
-        .text("2. This is an annotation.");
+        .text("2. This represents the 2008 recession. Cost levels out for those on subsidezed housing.");
 
         // transition 2
         dot2.selectAll("#dot2")
@@ -362,7 +362,7 @@ Scene 1
         .attr("text-anchor", "left")
         .attr("x",function(d) { return x(d.YEAR) +25;})
         .attr("y",function(d) { return y(d.TOTALCOST);})
-        .text("3. This is an annotation.");
+        .text("3. This also represents the 2008 recession. For those not on subsidized housing cost continued to increase.");
 
         // transition 3
         dot3.selectAll("#dot3")
