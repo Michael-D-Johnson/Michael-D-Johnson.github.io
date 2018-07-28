@@ -263,8 +263,7 @@ Scene 2
         .attr("class", "annotation1")
         .attr("id","dot1")
         .attr("text-anchor", "left")
-        .attr("y", function(d){return y(d.YEAR=1997);})
-        .attr("x",function(d){return x(d.YEAR=1997);})
+        .attr("dx", function(d){return -20})
         .text("This is an annotation.");
 
         // transition 1
