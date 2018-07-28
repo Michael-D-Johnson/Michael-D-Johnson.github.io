@@ -277,8 +277,8 @@ Scene 1
         .attr("class", "annotation1")
         .attr("id","dot1")
         .attr("text-anchor", "left")
-        .attr("x",function(d) { return x(d.YEAR);})
-        .attr("y",function(d) { return y(d.TOTALCOST);})
+        .attr("x",function(d) { return x(d.YEAR)-10;})
+        .attr("y",function(d) { return y(d.TOTALCOST)-10;})
         .text("This is an annotation.");
 
         // transition 1
