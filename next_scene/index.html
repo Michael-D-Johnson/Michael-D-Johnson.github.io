@@ -277,61 +277,16 @@ Scene 2
         .style("opacity", 1)
         .attr("fill","red");
 
-        //svg.selectAll(".annotation1")
-        //.transition()
-        //.delay(1000)
-        //.duration(1200)
-        //.style("opacity",1)
-        //.attr("fill","red");
-
-        // annotation 2
-        svg.selectAll(".dot")
+         // annotation 2
+        var dot2 = svg.selectAll(".dot")
         .data(data2)
-        .enter().append("circle")
-        .filter(function(d) {return d.YEAR==2007;})
-            .attr("fill","steelblue")
-            .attr("r",6)
-            .attr("cx", function(d) { return x(d.YEAR); })
-            .attr("cy", function(d) { return y(d.TOTSAL); })
-            .on("mouseover",function(d){
-            tooltip.style("opacity",1)
-                   .style("left",(d3.event.pageX)+"px")
-                   .style("top",(d3.event.pageY)+"px")
-                   .html("Year: " + d.YEAR + "<br/>Salary: $" + d.TOTSAL)
-                   .style("font-size","14px")
-                   d3.select(this).attr("r",10)})
-            .on("mouseout",function() { tooltip.style("opacity",0);
-                                    d3.select(this).attr("r", 6)})
-        .transition()
-        .delay(5000)
-        .duration(1200)
-        .attr("opacity", 1)
-        .attr("fill","red");
+        .enter().append("g");
 
-        // text 2
-        svg.append("text")
-        .attr("class", "annotation2")
-        .attr("text-anchor", "middle")
-        .attr("y", 260)
-        .attr("x", 400)
-        .text("This is another annotation.");
-
-        // transition 2
-        svg.selectAll(".annotation2")
-        .transition()
-        .delay(5000)
-        .duration(1200)
-        .style("opacity",1)
-        .attr("class","annotation2")
-        .attr("fill","red");
-
-        // annotation 3
-        svg.selectAll(".dot")
-        .data(data1)
-        .enter().append("circle")
+        dot2.append("circle")
         .filter(function(d) {return d.YEAR==2007;})
             .attr("fill","orange")
             .attr("r",6)
+            .attr("id","dot2")
             .attr("cx", function(d) { return x(d.YEAR); })
             .attr("cy", function(d) { return y(d.TOTSAL); })
             .on("mouseover",function(d){
@@ -342,29 +297,68 @@ Scene 2
                    .style("font-size","14px")
                    d3.select(this).attr("r",10)})
             .on("mouseout",function() { tooltip.style("opacity",0);
-                                    d3.select(this).attr("r", 6)})
-        .transition()
-        .delay(9000)
-        .duration(1200)
-        .attr("opacity", 1)
-        .attr("fill","red");
-    
-        // text 3
-        svg.append("text")
-        .attr("class", "annotation3")
-        .attr("text-anchor", "middle")
-        .attr("y", 100)
-        .attr("x", 400)
-        .text("This is yet another annotation.");
+                                    d3.select(this).attr("r", 6)});
 
-        // transition 3
-        svg.selectAll(".annotation3")
+        // text 2
+        dot2.append("text")
+        .filter(function(d) {return d.YEAR==2007;})
+        .attr("class", "annotation2")
+        .attr("id","dot2")
+        .attr("text-anchor", "left")
+        .attr("x",function(d) { return x(d.YEAR);})
+        .attr("y",function(d) { return y(d.TOTSAL);})
+        .text("This is an annotation.");
+
+        // transition 2
+        dot2.selectAll("#dot2")
+        .style("opacity",0)
         .transition()
-        .delay(9000)
+        .delay(1000)
         .duration(1200)
-        .style("opacity",1)
-        .attr("class","annotation3")
+        .style("opacity", 1)
         .attr("fill","red");
+      
+         // annotation 3
+        var dot3 = svg.selectAll(".dot")
+        .data(data1)
+        .enter().append("g");
+
+        dot3.append("circle")
+        .filter(function(d) {return d.YEAR==2007;})
+            .attr("fill","orange")
+            .attr("r",6)
+            .attr("id","dot3")
+            .attr("cx", function(d) { return x(d.YEAR); })
+            .attr("cy", function(d) { return y(d.TOTSAL); })
+            .on("mouseover",function(d){
+            tooltip.style("opacity",1)
+                   .style("left",(d3.event.pageX)+"px")
+                   .style("top",(d3.event.pageY)+"px")
+                   .html("Year: " + d.YEAR + "<br/>Salary: $" + d.TOTSAL)
+                   .style("font-size","14px")
+                   d3.select(this).attr("r",10)})
+            .on("mouseout",function() { tooltip.style("opacity",0);
+                                    d3.select(this).attr("r", 6)});
+
+        // text 3
+        dot1.append("text")
+        .filter(function(d) {return d.YEAR==2007;})
+        .attr("class", "annotation3")
+        .attr("id","dot3")
+        .attr("text-anchor", "left")
+        .attr("x",function(d) { return x(d.YEAR);})
+        .attr("y",function(d) { return y(d.TOTSAL);})
+        .text("This is an annotation.");
+
+        // transition 1
+        dot1.selectAll("#dot3")
+        .style("opacity",0)
+        .transition()
+        .delay(1000)
+        .duration(1200)
+        .style("opacity", 1)
+        .attr("fill","red");
+
         });
         });
         };
