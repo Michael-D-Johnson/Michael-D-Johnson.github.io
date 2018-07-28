@@ -10,6 +10,7 @@ Scene 1
 <center>
 <div id="viz" width="600" height="600">
 <input id="button" type="button" onclick="location.href='https://michael-d-johnson.github.io/next_scene';" value="Next" style="float:left"/>
+<input id="button" type="button" onclick="location.href='https://michael-d-johnson.github.io/about';" value="Description" style="float:left"/>
 </div>
 <div id="tooltip"></div>
 </center>
@@ -91,17 +92,6 @@ Scene 1
         .attr("y",100 )
         .style("text-anchor", "left")
         .text("This is where the text will go. And i will gonintieajdj kdjkafjkdjfakjcdkjafdkfjakdfjadkkdjfakdjfadkfjakdjf");
-
-    
-    // create next button
-    var selector = d3.select("#viz")
-        .append("g")
-        .append("a")
-        .attr("xlink:href", "https://michael-d-johnson.github.io/about")
-        .attr("id", "button")
-        .attr("x",width - 100)
-        .attr("float","left")
-        .text("Description");
 
     // create the drop down menu
     var options = ["All Data", "Before 2000", "After 2000"];
