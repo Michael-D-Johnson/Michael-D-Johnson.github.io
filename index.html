@@ -47,6 +47,7 @@ Scene 1
 }
 #textbox{
    border: 1px solid black;
+   float: left;
 }
 #checkbox {
   float: right;
@@ -75,7 +76,7 @@ Scene 1
         .y(function(d) { return y(d.TOTALCOST); });
 
     // create text box
-    var box = d3.select("#viz")
+    var box = d3.select("body")
     .append("g")
 
     box.append("rect")
