@@ -47,7 +47,6 @@ Scene 1
    color: white;
 }
 #textbox{
-   border: 1px solid black;
    float: left;
    clear: both;
 }
@@ -80,19 +79,11 @@ Scene 1
 
     // create text box
     var box = d3.select("body")
-    .append("g")
-    box.append("rect")
-        .attr("id","textbox")
-        .attr("width",50)
-        .attr("height",600)
-        .attr("x",0 -100)
-        .attr("y",100);
     box.append("text")
         .attr("id","textbox")
-        .attr("x", 0 - (100 ))
-        .attr("y",100 )
         .style("text-anchor", "left")
-        .text("This is where the text will go. And i will gonintieajdj kdjkafjkdjfakjcdkjafdkfjakdfjadkkdjfakdjfadkfjakdjf");
+        
+        .html("<p>This is where the text will go. And i will gonintieajdj kdjkafjkdjfakjcdkjafdkfjakdfjadkkdjfakdjfadkfjakdjf</p>");
 
     // create the drop down menu
     var options = ["All Data", "Before 2000", "After 2000"];
