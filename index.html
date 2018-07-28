@@ -81,7 +81,7 @@ Scene 1
 
     box.append("rect")
         .attr("id","textbox")
-        .attr("width",80)
+        .attr("width",50)
         .attr("height",600)
         .attr("x",0 -100)
         .attr("y",100);
@@ -96,7 +96,7 @@ Scene 1
 	var selector = d3.select("#viz")
 		.append("select")
 		.attr("id", "checkbox")
-        .attr("x",width - 50)
+        .attr("x",width - 100)
 		.selectAll("option")
         .attr("float","right")
 		.data(options)
