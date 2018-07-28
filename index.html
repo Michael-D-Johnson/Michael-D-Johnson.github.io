@@ -278,7 +278,7 @@ Scene 1
         .style("font-size", "13px")
         .attr("x",function(d) { return x(d.YEAR)-150;})
         .attr("y",function(d) { return y(d.TOTALCOST)+25;})
-        .text("1. This is an annotation.");
+        .text("1. The 1993 housing bubble");
 
         // transition 1
         dot1.selectAll("#dot1")
@@ -320,7 +320,7 @@ Scene 1
         .attr("text-anchor", "left")
         .attr("x",function(d) { return x(d.YEAR);})
         .attr("y",function(d) { return y(d.TOTALCOST)+25;})
-        .html("<p>2. This represents the 2008 recession. <br></br>Cost levels out for those on subsidezed housing.</p>");
+        .text("2. The 2008 recession.");
 
         // transition 2
         dot2.selectAll("#dot2")
@@ -362,7 +362,7 @@ Scene 1
         .attr("text-anchor", "left")
         .attr("x",function(d) { return x(d.YEAR) +25;})
         .attr("y",function(d) { return y(d.TOTALCOST);})
-        .text("3. This also represents the 2008 recession. For those not on subsidized housing cost continued to increase.");
+        .text("3. Also the 2008 recession.");
 
         // transition 3
         dot3.selectAll("#dot3")
