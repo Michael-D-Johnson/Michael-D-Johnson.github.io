@@ -101,7 +101,7 @@ Scene 1
         .text("Description");
 
     d3.select("#button")
-    .on("click", "location.href='https://michael-d-johnson.github.io/about')
+    .on("click", function(d) {window.location = "https://michael-d-johnson.github.io/about";})
     .attr("value", "Description");
 
     // create the drop down menu
