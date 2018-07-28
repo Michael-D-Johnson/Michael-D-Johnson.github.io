@@ -239,9 +239,7 @@ Scene 2
         // annotation 1
         var dot1= svg.selectAll(".dot")
         .data(data1)
-        .enter().append("g.node")
-
-        dot1.append("circle")
+        .enter().append("circle")
         .filter(function(d) {return d.YEAR==1997;})
             .attr("fill","orange")
             .attr("r",6)
