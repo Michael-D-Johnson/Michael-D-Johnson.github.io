@@ -260,11 +260,9 @@ Scene 2
         // text 1
         dot1.append("text")
         .attr("class", "annotation1")
-        .attr("opacity",1)
         .attr("text-anchor", "left")
         .attr("y", function(d){return y(d.YEAR=1997);})
         .attr("x",function(d){return x(d.YEAR=1997);})
-        .attr("fill","black")
         .text("This is an annotation.");
 
         // transition 1
