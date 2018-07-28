@@ -239,10 +239,13 @@ Scene 2
         // annotation 1
         var dot1= svg.selectAll(".dot")
         .data(data1)
-        .enter().append("circle")
+        .enter().append("g")
+
+        dot1.append("circle")
         .filter(function(d) {return d.YEAR==1997;})
             .attr("fill","orange")
             .attr("r",6)
+            .attr("id","dot1")
             .attr("cx", function(d) { return x(d.YEAR); })
             .attr("cy", function(d) { return y(d.TOTSAL); })
             .on("mouseover",function(d){
@@ -258,13 +261,14 @@ Scene 2
         // text 1
         dot1.append("text")
         .attr("class", "annotation1")
+        .attr("id","dot1")
         .attr("text-anchor", "left")
         .attr("y", function(d){return y(d.YEAR=1997);})
         .attr("x",function(d){return x(d.YEAR=1997);})
         .text("This is an annotation.");
 
         // transition 1
-        dot1
+        dot1.selectAll("#dot1")
         .transition()
         .delay(1000)
         .duration(1200)
