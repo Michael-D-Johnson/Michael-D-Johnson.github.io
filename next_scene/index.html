@@ -230,9 +230,9 @@ Scene 2
         .text("Year");
 
         // adding legend
-        var legend_keys = ["Subsidized", "Unsubsidized"];
+        var legend_keys = ["Unsubsidized", "Subsidized"];
 
-        var color_scale = ["steelblue","orange"];
+        var color_scale = ["orange","steelblue"];
 
         var lineLegend = svg.selectAll(".lineLegend").data(legend_keys)
         .enter().append("g")
