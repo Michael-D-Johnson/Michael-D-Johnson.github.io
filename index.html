@@ -64,11 +64,9 @@ Scene 1
     var height = 600 - margin.top - margin.bottom;
     
     var x = d3.scaleLinear()
-        .range([0,width])
-        .nice();
+        .range([0,width]);
     var y = d3.scaleLinear()
-        .range([height,0])
-        .nice();
+        .range([height,0]);
     
     var line = d3.line()
         .x(function(d) { return x(d.YEAR); })
