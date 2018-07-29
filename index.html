@@ -238,7 +238,7 @@ Scene 1
         .enter().append("g")
         .attr("class","lineLegend")
         .attr("transform", function (d,i) {
-                return "translate(" + width + "," + (i*20)+")";
+                return "translate(" + (width+10) + "," + (i*20)+")";
             });
 
         lineLegend.append("text").text(function (d) {return d;})
