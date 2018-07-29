@@ -198,10 +198,14 @@ Scene 1
         .on("mouseout",function() { tooltip.style("opacity",0);
                                     d3.select(this).attr("r", 6)});
         
-        svg.append("g")
+        xAxis = svg.append("g")
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x));
         
+        xAxis.tickFormat(function(d, i) {
+              var inData = data.filter(function (d) { return +d.YEAR=== d })
+                return inData.length ? inData[0].YEAR : d
+    });
         svg.append("g")
         .call(d3.axisLeft(y));
 
