@@ -122,9 +122,9 @@ Scene 1
                 else{
                     if (parameter =="After 1997" ){
                         data1 = data1.filter(function(d) {
-                            return d.YEAR > 1997;});
+                            return d.YEAR >= 1997;});
                         data2 = data2.filter(function(d) {
-                            return d.YEAR > 1997;})}
+                            return d.YEAR >= 1997;})}
                     else{ 
                         data1 = data1.filter(function(d) {
                             return d.YEAR < 1997;});
