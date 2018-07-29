@@ -63,7 +63,7 @@ Scene 1
     var width = 600 - margin.left - margin.right;
     var height = 600 - margin.top - margin.bottom;
     
-    var x = d3.scaleLinear()
+    var x = d3.scalePoint()
         .range([0,width]);
     var y = d3.scaleLinear()
         .range([height,0]);
@@ -200,8 +200,7 @@ Scene 1
         
         svg.append("g")
         .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x)
-            .tickFormat(function(d) {return d3.format("")(d.YEAR);}));
+        .call(d3.axisBottom(x));
         
         svg.append("g")
         .call(d3.axisLeft(y));
@@ -239,7 +238,7 @@ Scene 1
         .enter().append("g")
         .attr("class","lineLegend")
         .attr("transform", function (d,i) {
-                return "translate(" + width +50 + "," + (i*20)+")";
+                return "translate(" + width +10 + "," + (i*20)+")";
             });
 
         lineLegend.append("text").text(function (d) {return d;})
