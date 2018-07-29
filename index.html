@@ -147,7 +147,7 @@ Scene 1
             .attr("transform",
                   "translate(" + margin.left + "," + margin.top + ")");
 
-        path1 = svg.append("path")
+         svg.append("path")
         .datum(data1)
         .attr("fill", "none")
         .attr("class","line")
@@ -155,9 +155,6 @@ Scene 1
         .attr("stroke-width", 3)
         .attr("d", line);
         
-        path1.select('.x.axis path.domain').attr('d', function() {
-     		return 'M0,0.5V0.5H'+(width-padding)});
-
         svg.append("path")
         .datum(data2)
         .attr("fill", "none")
@@ -201,7 +198,7 @@ Scene 1
                                     d3.select(this).attr("r", 6)});
         
         svg.append("g")
-        .attr("transform", "translate(0," + height + ")")
+        .attr("transform", "translate(0," + (height/2) + ")")
         .call(d3.axisBottom(x));
         
         svg.append("g")
