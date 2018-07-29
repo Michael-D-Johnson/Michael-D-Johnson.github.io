@@ -63,7 +63,7 @@ Scene 2
     var width = 600 - margin.left - margin.right;
     var height = 600 - margin.top - margin.bottom;
     
-    var x = d3.scaleBand()
+    var x = d3.scaleLinear()
         .range([0,width]);
     var y = d3.scaleLinear()
         .range([height,0]);
@@ -134,7 +134,8 @@ Scene 2
             //console.log(data1); 
             //console.log(data2);
 
-            x.domain(data1.map(function(d) { return d.YEAR;}));
+            //x.domain(data1.map(function(d) { return d.YEAR;}));
+            x.domain(d3.extent(data1, function(d) { return d.YEAR; }));
             y.domain([0,d3.max(data1,function(d) {return d.TOTSAL;})]);
 
         d3.selectAll("svg").remove();
