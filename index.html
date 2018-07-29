@@ -200,8 +200,8 @@ Scene 1
         
         svg.append("g")
         .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x))
-            .tickFormat(function(d) {return d.YEAR;});
+        .call(d3.axisBottom(x)
+            .tickFormat(function(d) {return "" + d.YEAR;}));
         
         svg.append("g")
         .call(d3.axisLeft(y));
