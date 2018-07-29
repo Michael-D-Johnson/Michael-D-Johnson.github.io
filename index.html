@@ -198,10 +198,12 @@ Scene 1
                                     d3.select(this).attr("r", 6)});
         
         svg.append("g")
-        //.attr("transform", "translate(0," + height + ")")
+        .attr("transform", "translate(0," + height + ")")
+        .scale(x)
         .call(d3.axisBottom(x));
         
         svg.append("g")
+        .scale(y)
         .call(d3.axisLeft(y));
 
         // add labels
