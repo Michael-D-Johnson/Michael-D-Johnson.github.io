@@ -136,8 +136,7 @@ Scene 1
             //console.log(data2);
             //console.log(parameter);
 
-            //x.domain(data1.map(function(d) { return d.YEAR;}));
-            x.domain(d3.extent(data1, function(d) { return d.YEAR;}));
+            x.domain(data1.map(function(d) { return d.YEAR;}));
             y.domain([0,d3.max(data1,function(d) {return d.TOTALCOST;})]);
 
         d3.selectAll("svg").remove();
