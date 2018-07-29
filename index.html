@@ -147,13 +147,16 @@ Scene 1
             .attr("transform",
                   "translate(" + margin.left + "," + margin.top + ")");
 
-        svg.append("path")
+        path1 = svg.append("path")
         .datum(data1)
         .attr("fill", "none")
         .attr("class","line")
         .attr("stroke", "orange")
         .attr("stroke-width", 3)
         .attr("d", line);
+        
+        path1.select('.x.axis path.domain').attr('d', function() {
+     		return 'M0,0.5V0.5H'+(width-padding)});
 
         svg.append("path")
         .datum(data2)
